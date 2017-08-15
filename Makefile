@@ -11,8 +11,8 @@ all:
 	- $(COMMAND_WINDOW_COLOR) 01
 
 	- @make debug_mode_version
-	- @make bebug_mode_version2
-	- @make bebug_mode_version3
+	- @make debug_mode_version2
+	- @make debug_mode_version3
   
 	- @make beta_version
 	- @make beta_version2

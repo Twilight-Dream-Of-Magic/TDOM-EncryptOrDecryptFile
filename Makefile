@@ -137,8 +137,10 @@ clean:
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION2)
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION3)
  
-	- $(DELETE) ".\\Objectives\\*.*"
-	- $(DELETE) ".\\Binary\\*.*"
+	- $(DELETE) ".\\Binary\\Debug\\*.exe"
+	- $(DELETE) ".\\Binary\\Release\\*.exe"
+	- $(DELETE) ".\\Objectives\\Debug\\*.o"
+	- $(DELETE) ".\\Objectives\\Release\\*.o"
 	
 	- $(DELETE) ".\\run.bat"
  
@@ -158,7 +160,7 @@ clean:
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION2_FOLDER)
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION3_FOLDER)
  
+ 	- $(REMOVE_FOLDER) ".\\Binary\\"
 	- $(REMOVE_FOLDER) ".\\Objectives\\"
-	- $(REMOVE_FOLDER) ".\\Binary\\"
 	
 	- $(DELETE) ".\\run_debug.bat"

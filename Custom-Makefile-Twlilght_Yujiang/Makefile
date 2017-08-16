@@ -4,15 +4,15 @@
 
 include Makefile.Header
 
-.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean
+.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean LINK_OBJECTIVE LINK_OBJECTIVES
 all:
 
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 01
 
 	- @make debug_mode_version
-	- @make bebug_mode_version2
-	- @make bebug_mode_version3
+	- @make debug_mode_version2
+	- @make debug_mode_version3
   
 	- @make beta_version
 	- @make beta_version2
@@ -137,8 +137,10 @@ clean:
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION2)
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION3)
  
-	- $(DELETE) ".\\Objectives\\*.*"
-	- $(DELETE) ".\\Binary\\*.*"
+	- $(DELETE) ".\\Binary\\Debug\\*.exe"
+	- $(DELETE) ".\\Binary\\Release\\*.exe"
+	- $(DELETE) ".\\Objectives\\Debug\\*.o"
+	- $(DELETE) ".\\Objectives\\Release\\*.o"
 	
 	- $(DELETE) ".\\run.bat"
  
@@ -158,7 +160,7 @@ clean:
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION2_FOLDER)
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION3_FOLDER)
  
+ 	- $(REMOVE_FOLDER) ".\\Binary\\"
 	- $(REMOVE_FOLDER) ".\\Objectives\\"
-	- $(REMOVE_FOLDER) ".\\Binary\\"
 	
 	- $(DELETE) ".\\run_debug.bat"

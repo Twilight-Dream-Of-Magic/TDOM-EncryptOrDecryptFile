@@ -4,7 +4,7 @@
 
 include Makefile.Header
 
-.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean
+.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean LINK_OBJECTIVE LINK_OBJECTIVES
 all:
 
 	- $(HIDDEN_RUN_MODE)

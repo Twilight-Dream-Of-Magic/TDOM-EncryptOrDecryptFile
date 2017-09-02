@@ -279,7 +279,7 @@ ProgramMainMenu:
 		        PasswordOutputKeyFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
 		        PasswordOutputKeyFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
 		        PasswordOutputKeyFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
-		        PasswordOutputKeyFile << "Key string3 [Password3]: " << E_KEY4 << "\n" << endl;
+		        PasswordOutputKeyFile << "Key string4 [Password3]: " << E_KEY4 << "\n" << endl;
 		        PasswordOutputKeyFile << "<******************************************************************************************>" << "\n" << endl;
 		        PasswordOutputKeyFile.close();
 
@@ -551,12 +551,32 @@ ProgramMainMenu:
        DeleteFile(".\\SourceFileName_Temp.INI");
        DeleteFile(".\\SourceFileMainName_Temp.INI");
        DeleteFile(".\\SourceFileExtendedName_Temp.INI");
-       system("@Del /s /f /q .\\WorkPath\\*.*");
-       system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
-       system("@Rmdir /s /q .\\WorkPath\\");
-       system("@Rmdir /s /q .\\File-Key-Record-Log\\");
+       
+	   system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\*.*");
+       
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\InputFile\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\OutputFile\\*.*");
+	   
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\InputFile\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\OutputFile\\*.*");
+       
+	   system("@Rmdir /s /q .\\File-Key-Record-Log\\");
+	   
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\InputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\");
+	   
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\InputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\");
+	   system("@Rd /s /q .\\WorkPath\\");
+	   
        system("cls");
-       goto ProgramMainMenu;
+       
+	   goto ProgramMainMenu;
 
     }
     if(Clear_Workspace == "N","n")

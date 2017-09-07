@@ -34,9 +34,6 @@
 		</Compiler>
 		<Unit filename="[Encrypt_Or_Decrypt_File]-Source-Code/Beta-Version3/Main_3_By_Twlilght_Yujiang.cpp" />
 		<Extensions>
-			<code_completion>
-				<search_path add="D:\SHL\CMS-MULTY\" />
-			</code_completion>
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />

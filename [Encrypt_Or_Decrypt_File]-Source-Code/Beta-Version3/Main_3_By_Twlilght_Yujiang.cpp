@@ -546,7 +546,17 @@ ProgramMainMenu:
   	std :: cout << "Including source files, generated encrypted files, generated decrypted files, password logs, configuration\n" << endl;
   	std :: cout << "If you know the risk, press the keypad [Y key to continue N key to return]\n[Yes / No]" << endl;
   	std :: cin >> Clear_Workspace;
-  	if(Clear_Workspace == "Y","y")
+
+	
+    if(Clear_Workspace == "N")
+    {
+       goto ProgramMainMenu;
+    }
+	if(Clear_Workspace == "n")
+    {
+       goto ProgramMainMenu;
+    }
+    if(Clear_Workspace == "Y")
     {
        DeleteFile(".\\SourceFileName_Temp.INI");
        DeleteFile(".\\SourceFileMainName_Temp.INI");
@@ -579,18 +589,55 @@ ProgramMainMenu:
 	   goto ProgramMainMenu;
 
     }
-    if(Clear_Workspace == "N","n")
+    if(Clear_Workspace == "y")
     {
-       goto ProgramMainMenu;
-    }
-    else
-    {
-        if(Clear_Workspace != "Y","N","y","n")
-        {
-          goto Clear_Workspace_Restart;
-        }
-    }
+       DeleteFile(".\\SourceFileName_Temp.INI");
+       DeleteFile(".\\SourceFileMainName_Temp.INI");
+       DeleteFile(".\\SourceFileExtendedName_Temp.INI");
+       
+	   system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\*.*");
+       
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\InputFile\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Encrypt\\OutputFile\\*.*");
+	   
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\InputFile\\*.*");
+	   system("@Del /s /f /q .\\WorkPath\\Decrypt\\OutputFile\\*.*");
+       
+	   system("@Rmdir /s /q .\\File-Key-Record-Log\\");
+	   
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\InputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Encrypt\\");
+	   
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\InputFile\\");
+	   system("@Rd /s /q .\\WorkPath\\Decrypt\\");
+	   system("@Rd /s /q .\\WorkPath\\");
+	   
+       system("cls");
+       
+	   goto ProgramMainMenu;
 
+    }
+	if(Clear_Workspace != "Y")
+    {
+       goto Clear_Workspace_Restart;
+    }
+	if(Clear_Workspace != "N")
+    {
+       goto Clear_Workspace_Restart;
+    }
+	if(Clear_Workspace != "y")
+    {
+       goto Clear_Workspace_Restart;
+    }
+	if(Clear_Workspace != "n")
+    {
+       goto Clear_Workspace_Restart;
+    }
 
   }
   if(Load_User_Keyboard_Input == "5")

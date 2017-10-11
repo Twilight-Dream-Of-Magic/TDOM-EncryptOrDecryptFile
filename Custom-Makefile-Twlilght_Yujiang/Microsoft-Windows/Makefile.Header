@@ -1,0 +1,52 @@
+#This File Makefile Scrpit Header
+
+#Workspace File
+
+HIDDEN_RUN_MODE=@echo off
+COMMAND_WINDOW_COLOR=@color
+
+DELETE=@del /s /f /q
+CREATE_FOLDER=@mkdir
+REMOVE_FOLDER=@rmdir /s /q
+
+MINGW_CPP=@g++ -Wall -O2 -c
+MINGW_DEBUG_CPP=@g++ -Wall -fexceptions -g -c 
+LINK_OBJECTIVES=g++ -static
+
+SOURCES_VERSION=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_By_Twlilght_Yujiang.cpp"
+SOURCES_VERSION2=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_2_By_Twlilght_Yujiang.cpp"
+SOURCES_VERSION3=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_3_By_Twlilght_Yujiang.cpp"
+
+DEBUG_OBJECTIVES_VERSION=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_By_Twlilght_Yujiang.o"
+DEBUG_OBJECTIVES_VERSION2=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_2_By_Twlilght_Yujiang.o"
+DEBUG_OBJECTIVES_VERSION3=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_3_By_Twlilght_Yujiang.o"
+
+DEBUG_EXECUTE_FILE_VERSION=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\CUI_EncryptDecryptFile_DebugVersion.exe"
+DEBUG_EXECUTE_FILE_VERSION2=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\CUI_EncryptDecryptFile_DebugVersion2.exe"
+DEBUG_EXECUTE_FILE_VERSION3=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\CUI_EncryptDecryptFile_DebugVersion3.exe"
+
+RELEASE_OBJECTIVES_VERSION=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_By_Twlilght_Yujiang.o"
+RELEASE_OBJECTIVES_VERSION2=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_2_By_Twlilght_Yujiang.o"
+RELEASE_OBJECTIVES_VERSION3=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_3_By_Twlilght_Yujiang.o"
+
+RELEASE_EXECUTE_FILE_VERSION=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\CUI_EncryptDecryptFile_BetaVersion.exe"
+RELEASE_EXECUTE_FILE_VERSION2=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\CUI_EncryptDecryptFile_BetaVersion2.exe"
+RELEASE_EXECUTE_FILE_VERSION3=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\CUI_EncryptDecryptFile_BetaVersion3.exe"
+
+#Make Workspace Folder
+
+DEBUG_OBJECTIVES_VERSION_FOLDER=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\"
+DEBUG_OBJECTIVES_VERSION2_FOLDER=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\"
+DEBUG_OBJECTIVES_VERSION3_FOLDER=".\\Objectives\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\"
+
+RELEASE_OBJECTIVES_VERSION_FOLDER=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\"
+RELEASE_OBJECTIVES_VERSION2_FOLDER=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\"
+RELEASE_OBJECTIVES_VERSION3_FOLDER=".\\Objectives\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\"
+
+DEBUG_EXECUTE_VERSION_FOLDER=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\"
+DEBUG_EXECUTE_VERSION2_FOLDER=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\"
+DEBUG_EXECUTE_VERSION3_FOLDER=".\\Binary\\Debug\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\"
+
+RELEASE_EXECUTE_VERSION_FOLDER=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\"
+RELEASE_EXECUTE_VERSION2_FOLDER=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\"
+RELEASE_EXECUTE_VERSION3_FOLDER=".\\Binary\\Release\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\"

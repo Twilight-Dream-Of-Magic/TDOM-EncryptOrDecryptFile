@@ -51,7 +51,7 @@
 //文件和密钥在缓冲区中计算
 //The file and key are counted in Buffer
 
-        int NOIEM;                 //初始加密模块次数 (Number of initial encryption modules)
+        int NOIEM;                                 //初始加密模块次数 (Number of initial encryption modules)
 		int	MAX_NOT_E_MODULE = 65; //运行加密模块循环次数 (The maximum number of times the encryption module is running)
 
         for(NOIEM = 0;NOIEM < MAX_NOT_E_MODULE;NOIEM++)

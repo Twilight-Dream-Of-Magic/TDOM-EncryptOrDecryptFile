@@ -1,5 +1,8 @@
 #This File Makefile Scrpit Header
 
+# -fexec-charset=GBK
+# -finput-charset=UTF-8
+
 #Workspace File
 
 HIDDEN_RUN_MODE=@echo off
@@ -10,8 +13,8 @@ CREATE_FOLDER=@mkdir
 REMOVE_FOLDER=@rmdir /s /q
 
 MINGW_CPP=@g++ -Wall -O2 -c
-MINGW_DEBUG_CPP=@g++ -Wall -fexceptions -g -c 
-LINK_OBJECTIVES=g++ -static
+MINGW_DEBUG_CPP=@g++ -finput-charset=GB2312 -fexec-charset=GBK -Wall -fexceptions -g -c 
+LINK_OBJECTIVES=@g++ -finput-charset=GB2312 -fexec-charset=GBK -static
 
 SOURCES_VERSION=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_By_Twlilght_Yujiang.cpp"
 SOURCES_VERSION2=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_2_By_Twlilght_Yujiang.cpp"

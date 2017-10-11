@@ -16,6 +16,8 @@ IDE: Integrated development environment
 
 It is best not to use Code Block IDE, to build this project!
 
+Although i provided the [* .cbp] file! (Code Block Project File)
+
 
 
 Best to use Makefile build project!
@@ -38,36 +40,38 @@ This warehouse, each version of the project folder, please create a new IDE proj
 
 Chinese
 
-1.ç›®å‰è¿™ä¸ªç¨‹åºï¼Œåªéœ€è¦åšä¸€äº›ç¾ŽåŒ–ï¼Œè¿˜æœ‰è¯´æ˜Žä¹¦çš„è¯¦ç»†è°ƒæ•´ã€‚
+1.Ä¿Ç°Õâ¸ö³ÌÐò£¬Ö»ÐèÒª×öÒ»Ð©ÃÀ»¯£¬»¹ÓÐËµÃ÷ÊéµÄÏêÏ¸µ÷Õû¡£
 
-2.ä¸éœ€è¦åšä»€ä¹ˆå¤ªå¤§çš„æ”¹åŠ¨ã€‚
+2.²»ÐèÒª×öÊ²Ã´Ì«´óµÄ¸Ä¶¯¡£
 
-3.å½“ç„¶ï¼Œå¦‚æžœä½ éœ€è¦æ”¹åŠ¨çš„è¯ã€‚ç»™æˆ‘æ›´å¥½çš„å»ºè®®ï¼Œè®©æˆ‘åŽ»ç¼–å†™è¿™ä¸ªç¨‹åºã€‚
-
-
-
-è¿™ä¸ªä»£ç ä»“åº“ç”± [Twlilght-Dream-Of-Magic] Twlilght_Yujiang ä½œè€…ï¼Œç¼–è¯‘å’Œæž„å»º!
-
-IDE ï¼š é›†æˆå¼€å‘çŽ¯å¢ƒ
-
-æœ€å¥½ä¸è¦ä½¿ç”¨Code Block IDEï¼Œæ¥æž„å»ºè¿™ä¸ªå·¥ç¨‹ï¼
+3.µ±È»£¬Èç¹ûÄãÐèÒª¸Ä¶¯µÄ»°¡£¸øÎÒ¸üºÃµÄ½¨Òé£¬ÈÃÎÒÈ¥±àÐ´Õâ¸ö³ÌÐò¡£
 
 
 
-æœ€å¥½ä½¿ç”¨Makefileæž„å»ºå·¥ç¨‹!
+Õâ¸ö´úÂë²Ö¿âÓÉ [Twlilght-Dream-Of-Magic] Twlilght_Yujiang ×÷Õß£¬±àÒëºÍ¹¹½¨!
 
-å¦‚æžœéœ€è¦ï¼ŒæŸ¥çœ‹æˆ‘çš„Makefileå¸®åŠ©ï¼Œå‘½ä»¤è¡Œè¾“å…¥[make help]
+IDE £º ¼¯³É¿ª·¢»·¾³
 
-è¿™ä¸ªMakefileæ–‡ä»¶
+×îºÃ²»ÒªÊ¹ÓÃCode Block IDE£¬À´¹¹½¨Õâ¸ö¹¤³Ì£¡
 
-é€‚ç”¨äºŽ(Microsoft Windows)ç³»ç»Ÿ (å·²ç»å®Œæˆï¼Œä»£ç æœ‰BUGè¯·åœ¨Githubä¸Šç•™è¨€)
-
-é€‚ç”¨äºŽ(Linux)ç³»ç»Ÿ (è¿˜åœ¨è®¡åˆ’ä¸­.......)
+ËäÈ»ÎÒÌá¹©ÁË[*.cbp]ÎÄ¼þ£¡(Code Block Project File)
 
 
 
-å¦‚æžœä½ è¦ä½¿ç”¨IDEæž„å»ºè¿™ä¸ªå·¥ç¨‹ï¼Œè¯·åŒºåˆ†æ¯ä¸€ä¸ªç‰ˆæœ¬ï¼
+×îºÃÊ¹ÓÃMakefile¹¹½¨¹¤³Ì!
 
-è¿™ä¸ªä»“åº“ï¼Œæ¯ä¸€ä¸ªç‰ˆæœ¬çš„å·¥ç¨‹æ–‡ä»¶å¤¹ï¼Œè¯·æ–°å»ºä¸€ä¸ªIDEå·¥ç¨‹æ–‡ä»¶ï¼Œç„¶åŽå…³è”!
+Èç¹ûÐèÒª£¬²é¿´ÎÒµÄMakefile°ïÖú£¬ÃüÁîÐÐÊäÈë[make help]
+
+Õâ¸öMakefileÎÄ¼þ
+
+ÊÊÓÃÓÚ(Microsoft Windows)ÏµÍ³ (ÒÑ¾­Íê³É£¬´úÂëÓÐBUGÇëÔÚGithubÉÏÁôÑÔ)
+
+ÊÊÓÃÓÚ(Linux)ÏµÍ³ (»¹ÔÚ¼Æ»®ÖÐ.......)
+
+
+
+Èç¹ûÄãÒªÊ¹ÓÃIDE¹¹½¨Õâ¸ö¹¤³Ì£¬ÇëÇø·ÖÃ¿Ò»¸ö°æ±¾£¡
+
+Õâ¸ö²Ö¿â£¬Ã¿Ò»¸ö°æ±¾µÄ¹¤³ÌÎÄ¼þ¼Ð£¬ÇëÐÂ½¨Ò»¸öIDE¹¤³ÌÎÄ¼þ£¬È»ºó¹ØÁª!
 
 ------------------------------------------------------------------------------------------------------------------------

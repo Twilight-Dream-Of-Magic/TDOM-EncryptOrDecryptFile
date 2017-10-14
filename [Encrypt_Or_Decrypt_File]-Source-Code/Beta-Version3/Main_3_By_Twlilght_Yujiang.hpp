@@ -13,7 +13,7 @@
 
     int RunEncryptFile(const char *E_SourceFileCharPath, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_KEY4, const char *E_TargetFileCharPath)
     {
-            FILE *FilePointerSource, *FilePointerTarget; //要打开的文件的指针
+            FILE *FilePointerSource, *FilePointerTarget; //需要打开的文件的指针
             char buffer[1024];                           //缓冲区，用于存放从文件读取的数据
 
 		    int FileByteData,                              //每次从文件中读取的字节数
@@ -51,7 +51,7 @@
 //文件和密钥在缓冲区中计算
 //The file and key are counted in Buffer
 
-        int NOIEM;                                 //初始加密模块次数 (Number of initial encryption modules)
+        int NOIEM;                 //初始加密模块次数 (Number of initial encryption modules)
 		int	MAX_NOT_E_MODULE = 65; //运行加密模块循环次数 (The maximum number of times the encryption module is running)
 
         for(NOIEM = 0;NOIEM < MAX_NOT_E_MODULE;NOIEM++)
@@ -80,7 +80,7 @@
                  }
                fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
-			  while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
+			while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
             {
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
                  {

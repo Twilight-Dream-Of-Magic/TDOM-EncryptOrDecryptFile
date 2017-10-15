@@ -61,84 +61,29 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
                  {
                     buffer[RTNOC] += E_KEY[RTNOC];
-                 }
-                fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
-                    buffer[RTNOC] *= E_KEY[RTNOC];
-                 }
-               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
-                    buffer[RTNOC] ^= E_KEY[RTNOC];
-                 }
-               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= E_KEY[RTNOC];
-                 }
-               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
-                 {
-                    buffer[RTNOC] -= E_KEY[RTNOC];
+					buffer[RTNOC] *= E_KEY[RTNOC];
+					buffer[RTNOC] ^= E_KEY[RTNOC];
+					buffer[RTNOC] /= E_KEY[RTNOC];
+					buffer[RTNOC] -= E_KEY[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
+            }
 
-
+//文件和密钥2在缓冲区中计算
+//The file and key2 are counted in Buffer
 
 			while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
             {
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
                  {
                     buffer[RTNOC] += E_KEY2[RTNOC];
+					buffer[RTNOC] *= E_KEY2[RTNOC];
+					buffer[RTNOC] ^= E_KEY2[RTNOC];
+					buffer[RTNOC] /= E_KEY2[RTNOC];
+					buffer[RTNOC] -= E_KEY2[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
-            while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
-                    buffer[RTNOC] *= E_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
-                    buffer[RTNOC] ^= E_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= E_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
-                 {
-                    buffer[RTNOC] -= E_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
 
 //文件和密钥3在缓冲区中计算
 //The file and key3 are counted in Buffer
@@ -148,41 +93,13 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
                  {
                     buffer[RTNOC] += E_KEY3[RTNOC];
+					buffer[RTNOC] *= E_KEY3[RTNOC];
+					buffer[RTNOC] ^= E_KEY3[RTNOC];
+					buffer[RTNOC] /= E_KEY3[RTNOC];
+					buffer[RTNOC] -= E_KEY3[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
-            while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
-                    buffer[RTNOC] *= E_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
-                    buffer[RTNOC] ^= E_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= E_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
-                 {
-                    buffer[RTNOC] -= E_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
 
 //文件和密钥4在缓冲区中计算
 //The file and key4 are counted in Buffer
@@ -192,41 +109,14 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
                  {
                     buffer[RTNOC] += E_KEY4[RTNOC];
+					buffer[RTNOC] *= E_KEY4[RTNOC];
+					buffer[RTNOC] ^= E_KEY4[RTNOC];
+					buffer[RTNOC] /= E_KEY4[RTNOC];
+					buffer[RTNOC] -= E_KEY4[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
-            while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
-                    buffer[RTNOC] *= E_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
-                    buffer[RTNOC] ^= E_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= E_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
-                 {
-                    buffer[RTNOC] -= E_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
+            
         };
 
 /***********************************************************************************************************************************************************/
@@ -304,42 +194,13 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
                  {
                     buffer[RTNOC] -= D_KEY[RTNOC];
+					buffer[RTNOC] /= D_KEY[RTNOC];
+					buffer[RTNOC] ^= D_KEY[RTNOC];
+					buffer[RTNOC] *= D_KEY[RTNOC];
+					buffer[RTNOC] += D_KEY[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
-            while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= D_KEY[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
-                    buffer[RTNOC] ^= D_KEY[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
-                    buffer[RTNOC] *= D_KEY[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
-                 {
-                    buffer[RTNOC] += D_KEY[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-
 
 //文件和密钥2在缓冲区中计算
 //The file and key2 are counted in Buffer
@@ -349,41 +210,13 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
                  {
                     buffer[RTNOC] -= D_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= D_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
+					buffer[RTNOC] /= D_KEY2[RTNOC];
                     buffer[RTNOC] ^= D_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
                     buffer[RTNOC] *= D_KEY2[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
-                 {
                     buffer[RTNOC] += D_KEY2[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
+            }
 
 //文件和密钥3在缓冲区中计算
 //The file and key3 are counted in Buffer
@@ -393,41 +226,13 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
                  {
                     buffer[RTNOC] -= D_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
-                    buffer[RTNOC] /= D_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
+					buffer[RTNOC] /= D_KEY3[RTNOC];
                     buffer[RTNOC] ^= D_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
                     buffer[RTNOC] *= D_KEY3[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
-                 {
                     buffer[RTNOC] += D_KEY3[RTNOC];
                  }
               fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
+            }
 
 //文件和密钥4在缓冲区中计算
 //The file and key4 are counted in Buffer
@@ -437,40 +242,12 @@
                  for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递减运算
                  {
                     buffer[RTNOC] -= D_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递除运算
-                 {
                     buffer[RTNOC] /= D_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-            while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
-                 {
                     buffer[RTNOC] ^= D_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-            }
-			while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递乘运算
-                 {
                     buffer[RTNOC] *= D_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
-			}
-			while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束
-            {
-                 for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行递增运算
-                 {
                     buffer[RTNOC] += D_KEY4[RTNOC];
-                 }
-              fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
+				 }
+			  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 			}
          };
 

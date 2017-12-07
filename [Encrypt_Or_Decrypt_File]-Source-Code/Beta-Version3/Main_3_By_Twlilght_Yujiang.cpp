@@ -314,8 +314,8 @@ int main()
 		strcpy(E_TargetFileLastNameOutput,E_TargetFileCharPath);*/
 
 		ConsoleTableColorSet(1, 1, 0);
-		std::cout << "正在记录并导出，本次用于文件加密，3个密钥字符串......" << endl;
-		std::cout << "Is being recorded and exported, this time for file encryption, 3 key string......" << endl;
+		std::cout << "正在记录并导出，本次用于文件加密，4个密钥字符串......" << endl;
+		std::cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
 		ofstream PasswordOutputKeyFile;
 		PasswordOutputKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
 		PasswordOutputKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
@@ -669,14 +669,14 @@ int main()
 
 			system("@Rmdir /s /q .\\File-Key-Record-Log\\");
 
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\InputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\InputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\");
 
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\InputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\");
-			system("@Rd /s /q .\\WorkPath\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
+			system("@Rmdir /s /q .\\WorkPath\\");
 
 			system("cls");
 
@@ -702,14 +702,14 @@ int main()
 
 			system("@Rmdir /s /q .\\File-Key-Record-Log\\");
 
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\InputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Encrypt\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\InputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\");
 
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\InputFile\\");
-			system("@Rd /s /q .\\WorkPath\\Decrypt\\");
-			system("@Rd /s /q .\\WorkPath\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
+			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
+			system("@Rmdir /s /q .\\WorkPath\\");
 
 			system("cls");
 

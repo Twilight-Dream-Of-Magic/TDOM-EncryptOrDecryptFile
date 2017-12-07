@@ -20,7 +20,7 @@ all:
 
 beta_version:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 02
 
@@ -31,7 +31,7 @@ beta_version:
 
 beta_version2:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 03
 
@@ -42,7 +42,7 @@ beta_version2:
 
 beta_version3:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 04
 
@@ -53,7 +53,7 @@ beta_version3:
 
 debug_mode_version:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 05
 
@@ -64,7 +64,7 @@ debug_mode_version:
 
 debug_mode_version2:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 06
 
@@ -75,7 +75,7 @@ debug_mode_version2:
 
 debug_mode_version3:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 07
 
@@ -93,19 +93,19 @@ run.bat:
 	- @echo cd /d $(RELEASE_EXECUTE_VERSION3_FOLDER) >> run.bat
 	- @echo.>>run.bat
 	- @echo start CUI_EncryptDecryptFile_BetaVersion3.exe >> run.bat
-	- start ".\\run.bat"
+	- start "..\\run.bat"
 
 run_debug.bat:
 
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 09
-	- cd /d ".\\"
+	- cd /d "..\\"
 	- @echo @echo off >> run_debug.bat
 	- @echo.>>run_debug.bat
 	- @echo cd /d $(DEBUG_EXECUTE_VERSION3_FOLDER) >> run.bat
 	- @echo.>>run_debug.bat
 	- @echo start CUI_EncryptDecryptFile_DebugVersion3.exe >> run_debug.bat
-	- start ".\\run_debug.bat"
+	- start "..\\run_debug.bat"
 
 run:
 
@@ -117,7 +117,7 @@ run_debug:
 
 clean:
 
-	- @cd /d ".\\"
+	- @cd /d "..\\"
 	- $(HIDDEN_RUN_MODE)
 	- $(COMMAND_WINDOW_COLOR) 10
 
@@ -137,12 +137,12 @@ clean:
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION2)
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION3)
  
-	- $(DELETE) ".\\Binary\\Debug\\*.exe"
-	- $(DELETE) ".\\Binary\\Release\\*.exe"
-	- $(DELETE) ".\\Objectives\\Debug\\*.o"
-	- $(DELETE) ".\\Objectives\\Release\\*.o"
+	- $(DELETE) "..\\Binary\\Debug\\*.exe"
+	- $(DELETE) "..\\Binary\\Release\\*.exe"
+	- $(DELETE) "..\\Objectives\\Debug\\*.o"
+	- $(DELETE) "..\\Objectives\\Release\\*.o"
 	
-	- $(DELETE) ".\\run.bat"
+	- $(DELETE) "..\\run.bat"
  
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION_FOLDER)
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION2_FOLDER)
@@ -160,7 +160,7 @@ clean:
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION2_FOLDER)
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION3_FOLDER)
  
- 	- $(REMOVE_FOLDER) ".\\Binary\\"
-	- $(REMOVE_FOLDER) ".\\Objectives\\"
+	- $(REMOVE_FOLDER) "..\\Binary\\"
+	- $(REMOVE_FOLDER) "..\\Objectives\\"
 	
-	- $(DELETE) ".\\run_debug.bat"
+	- $(DELETE) "..\\run_debug.bat"

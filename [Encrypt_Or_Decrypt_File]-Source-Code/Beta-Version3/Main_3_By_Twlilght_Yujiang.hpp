@@ -52,7 +52,7 @@
 //The file and key are counted in Buffer
 
         int NOIEM;                 //初始加密模块次数 (Number of initial encryption modules)
-        int MAX_NOT_E_MODULE = 65; //运行加密模块循环次数 (The maximum number of times the encryption module is running)
+        int MAX_NOT_E_MODULE = 66; //运行加密模块循环次数 (The maximum number of times the encryption module is running)
 
         for(NOIEM = 0;NOIEM < MAX_NOT_E_MODULE;NOIEM++)
         {
@@ -295,7 +295,7 @@
 //The file and key are counted in Buffer
 
          int NOIDM;                 //初始解密模块次数 (Number of initial decryption modules)
-         int MAX_NOT_D_MODULE = 65; //运行解密模块循环次数 (The maximum number of times the decryption module is running)
+         int MAX_NOT_D_MODULE = 66; //运行解密模块循环次数 (The maximum number of times the decryption module is running)
 
          for(NOIDM = 0;NOIDM < MAX_NOT_D_MODULE;NOIDM++)
          {

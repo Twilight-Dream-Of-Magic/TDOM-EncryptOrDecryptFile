@@ -51,10 +51,10 @@ E_SourceFileMainName,     // 源文件主要名
 E_SourceFileExtendedName, // 源文件扩展名
 E_TargetFileExtendedName; // 目标文件扩展名
 
-char E_KEY[128], //File (Encryption or Encrypted) key 文件加密密钥
-E_KEY2[128],
-E_KEY3[128],
-E_KEY4[128];
+char E_KEY[256], //File (Encryption or Encrypted) key 文件加密密钥
+E_KEY2[256],
+E_KEY3[256],
+E_KEY4[256];
 //***声明代码-结束 Declare the code - end***
 
 //以下变量,应用到文件被解密时 
@@ -68,10 +68,10 @@ D_TargetFileMainName,     //目标文件主要名
 D_TargetFileTempName,     //目标文件临时添加名
 D_TargetFileExtendedName; //目标文件源扩展名
 
-char D_KEY[128], //File (Decryption or Decrypted) key 文件解密密钥
-D_KEY2[128],
-D_KEY3[128],
-D_KEY4[128];
+char D_KEY[256], //File (Decryption or Decrypted) key 文件解密密钥
+D_KEY2[256],
+D_KEY3[256],
+D_KEY4[256];
 //***声明代码-结束 Declare the code - end***
 
 /****************************************************************************************************************************************************************/
@@ -232,31 +232,62 @@ int main()
 		SourceFileNameTempOutput << E_SourceFileExtendedName << endl;
 		SourceFileNameTempOutput.close();
 
-		//加密密钥码是用户自己定义的，(长度小于256)。可以随意给需要加密的文件添加一个或多个加密密钥码 
-		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the files you want to encrypt
+		//加密密钥码是用户自己定义的，(长度小于256)。可以任意的给一个需要加密的文件添加一个或多个加密密钥码 
+		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the one files you want to encrypt
+	E_KEY_LENTH_IS_INCORRECT:
+		int E_KEY_CODE_MAX_LENGTH = 256;
+
 		ConsoleTableColorSet(0, 0, 1);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY;
+		if(strlen(E_KEY) > E_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "加密密钥的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
+			std :: cout << "Encryption key length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
+			system("pause");
+			goto E_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(0, 1, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY2;
+		if(strlen(E_KEY2) > E_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "加密密钥2的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
+			std :: cout << "Encryption key2 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
+			system("pause");
+			goto E_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY3;
+		if(strlen(E_KEY3) > E_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "加密密钥3的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
+			std :: cout << "Encryption key3 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
+			system("pause");
+			goto E_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY4;
+		if(strlen(E_KEY4) > E_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "加密密钥4的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
+			std :: cout << "Encryption key4 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
+			system("pause");
+			goto E_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
@@ -373,29 +404,60 @@ int main()
 
 		//解密密钥码是由用户自己在加密文件步骤设置的。这个定义，来自被加密密钥码的操作过的二进制文件（说明：解密密钥码等于加密密钥码）。你可以给任意一个需要解密的文件，输入正确的解密密钥码
 		//The decryption key code is set by the user himself at the encrypted file step. This definition, from the encrypted key code of the operation of the binary file (Description: decryption key code is equal to the encryption key code). You can give a random file to be decrypted and enter the correct decryption key code
+	D_KEY_LENTH_IS_INCORRECT:
+		int D_KEY_CODE_MAX_LENGTH = 256;
+
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY;
+		if(strlen(D_KEY) > D_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "解密密钥的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
+			std :: cout << "Decryption key length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
+			system("pause");
+			goto D_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY2;
+		if(strlen(D_KEY2) > D_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "解密密钥2的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
+			std :: cout << "Decryption key2 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
+			system("pause");
+			goto D_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY3;
+		if(strlen(D_KEY3) > D_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "解密密钥3的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
+			std :: cout << "Decryption key3 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
+			system("pause");
+			goto D_KEY_LENTH_IS_INCORRECT;
+		}
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY4;
+		if(strlen(D_KEY4) > D_KEY_CODE_MAX_LENGTH)
+		{
+			std :: cout << "解密密钥4的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
+			std :: cout << "Decryption key4 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
+			system("pause");
+			goto D_KEY_LENTH_IS_INCORRECT;
+		}
 
 		system("cls");
 

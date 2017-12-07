@@ -40,10 +40,13 @@ using namespace std;
 int RunEncryptFile(const char *E_SourceFileCharPath, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_KEY4, const char *E_TargetFileCharPath);
 int RunDecryptFile(const char *D_SourceFileCharPath, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_KEY4, const char *D_TargetFileCharPath);
 
-string E_IF_PATH = ".\\WorkPath\\Encrypt\\InputFile\\",  //加密之前，文件的路径 Before encrypting the path of the file
+//以下变量,应用到文件被加密时 
+//The following variables apply when the file is encrypted
+//***声明代码-开始 Declare the code - the beginning***
+string E_IF_PATH = ".\\WorkPath\\Encrypt\\InputFile\\", //加密之前，文件的路径 Before encrypting the path of the file
 E_OF_PATH = ".\\WorkPath\\Encrypt\\OutputFile\\"; //加密之后，文件的路径 After encrypting the path of the file
 
-string E_SourceFileName,         // 源文件名
+string E_SourceFileName,       // 源文件名
 E_SourceFileMainName,     // 源文件主要名
 E_SourceFileExtendedName, // 源文件扩展名
 E_TargetFileExtendedName; // 目标文件扩展名
@@ -52,11 +55,15 @@ char E_KEY[128], //File (Encryption or Encrypted) key 文件加密密钥
 E_KEY2[128],
 E_KEY3[128],
 E_KEY4[128];
+//***声明代码-结束 Declare the code - end***
 
-string D_IF_PATH = ".\\WorkPath\\Decrypt\\InputFile\\",  //解密之前，文件的路径 Before decrypting the path of the file
+//以下变量,应用到文件被解密时 
+//The following variables apply when the file is decrypted
+//***声明代码-开始 Declare the code - the beginning***
+string D_IF_PATH = ".\\WorkPath\\Decrypt\\InputFile\\", //解密之前，文件的路径 Before decrypting the path of the file
 D_OF_PATH = ".\\WorkPath\\Decrypt\\OutputFile\\"; //解密之后，文件的路径 After decrypting the path of the file
 
-string D_SourceFileName,         //源文件名
+string D_SourceFileName,      //源文件名
 D_TargetFileMainName,     //目标文件主要名
 D_TargetFileTempName,     //目标文件临时添加名
 D_TargetFileExtendedName; //目标文件源扩展名
@@ -65,6 +72,7 @@ char D_KEY[128], //File (Decryption or Decrypted) key 文件解密密钥
 D_KEY2[128],
 D_KEY3[128],
 D_KEY4[128];
+//***声明代码-结束 Declare the code - end***
 
 /****************************************************************************************************************************************************************/
 
@@ -224,34 +232,36 @@ int main()
 		SourceFileNameTempOutput << E_SourceFileExtendedName << endl;
 		SourceFileNameTempOutput.close();
 
+		//加密密钥码是用户自己定义的，(长度小于256)。可以随意给需要加密的文件添加一个或多个加密密钥码 
+		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the files you want to encrypt
 		ConsoleTableColorSet(0, 0, 1);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥,不要输入空格!" << endl;  //密钥是用户自己定义的，(长度小于128)。可以随意给需要加密的文件添加密钥
-		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY;
 
 		ConsoleTableColorSet(0, 1, 0);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥2,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY2;
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥3,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY3;
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥4,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY4;
 
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
 		std::cout << "Please output >>> file extension name.\nDo not enter spaces!\n[.TSMY-ENCRYPTED]:" << endl;
-		std::cout << "输出文件扩展名,不要输入空格[.TSMY-ENCRYPTED]：" << endl;  //给加密后的文件输出文件扩展名，并保存
+		std::cout << "输出文件扩展名,不要输入空格[.TSMY-ENCRYPTED]：" << endl; //给加密后的文件输出文件扩展名，并保存 Export the file extension to the encrypted file and save it
 		std::cin >> E_TargetFileExtendedName;
 		if (E_TargetFileExtendedName == " ")
 		{
@@ -361,28 +371,30 @@ int main()
 		std::cout << "输入要解密的文件名+文件扩展名,不要输入空格!" << endl;
 		std::cin >> D_SourceFileName;
 
+		//解密密钥码是由用户自己在加密文件步骤设置的。这个定义，来自被加密密钥码的操作过的二进制文件（说明：解密密钥码等于加密密钥码）。你可以给任意一个需要解密的文件，输入正确的解密密钥码
+		//The decryption key code is set by the user himself at the encrypted file step. This definition, from the encrypted key code of the operation of the binary file (Description: decryption key code is equal to the encryption key code). You can give a random file to be decrypted and enter the correct decryption key code
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥,不要输入空格!" << endl;  //密钥是用户自己定义的，可以随意给需要解密的文件输入密钥
-		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY;
 
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥2,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY2;
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥3,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY3;
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
-		std::cout << "输入(长度小于128)密钥4,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
+		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
+		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY4;
 
 		system("cls");
@@ -393,7 +405,7 @@ int main()
 		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
 		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file main name,not the file extension name!\nDo not enter spaces!\n[DATA-DECRYPTED]:" << endl;
-		std::cout << "输出文件主要名，不是文件扩展名，不要输入空格[DATA-TSMY-DECRYPTED]!" << endl;  //给解密后的文件输出主要文件名，并保存
+		std::cout << "输出文件主要名，不是文件扩展名，不要输入空格[DATA-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出主要文件名，并保存 Output the main file name to the decrypted file and save it
 		if (!access(".\\SourceFileMainName_Temp.INI", 0))
 		{
 			//char TFMN_Buffer[256];
@@ -428,7 +440,7 @@ int main()
 		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
 		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file extension name!\nDo not enter spaces!\n[Example: .txt]:" << endl;
-		std::cout << "输出文件扩展名，不要输入空格[实例： .txt]!" << endl;  //给解密后的文件输出文件扩展名，并保存
+		std::cout << "输出文件扩展名，不要输入空格[实例： .txt]!" << endl; //给解密后的文件输出文件扩展名，并保存
 		if (!access(".\\SourceFileExtendedName_Temp.INI", 0))
 		{
 			ifstream LoadSourceFileNameConfigure(".\\SourceFileExtendedName_Temp.INI", ios::in);

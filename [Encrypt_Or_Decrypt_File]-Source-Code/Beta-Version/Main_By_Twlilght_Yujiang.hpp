@@ -11,12 +11,12 @@
 * 1 = 加密成功
 ********************************************/
 
-		int RunEncryptFile(char *E_SourceFileName, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_TargetFileNewName)
-		{
+        int RunEncryptFile(char *E_SourceFileName, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_TargetFileNewName)
+        {
             FILE *FilePointerSource, *FilePointerTarget;    //要打开的文件的指针
             char buffer[1024];               //缓冲区，用于存放从文件读取的数据
 
-		    int FileByteData,                //每次从文件中读取的字节数
+            int FileByteData,                //每次从文件中读取的字节数
                 RTNOC,                       //循环次数
                 KeyLength = strlen(E_KEY),   //密钥的长度
                 KeyLength2 = strlen(E_KEY2),
@@ -24,19 +24,19 @@
 
              FilePointerSource = fopen(E_SourceFileName, "rb"); //以二进制方式读取文件
              if(FilePointerSource== NULL)
-		     {
-	     	   printf("file[%s]failed to open, please check whether the file path and name are entered correctly! \n", E_SourceFileName);
+             {
+               printf("file[%s]failed to open, please check whether the file path and name are entered correctly! \n", E_SourceFileName);
                printf("文件[%s]打开失败，请检查文件路径和名称是否输入正确！\n", E_SourceFileName);
-			   getchar();
+               getchar();
                return 0;
              }
 
-		     FilePointerTarget = fopen(E_TargetFileNewName, "wb"); //以二进制方式写入文件
+             FilePointerTarget = fopen(E_TargetFileNewName, "wb"); //以二进制方式写入文件
              if(FilePointerTarget== NULL)
              {
-           	   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", FilePointerTarget);
+               printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", FilePointerTarget);
                printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", FilePointerTarget);
-			   getchar();
+               getchar();
                return 0;
              }
 /*加密算法开始*/
@@ -67,18 +67,18 @@
 
 /*加密算法结束*/
 
-	  fclose(FilePointerSource);
+      fclose(FilePointerSource);
           fclose(FilePointerTarget);
 
-	return 1;
+    return 1;
         }
 
         int RunDecryptFile(char *D_SourceFileName, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_TargetFileNewName)
-		{
+        {
             FILE *FilePointerSource, *FilePointerTarget;    //要打开的文件的指针
             char buffer[1024];               //缓冲区，用于存放从文件读取的数据
 
-		    int FileByteData,                //每次从文件中读取的字节数
+            int FileByteData,                //每次从文件中读取的字节数
                 RTNOC,                       //循环次数
                 KeyLength = strlen(D_KEY),   //密钥的长度
                 KeyLength2 = strlen(D_KEY2),
@@ -86,19 +86,19 @@
 
              FilePointerSource = fopen(D_SourceFileName, "rb"); //以二进制方式读取文件
              if(FilePointerSource== NULL)
-		     {
-	     	   printf("file[%s]failed to open, please check whether the file path and name are entered correctly! \n", D_SourceFileName);
+             {
+               printf("file[%s]failed to open, please check whether the file path and name are entered correctly! \n", D_SourceFileName);
                printf("文件[%s]打开失败，请检查文件路径和名称是否输入正确！\n", D_SourceFileName);
-			   getchar();
+               getchar();
                return 0;
              }
 
-		     FilePointerTarget = fopen(D_TargetFileNewName, "wb"); //以二进制方式写入文件
+             FilePointerTarget = fopen(D_TargetFileNewName, "wb"); //以二进制方式写入文件
              if(FilePointerTarget== NULL)
              {
                printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", FilePointerTarget);
                printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", FilePointerTarget);
-			   getchar();
+               getchar();
              return 0;
              }
 
@@ -146,5 +146,5 @@
           fclose(FilePointerSource);
           fclose(FilePointerTarget);
 
-	    return 1;
+        return 1;
         }

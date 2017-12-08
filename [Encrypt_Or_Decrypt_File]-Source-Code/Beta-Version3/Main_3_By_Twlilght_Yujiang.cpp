@@ -40,7 +40,7 @@ using namespace std;
 int RunEncryptFile(const char *E_SourceFileCharPath, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_KEY4, const char *E_TargetFileCharPath);
 int RunDecryptFile(const char *D_SourceFileCharPath, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_KEY4, const char *D_TargetFileCharPath);
 
-//以下变量,应用到文件被加密时 
+//以下变量,应用到文件被加密时
 //The following variables apply when the file is encrypted
 //***声明代码-开始 Declare the code - the beginning***
 string E_IF_PATH = ".\\WorkPath\\Encrypt\\InputFile\\", //加密之前，文件的路径 Before encrypting the path of the file
@@ -57,7 +57,7 @@ E_KEY3[256],
 E_KEY4[256];
 //***声明代码-结束 Declare the code - end***
 
-//以下变量,应用到文件被解密时 
+//以下变量,应用到文件被解密时
 //The following variables apply when the file is decrypted
 //***声明代码-开始 Declare the code - the beginning***
 string D_IF_PATH = ".\\WorkPath\\Decrypt\\InputFile\\", //解密之前，文件的路径 Before decrypting the path of the file
@@ -232,7 +232,7 @@ int main()
 		SourceFileNameTempOutput << E_SourceFileExtendedName << endl;
 		SourceFileNameTempOutput.close();
 
-		//加密密钥码是用户自己定义的，(长度小于256)。可以任意的给一个需要加密的文件添加一个或多个加密密钥码 
+		//加密密钥码是用户自己定义的，(长度小于256)。可以任意的给一个需要加密的文件添加一个或多个加密密钥码
 		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the one files you want to encrypt
 	E_KEY_LENTH_IS_INCORRECT:
 		int E_KEY_CODE_MAX_LENGTH = 256;
@@ -244,6 +244,7 @@ int main()
 		std::cin >> E_KEY;
 		if(strlen(E_KEY) > E_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(E_KEY,NULL,sizeof(E_KEY)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "加密密钥的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
 			std :: cout << "Encryption key length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
@@ -257,6 +258,7 @@ int main()
 		std::cin >> E_KEY2;
 		if(strlen(E_KEY2) > E_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(E_KEY2,NULL,sizeof(E_KEY2)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "加密密钥2的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
 			std :: cout << "Encryption key2 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
@@ -270,6 +272,7 @@ int main()
 		std::cin >> E_KEY3;
 		if(strlen(E_KEY3) > E_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(E_KEY3,NULL,sizeof(E_KEY3)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "加密密钥3的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
 			std :: cout << "Encryption key3 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
@@ -283,6 +286,7 @@ int main()
 		std::cin >> E_KEY4;
 		if(strlen(E_KEY4) > E_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(E_KEY4,NULL,sizeof(E_KEY4)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "加密密钥4的长度，已经超过256位字符。 请重新输入所有加密密钥！" << endl;
 			std :: cout << "Encryption key4 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
@@ -414,6 +418,7 @@ int main()
 		std::cin >> D_KEY;
 		if(strlen(D_KEY) > D_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(D_KEY,NULL,sizeof(D_KEY)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "解密密钥的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
 			std :: cout << "Decryption key length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
@@ -427,6 +432,7 @@ int main()
 		std::cin >> D_KEY2;
 		if(strlen(D_KEY2) > D_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(D_KEY2,NULL,sizeof(D_KEY2)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "解密密钥2的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
 			std :: cout << "Decryption key2 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
@@ -440,6 +446,7 @@ int main()
 		std::cin >> D_KEY3;
 		if(strlen(D_KEY3) > D_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(D_KEY3,NULL,sizeof(D_KEY3)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "解密密钥3的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
 			std :: cout << "Decryption key3 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
@@ -453,6 +460,7 @@ int main()
 		std::cin >> D_KEY4;
 		if(strlen(D_KEY4) > D_KEY_CODE_MAX_LENGTH)
 		{
+		    memset(D_KEY4,NULL,sizeof(D_KEY4)); //Reset This Variable The Value (NULL = 0)
 			std :: cout << "解密密钥4的长度，已经超过256位字符。 请重新输入所有解密密钥！" << endl;
 			std :: cout << "Decryption key4 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
@@ -517,7 +525,7 @@ int main()
 				LoadSourceFileNameConfigure >> D_TargetFileExtendedName;
 				//LoadSourceFileNameConfigure.getline(TFEN_Buffer,256,'\n'); //getline(char *,int,char) 表示该行字符达到256个或遇到换行就结束
 				//D_TargetFileExtendedName = TFEN_Buffer;
-				
+
 				std::cout << "您已成功跳过此步骤" << endl;
 				std::cout << "You have successfully skipped this step" << endl;
 			}
@@ -532,7 +540,7 @@ int main()
 		}
 
 		system("cls");
-		
+
 		std::cout << "\n";
 		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
 		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;

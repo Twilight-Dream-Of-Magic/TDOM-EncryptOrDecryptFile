@@ -1,0 +1,87 @@
+README
+
+Chinese:
+虽然，我发布了这个（Test Beta 3.1）版本的程序，但是，它不兼容使用旧版本的加密算法生成的加密文件，然后把它解密正确。所以，新版本的程序它不使用旧版本的加密算法和解密算法。现在你有2种(加密和解密)算法的文件密码锁了。我希望，你们喜欢这一次程序升级。
+当然，现在开发的这个程序(CUI_EODF 或 GUI_EODF)，运行的平台是Microsoft Windows系统。
+如果，你们想要我开发这个程序的Linux版本 。
+请尽量可能的帮助我的开发，请在我的github网站空间上留言。谢谢你们的支持
+并且，程序从Beta3.0版本，替换升级到测试的 Beta 3.1版本的变化比较大。
+作者本人(Twlilght-Dream-Magic)已经试验成功，新的加密和解密的核心算法，对于单字节文件流数据和密钥之间，来进行处理计算，程序变得比较有用和表现很好。
+更新后，被保护的文件的安全性提高一些，被处理文件的密文数据信息更多了。不过，文件的处理速度还是很慢。
+
+English:
+Although, I have released this (Beta 3.1) version of the program, but it is not compatible with the old version of the encryption algorithm generated encrypted files, and then decrypt it correctly. Therefore, the new version of the program it does not use the old version of the encryption algorithm and decryption algorithm. Now you have 2 kinds of (encryption and decryption) algorithm of the file password lock. I hope you like this one time program upgrade.
+Of course, the program that is now developed (CUI_EODF or GUI_EODF) is running on a Microsoft Windows system.
+If you want me to develop the Linux version of this program.
+Please try your best to help me with the development, please leave a message on my GitHub website space. Thank you for your support.
+Also, the program changes from the Beta3.0 version to the Beta 3.1 version, which is upgraded to Beta.
+The author himself (Twlilght-dream-magic) has successfully experimented with the new encryption and decryption core algorithm for processing computations between Single-byte file stream data and keys, and the program becomes more useful and well behaved.
+After the update, the security of the protected file improved a little more, the encrypted data of the file processed more information. However, the file processing speed is still very slow.
+
+
+This My File Encryption Core Function
+
+Logical method
+
+Use Key
+
+Data /= Key
+Data += Key
+Data *= Key
+Data -= Key
+
+Use Key2
+
+Data *= Key2
+Data -= Key2
+Data /= Key2
+Data += Key2
+
+Use Key3
+
+Data -= Key3
+Data /= Key3
+Data += Key3
+Data *= Key3
+
+Use Key4
+
+Data += Key4
+Data *= Key4
+Data -= Key4
+Data /= Key4
+
+
+
+This My File Decryption Core Function
+
+Logical method
+
+Use Key
+
+Data /= Key
+Data -= Key
+Data *= Key
+Data += Key
+
+Use Key2
+
+Data *= Key
+Data += Key
+Data /= Key
+Data -= Key
+
+Use Key3
+
+Data += Key
+Data /= Key
+Data -= Key
+Data *= Key
+
+Use Key4
+
+Data -= Key
+Data *= Key
+Data += Key
+Data /= Key
+

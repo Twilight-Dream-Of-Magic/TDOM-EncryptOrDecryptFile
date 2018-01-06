@@ -11,7 +11,9 @@ REMOVE_FOLDER=@rmdir /s /q
 
 MINGW_CPP=@g++ -Wall -O2 -c
 MINGW_DEBUG_CPP=@g++ -Wall -fexceptions -g -c 
-LINK_OBJECTIVES=g++ -static
+LINK_OBJECTIVES=g++ -shared
+LINK_STATIC_OBJECTIVES=g++ -static
+
 
 SOURCES_VERSION=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_By_Twlilght_Yujiang.cpp"
 SOURCES_VERSION2=".\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_2_By_Twlilght_Yujiang.cpp"

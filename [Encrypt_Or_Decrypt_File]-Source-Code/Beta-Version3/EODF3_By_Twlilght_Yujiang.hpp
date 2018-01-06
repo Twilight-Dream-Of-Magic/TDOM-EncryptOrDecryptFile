@@ -97,7 +97,8 @@
               fwrite(buffer, 16, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
             }
 
-
+//文件和密钥2在缓冲区中计算
+//The file and key2 are counted in Buffer
 
             while((FileByteData = fread(buffer, 16, KeyLength2, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength2 长度的数据，保存到buffer，直到文件结束
             {

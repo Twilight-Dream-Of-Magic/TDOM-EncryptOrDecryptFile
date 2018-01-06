@@ -14,7 +14,7 @@ REMOVE_FOLDER=@rmdir /s /q
 
 MINGW_CPP=@g++ -fexec-charset=UTF-8 -Wall -O2 -c
 MINGW_DEBUG_CPP=@g++ -fexec-charset=UTF-8 -Wall -fexceptions -g -c
-LINKING_OBJECTIVES=g++ -s
+LINKING_OBJECTIVES=g++ -shared
 STATIC_LINKING_OBJECTIVES=g++ -static
 
 #Source Code File

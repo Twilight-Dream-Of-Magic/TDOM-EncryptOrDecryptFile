@@ -13,7 +13,7 @@ all:
 	- @make debug_mode_version
 	- @make debug_mode_version2
 	- @make debug_mode_version3
-  
+
 	- @make beta_version
 	- @make beta_version2
 	- @make beta_version3
@@ -160,26 +160,26 @@ clean:
 	- $(DELETE) $(DEBUG_OBJECTIVES_VERSION)
 	- $(DELETE) $(DEBUG_OBJECTIVES_VERSION2)
 	- $(DELETE) $(DEBUG_OBJECTIVES_VERSION3)
- 
+
 	- $(DELETE) $(DEBUG_EXECUTE_FILE_VERSION)
 	- $(DELETE) $(DEBUG_EXECUTE_FILE_VERSION2)
 	- $(DELETE) $(DEBUG_EXECUTE_FILE_VERSION3)
- 
+
 	- $(DELETE) $(RELEASE_OBJECTIVES_VERSION)
 	- $(DELETE) $(RELEASE_OBJECTIVES_VERSION2)
 	- $(DELETE) $(RELEASE_OBJECTIVES_VERSION3)
- 
+
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION)
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION2)
 	- $(DELETE) $(RELEASE_EXECUTE_FILE_VERSION3)
- 
+
 	- $(DELETE) "..\\Binary\\Debug\\*.exe"
 	- $(DELETE) "..\\Binary\\Release\\*.exe"
 	- $(DELETE) "..\\Objectives\\Debug\\*.o"
 	- $(DELETE) "..\\Objectives\\Release\\*.o"
 	
 	- $(DELETE) "..\\run.bat"
- 
+
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION_FOLDER)
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION2_FOLDER)
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION3_FOLDER)
@@ -195,7 +195,7 @@ clean:
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION_FOLDER)
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION2_FOLDER)
 	- $(REMOVE_FOLDER) $(RELEASE_EXECUTE_VERSION3_FOLDER)
- 
+
 	- $(REMOVE_FOLDER) "..\\Binary\\"
 	- $(REMOVE_FOLDER) "..\\Objectives\\"
 	

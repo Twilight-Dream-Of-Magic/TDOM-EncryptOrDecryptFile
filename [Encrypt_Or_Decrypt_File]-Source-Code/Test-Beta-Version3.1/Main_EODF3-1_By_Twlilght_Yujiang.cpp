@@ -6,7 +6,7 @@ Chinese中文:
 程序文件名: Twlilght_Yujiang_File_Lock
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
-版本: Beta 3.0
+版本: Beta 3.1
 源代码修改时间: 2017-8-14
 作者:Twlilght_Yujiang
 

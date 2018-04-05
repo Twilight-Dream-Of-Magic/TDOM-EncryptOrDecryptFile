@@ -7,7 +7,7 @@ Chinese中文:
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Beta 3.0
-源代码修改时间: 2017-8-14
+源代码修改时间: 2018-4-5
 作者:Twlilght_Yujiang
 
 English英文:
@@ -17,7 +17,7 @@ Program File Name: Twlilght_Yujiang_File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 3.0
-Source code modified by: 2017-8-14
+Source code modified by: 2017-4-5
 Author: Twlilght_Yujiang
 *****************************************************************************/
 
@@ -590,18 +590,23 @@ int main()
 	{
 	 Instruction_Manual_Language_Restart:
 	  system("cls");
-		std::cout << "欢迎你的到来！ 这是本程序的说明手册[Beta Version 3.0]，请务必在使用前，仔细阅读" << endl;
+	    system("color 1A");
+		std::cout << "欢迎你的到来！这是本程序的说明手册[Beta Version 3.0]，请务必在使用前，仔细阅读" << endl;
 		std::cout << "Welcome to your arrival! This is the instruction manual [Beta Version 3.0] of this program, please be sure to read carefully before using it" << endl;
 		std::cout << "" << endl;
 		std::cout << "enUS----------English 英文" << endl;
 		std::cout << "zhCN----------Chinese 中文" << endl;
 		std::cout << "MENU----------Back Main Menu 返回主菜单" << endl;
+		std::cout << "" << endl;
+		std::cout << "Manual:\\Program\\Keyboard_Input> ";
 		string Instruction_Manual_Language;
 		std::cin >> Instruction_Manual_Language;
 		if (Instruction_Manual_Language == "enUS")
 		{
 			system("cls");
 			system("color 67");
+			std::cout << "Manual:\\Program\\Keyboard_Output> " << endl;
+			std::cout << "" << endl;
 			std::cout << "When the program executes the function of encrypting the file or decrypting the file, it will create the workspace folder, input the folder, output the folder.\n" << endl;
 			std::cout << "When the program encrypts the file or decrypts the file and waits, the program is reading and writing the file in the background.\nNever close the program at this time! Otherwise your data is damaged and bear the consequences.\nIt is recommended that you after the data backup, use this program to encrypt the file or decrypt the file!\n" << endl;
 			system("pause");
@@ -611,13 +616,15 @@ int main()
 		{
 			system("cls");
 			system("color 17");
+			std::cout << "Manual:\\Program\\Keyboard_Output> " << endl;
+			std::cout << "" << endl;
 			std::cout << "当程序执行加密文件或解密文件的功能时，将创建工作空间文件夹，输入文件夹，输出文件夹。\n" << endl;
 			std::cout << "当程序加密文件或解密文件并且等待时，程序正在后台读取和写入文件。这个时候，永远不要关闭这个程序！\n否则您的数据被损坏并承担后果。建议您在进行数据备份之后，用这个程序加密文件或解密文件！\n" << endl;
 			system("pause");
 			system("cls");
 
 		}
-		if (Instruction_Manual_Language == "MENU")
+		if (Instruction_Manual_Language == "MENU","menu")
 		{
 			system("cls");
 			goto ProgramMainMenu;

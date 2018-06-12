@@ -20,15 +20,15 @@ STATIC_LINKING_OBJECTIVES=g++ -static
 
 #Source Code File
 
-SOURCES_VERSION="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_EODF_By_Twlilght_Yujiang.cpp"
-SOURCES_VERSION2="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_EODF2_By_Twlilght_Yujiang.cpp"
-SOURCES_VERSION3="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_EODF3_By_Twlilght_Yujiang.cpp"
+SOURCES_VERSION="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_EODF_By_TDOM.cpp"
+SOURCES_VERSION2="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_EODF2_By_TDOM.cpp"
+SOURCES_VERSION3="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_EODF3_By_TDOM.cpp"
 
 #Debug Configure
 
-DEBUG_OBJECTIVES_VERSION="..\\Objectives\\Debug\\EODF\\Beta-Version\\Main_EODF_By_Twlilght_Yujiang.o"
-DEBUG_OBJECTIVES_VERSION2="..\\Objectives\\Debug\\EODF\\Beta-Version2\\Main_EODF2_By_Twlilght_Yujiang.o"
-DEBUG_OBJECTIVES_VERSION3="..\\Objectives\\Debug\\EODF\\Beta-Version3\\Main_EODF3_By_Twlilght_Yujiang.o"
+DEBUG_OBJECTIVES_VERSION="..\\Objectives\\Debug\\EODF\\Beta-Version\\Main_EODF_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION2="..\\Objectives\\Debug\\EODF\\Beta-Version2\\Main_EODF2_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION3="..\\Objectives\\Debug\\EODF\\Beta-Version3\\Main_EODF3_By_TDOM.o"
 
 DEBUG_EXECUTE_FILE_VERSION="..\\Binary\\Debug\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_DebugVersion.exe"
 DEBUG_EXECUTE_FILE_VERSION2="..\\Binary\\Debug\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_DebugVersion2.exe"
@@ -40,9 +40,9 @@ DEBUG_STATIC_EXECUTE_FILE_VERSION3="..\\Binary\\Debug\\EODF\\Beta-Version3\\CUI_
 
 #Release Configure
 
-RELEASE_OBJECTIVES_VERSION="..\\Objectives\\Release\\EODF\\Beta-Version\\Main_EODF_By_Twlilght_Yujiang.o"
-RELEASE_OBJECTIVES_VERSION2="..\\Objectives\\Release\\EODF\\Beta-Version2\\Main_EODF2_By_Twlilght_Yujiang.o"
-RELEASE_OBJECTIVES_VERSION3="..\\Objectives\\Release\\EODF\\Beta-Version3\\Main_EODF3_By_Twlilght_Yujiang.o"
+RELEASE_OBJECTIVES_VERSION="..\\Objectives\\Release\\EODF\\Beta-Version\\Main_EODF_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION2="..\\Objectives\\Release\\EODF\\Beta-Version2\\Main_EODF2_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION3="..\\Objectives\\Release\\EODF\\Beta-Version3\\Main_EODF3_By_TDOM.o"
 
 RELEASE_EXECUTE_FILE_VERSION="..\\Binary\\Release\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_BetaVersion.exe"
 RELEASE_EXECUTE_FILE_VERSION2="..\\Binary\\Release\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_BetaVersion2.exe"

@@ -6,19 +6,18 @@ Chinese中文:
 程序文件名: Twlilght_Yujiang_File_Lock
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
-版本: Beta 3.1
-源代码修改时间: 2017-4-5
-作者:Twlilght_Yujiang
+版本: Beta 3.0
+源代码修改时间: 2018-4-5
+作者: Twilight-Dream-Of-Magic
 
 English英文:
-Chinese
 Computer Language Type: C ++
 Program File Name: Twlilght_Yujiang_File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 3.0
-Source code modified by: 2017-8-14
-Author: Twlilght_Yujiang
+Source code modified by: 2018-4-5
+Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
 #include <iostream>
@@ -221,16 +220,16 @@ int main()
 		system("pause");
 		system("cls");
 
-		ofstream SourceFileNameTempOutput;
-		SourceFileNameTempOutput.open(".\\SourceFileName_Temp.INI");
-		SourceFileNameTempOutput << E_SourceFileName << endl;
-		SourceFileNameTempOutput.close();
-		SourceFileNameTempOutput.open(".\\SourceFileMainName_Temp.INI");
-		SourceFileNameTempOutput << E_SourceFileMainName << endl;
-		SourceFileNameTempOutput.close();
-		SourceFileNameTempOutput.open(".\\SourceFileExtendedName_Temp.INI");
-		SourceFileNameTempOutput << E_SourceFileExtendedName << endl;
-		SourceFileNameTempOutput.close();
+		ofstream SourceFileNameTemporarySave;
+		SourceFileNameTemporarySave.open(".\\SourceFileName_Temp.INI");
+		SourceFileNameTemporarySave << E_SourceFileName << endl;
+		SourceFileNameTemporarySave.close();
+		SourceFileNameTemporarySave.open(".\\SourceFileMainName_Temp.INI");
+		SourceFileNameTemporarySave << E_SourceFileMainName << endl;
+		SourceFileNameTemporarySave.close();
+		SourceFileNameTemporarySave.open(".\\SourceFileExtendedName_Temp.INI");
+		SourceFileNameTemporarySave << E_SourceFileExtendedName << endl;
+		SourceFileNameTemporarySave.close();
 
 		//加密密钥码是用户自己定义的，(长度小于256)。可以任意的给一个需要加密的文件添加一个或多个加密密钥码
 		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the one files you want to encrypt
@@ -320,18 +319,18 @@ int main()
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "正在记录并导出，本次用于文件加密，4个密钥字符串......" << endl;
 		std::cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
-		ofstream PasswordOutputKeyFile;
-		PasswordOutputKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
-		PasswordOutputKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
-		PasswordOutputKeyFile << "\n" << endl;
-		PasswordOutputKeyFile << "Source Input File Name and Path: " << E_SourceFileStringPath << "\n" << endl;
-		PasswordOutputKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileStringPath << "\n" << endl;
-		PasswordOutputKeyFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
-		PasswordOutputKeyFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
-		PasswordOutputKeyFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
-		PasswordOutputKeyFile << "Key string4 [Password4]: " << E_KEY4 << "\n" << endl;
-		PasswordOutputKeyFile << "<******************************************************************************************>" << "\n" << endl;
-		PasswordOutputKeyFile.close();
+		ofstream PasswordSaveToKeyFile;
+		PasswordSaveToKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
+		PasswordSaveToKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
+		PasswordSaveToKeyFile << "\n" << endl;
+		PasswordSaveToKeyFile << "Source Input File Name and Path: " << E_SourceFileStringPath << "\n" << endl;
+		PasswordSaveToKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileStringPath << "\n" << endl;
+		PasswordSaveToKeyFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
+		PasswordSaveToKeyFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
+		PasswordSaveToKeyFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
+		PasswordSaveToKeyFile << "Key string4 [Password4]: " << E_KEY4 << "\n" << endl;
+		PasswordSaveToKeyFile << "<******************************************************************************************>" << "\n" << endl;
+		PasswordSaveToKeyFile.close();
 
 		ConsoleTableColorSet(1, 1, 1);
 		std::cout << "Please wait, read and write in the file......" << endl;
@@ -499,7 +498,7 @@ int main()
 		else
 		{
 			std::cout << "配置文件" << ".\\SourceFileMainName_Temp.INI" << "未找到!\n" << "请重新输入名称!" << endl;
-			std::cout << "Configuration file" << ".\\SourceFileMainName_Temp.INI " << "Not found!\n" << "Please re-enter the name!" << endl;
+			std::cout << "Configuration file" << ".\\SourceFileMainName_Temp.INI" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileMainName_Temp.INI", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileMainName;
 
@@ -534,7 +533,7 @@ int main()
 		else
 		{
 			std::cout << "配置文件" << ".\\SourceFileExtendedName_Temp.INI" << "未找到!\n" << "请重新输入名称!" << endl;
-			std::cout << "Configuration file" << ".\\SourceFileExtendedName_Temp.INI " << "Not found!\n" << "Please re-enter the name!" << endl;
+			std::cout << "Configuration file" << ".\\SourceFileExtendedName_Temp.INI" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileExtendedName_Temp.INI", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileExtendedName;
 		}
@@ -591,8 +590,8 @@ int main()
 	 Instruction_Manual_Language_Restart:
 	  system("cls");
 	    system("color 1A");
-		std::cout << "欢迎你的到来！这是本程序的说明手册[Beta Version 3.1]，请务必在使用前，仔细阅读" << endl;
-		std::cout << "Welcome to your arrival! This is the instruction manual [Beta Version 3.1] of this program, please be sure to read carefully before using it" << endl;
+		std::cout << "欢迎你的到来！这是本程序的说明手册[Beta Version 3.0]，请务必在使用前，仔细阅读" << endl;
+		std::cout << "Welcome to your arrival! This is the instruction manual [Beta Version 3.0] of this program, please be sure to read carefully before using it" << endl;
 		std::cout << "" << endl;
 		std::cout << "enUS----------English 英文" << endl;
 		std::cout << "zhCN----------Chinese 中文" << endl;
@@ -768,4 +767,4 @@ int main()
 	}
 }
 
-#include "EODF3-1_By_Twlilght_Yujiang.hpp"
+#include "EODF3_By_TDOM.hpp"

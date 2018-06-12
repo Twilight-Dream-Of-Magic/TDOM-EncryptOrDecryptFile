@@ -3,7 +3,7 @@ Read Me - About This Source Code File
 
 Chinese中文:
 计算机语言类型: C++
-程序文件名: Twlilght_Yujiang_File_Lock
+程序文件名: File_Lock
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Beta 2.0
@@ -12,7 +12,7 @@ Chinese中文:
 
 English英文:
 Computer Language Type: C ++
-Program File Name: Twlilght_Yujiang_File_Lock
+Program File Name: File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 2.0

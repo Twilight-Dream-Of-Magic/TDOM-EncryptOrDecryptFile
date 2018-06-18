@@ -10,7 +10,7 @@ English
 
 
 
-This code repository consists of [Twilight-Dream-Of-Magic] Twilight_Yujiang author, compiled and built!
+This code repository consists of [Twilight-Dream-Of-Magic] author, compiled and built!
 
 IDE: Integrated development environment
 
@@ -46,7 +46,7 @@ Chinese
 
 
 
-这个代码仓库由 [Twilight-Dream-Of-Magic] Twilight_Yujiang 作者，编译和构建!
+这个代码仓库由 [Twilight-Dream-Of-Magic] 作者，编译和构建!
 
 IDE ： 集成开发环境
 

@@ -2,10 +2,10 @@ int NOIEM; //初始加密模块次数 (Number of initial encryption modules)
 int NOIDM; //初始解密模块次数 (Number of initial decryption modules)
 
 int MAX_NOT_E_MODULE = 12801; //加密模块最大循环次数 (The maximum number of times the encryption module is running)
-int MINI_NOT_E_GROUP = 6401;
+int MINI_NOT_E_GROUP = 6401; //加密集合最小循环次数 (The minimum number of times the encryption group is running)
 
 int MAX_NOT_D_MODULE = 12801; //解密模块最大循环次数 (The maximum number of times the decryption module is running)
-int MINI_NOT_D_GROUP = 6401;
+int MINI_NOT_D_GROUP = 6401; //解密集合最小循环次数 (The minimum number of times the decryption group is running)
 
 long FileHeaderLength = 0;
 long FileHeaderByteData = 0;
@@ -65,19 +65,19 @@ long FileHeaderByteData = 0;
 //文件和密钥在缓冲区中计算
 //The file and key are counted in Buffer
 
-        /*Skip file header*/
-		fseek(FilePointerSource,1024L,SEEK_SET); //Move the file pointer to the 1024th byte of the file start
+    /*Skip file header (512 byte)*/
+		fseek(FilePointerSource,512L,SEEK_SET); //Move the file pointer to the 512th byte of the file start
 		FileHeaderLength = ftell(FilePointerSource);//Get this file header length
 		fseek(FilePointerSource,0L,SEEK_SET);//Move the file pointer to this file start point
 		while((FileHeaderByteData = fread(buffer, 1, FileHeaderLength, FilePointerSource)) > 0) //Continuously read fileheaderlength length data from file, save to buffer until end of file
 		{
 			fwrite(buffer, 1, FileHeaderByteData, FilePointerTarget); //Write data from buffer to file
 		}
-		
-		/*The pointer to the file stream is moved, and the read and write data continues to start at the 1025rd byte*/
-		fseek(FilePointerSource,1025L,SEEK_SET);
-		fseek(FilePointerTarget,1025L,SEEK_SET);
-		
+
+		/*The pointer to the file stream is moved, and the read and write data continues to start at the 513rd byte*/
+		fseek(FilePointerSource,513L,SEEK_SET);
+		fseek(FilePointerTarget,513L,SEEK_SET);
+
 
 		for(NOIEM = 0;NOIEM < MAX_NOT_E_MODULE;NOIEM++)
 		{
@@ -86,7 +86,7 @@ long FileHeaderByteData = 0;
 			std::cout << "请等待，文件读写中......" << endl;
 			system("@color 0D");
 			std :: cout << "Encrypting...... Currently in use the first key" << endl;
-			
+
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
 				//Mini-Group Encryption Module Key1-Calculate1
@@ -107,7 +107,7 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
 				//Mini-Group Encryption Module Key1-Calculate2
@@ -128,7 +128,7 @@ long FileHeaderByteData = 0;
 				   fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
 				//Mini-Group Encryption Module Key1-Calculate3
@@ -217,7 +217,7 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			//Mini-Group Encryption Module Key2-Calculate3
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
@@ -268,7 +268,7 @@ long FileHeaderByteData = 0;
 			//Mini-Group Encryption Module Key3-Calculate1
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
-				
+
 				while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength3 长度的数据，保存到buffer，直到文件结束
 				{
 					for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
@@ -286,11 +286,11 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			//Mini-Group Encryption Module Key3-Calculate2
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
-				
+
 				while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength3 长度的数据，保存到buffer，直到文件结束
 				{
 					for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
@@ -312,7 +312,7 @@ long FileHeaderByteData = 0;
 			//Mini-Group Encryption Module Key3-Calculate3
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
-				
+
 				while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength3 长度的数据，保存到buffer，直到文件结束
 				{
 					for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
@@ -334,7 +334,7 @@ long FileHeaderByteData = 0;
 			//Mini-Group Encryption Module Key3-Calculate4
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
-				
+
 				while((FileByteData = fread(buffer, 1, KeyLength3, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength3 长度的数据，保存到buffer，直到文件结束
 				{
 					for(RTNOC = 0; RTNOC < FileByteData; RTNOC++) //对buffer中的数据逐字节的和E_KEY进行异或运算
@@ -359,7 +359,7 @@ long FileHeaderByteData = 0;
 			std :: cout << "Encrypting...... Currently in use the fourth key" << endl;
 
 			//Mini-Group Encryption Module Key4-Calculate1
-			
+
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
 				while((FileByteData = fread(buffer, 1, KeyLength4, FilePointerSource)) > 0) //不断地从文件中读取 KeyLength4 长度的数据，保存到buffer，直到文件结束
@@ -400,7 +400,7 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			//Mini-Group Encryption Module Key4-Calculate3
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
 			{
@@ -442,12 +442,12 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
-			if(NOIEM == MAX_NOT_D_MODULE || 12800)
+
+			if(NOIEM < MAX_NOT_E_MODULE || 12800)
 			{
 			  break; //End encrypting process
 			}
-			
+
 		};
 
 /***********************************************************************************************************************************************************/
@@ -461,6 +461,19 @@ long FileHeaderByteData = 0;
 
 		return 1;
 	}
+
+/*******************************************
+*                 解密文件
+*
+* D_SourceFileName    需要解密的文件名
+* D_KEY               密钥
+* D_TargetFileNewName 解密完成后要保存的文件名
+*
+* @return  解密成功或失败的数字表示
+*
+* 0 = 解密失败
+* 1 = 解密成功
+********************************************/
 
 	int RunDecryptFile(const char *D_SourceFileCharPath, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_KEY4, const char *D_TargetFileCharPath)
 	{
@@ -492,19 +505,6 @@ long FileHeaderByteData = 0;
 				return 0;
 			}
 
-/*******************************************
-*                 解密文件
-*
-* D_SourceFileName    需要解密的文件名
-* D_KEY               密钥
-* D_TargetFileNewName 解密完成后要保存的文件名
-*
-* @return  解密成功或失败的数字表示
-*
-* 0 = 解密失败
-* 1 = 解密成功
-********************************************/
-
 /*解密算法开始*/
 
 /***********************************************************************************************************************************************************/
@@ -515,8 +515,8 @@ long FileHeaderByteData = 0;
 //文件和密钥在缓冲区中计算
 //The file and key are counted in Buffer
 
-        /*Skip file header*/
-		fseek(FilePointerSource,1024L,SEEK_SET); //Move the file pointer to the 1024th byte of the file start
+    /*Skip file header (512 byte)*/
+		fseek(FilePointerSource,512L,SEEK_SET); //Move the file pointer to the 512th byte of the file start
 		FileHeaderLength = ftell(FilePointerSource);//Get this file header length
 		fseek(FilePointerSource,0L,SEEK_SET);//Move the file pointer to this file start point
 		while((FileHeaderByteData = fread(buffer, 1, FileHeaderLength, FilePointerSource)) > 0) //Continuously read fileheaderlength length data from file, save to buffer until end of file
@@ -524,10 +524,10 @@ long FileHeaderByteData = 0;
 			fwrite(buffer, 1, FileHeaderByteData, FilePointerTarget); //Write data from buffer to file
 		}
 
-		/*The pointer to the file stream is moved, and the read and write data continues to start at the 1025rd byte*/
-		fseek(FilePointerSource,1025L,SEEK_SET);
-		fseek(FilePointerTarget,1025L,SEEK_SET);
-		
+		/*The pointer to the file stream is moved, and the read and write data continues to start at the 513rd byte*/
+		fseek(FilePointerSource,513L,SEEK_SET);
+		fseek(FilePointerTarget,513L,SEEK_SET);
+
 		for(NOIDM = 0;NOIDM < MAX_NOT_D_MODULE;NOIDM++)
 		{
 			system("@color 6F");
@@ -556,7 +556,7 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			//Mini-Group Decryption Module Key1-Calculate2
 			for(NOIDM = 0;NOIDM < MINI_NOT_D_GROUP;NOIDM++)
 			{
@@ -713,7 +713,7 @@ long FileHeaderByteData = 0;
 //The file and key3 are counted in Buffer
 
 			std :: cout << "Decrypting...... Currently in use the third key" << endl;
-			
+
 			//Mini-Group Decryption Module Key3-Calculate1
 			for(NOIDM = 0;NOIDM < MINI_NOT_D_GROUP;NOIDM++)
 			{
@@ -823,7 +823,7 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
+
 			//Mini-Group Decryption Module Key4-Calculate2
 			for(NOIDM = 0;NOIDM < MINI_NOT_D_GROUP;NOIDM++)
 			{
@@ -886,8 +886,8 @@ long FileHeaderByteData = 0;
 				  fwrite(buffer, 1, FileByteData, FilePointerTarget); //将buffer中的数据写入文件
 				}
 			}
-			
-			if(NOIEM == MAX_NOT_D_MODULE || 12800)
+
+			if(NOIEM < MAX_NOT_D_MODULE || 12800)
 			{
 			  break; //End decrypting process
 			}

@@ -242,6 +242,19 @@
         return 1;
     }
 
+/*******************************************
+*                 解密文件
+*
+* D_SourceFileName    需要解密的文件名
+* D_KEY               密钥
+* D_TargetFileNewName 解密完成后要保存的文件名
+*
+* @return  解密成功或失败的数字表示
+*
+* 0 = 解密失败
+* 1 = 解密成功
+********************************************/
+
     int RunDecryptFile(const char *D_SourceFileCharPath, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_KEY4, const char *D_TargetFileCharPath)
     {
             FILE *FilePointerSource, *FilePointerTarget; //需要打开的文件的指针 Need to open the file pointer
@@ -271,19 +284,6 @@
                getchar();
                return 0;
              }
-
-/*******************************************
-*                 解密文件
-*
-* D_SourceFileName    需要解密的文件名
-* D_KEY               密钥
-* D_TargetFileNewName 解密完成后要保存的文件名
-*
-* @return  解密成功或失败的数字表示
-*
-* 0 = 解密失败
-* 1 = 解密成功
-********************************************/
 
 /*解密算法开始*/
 

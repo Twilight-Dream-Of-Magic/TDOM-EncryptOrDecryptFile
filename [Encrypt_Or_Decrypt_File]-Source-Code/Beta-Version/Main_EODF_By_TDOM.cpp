@@ -144,13 +144,13 @@ int main()
 
 	if(Load_User_Keyboard_Input == "3")
 	{
-	return 0;
+		return 0;
 	}
 	else
 	{
-	std :: cout << "User Input Error !" << endl;
-	getchar();
-	exit(1);
+		std :: cout << "User Input Error !" << endl;
+		getchar();
+		exit(1);
 	}
 }
 

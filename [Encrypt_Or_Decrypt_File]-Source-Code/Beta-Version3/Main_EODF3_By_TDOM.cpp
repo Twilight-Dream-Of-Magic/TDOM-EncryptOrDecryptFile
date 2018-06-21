@@ -120,6 +120,37 @@ void ConsoleTableColorSet(int R, int G, int B)
 	}
 }
 
+void CleanFileFromThisWorkspace()
+{
+	DeleteFile(".\\SourceFileName.CONFIGFILE");
+	DeleteFile(".\\SourceFileMainName.CONFIGFILE");
+	DeleteFile(".\\SourceFileExtendedName.CONFIGFILE");
+
+	system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
+	system("@Del /s /f /q .\\WorkPath\\*.*");
+
+	system("@Del /s /f /q .\\WorkPath\\Encrypt\\*.*");
+	system("@Del /s /f /q .\\WorkPath\\Encrypt\\InputFile\\*.*");
+	system("@Del /s /f /q .\\WorkPath\\Encrypt\\OutputFile\\*.*");
+
+	system("@Del /s /f /q .\\WorkPath\\Decrypt\\*.*");
+	system("@Del /s /f /q .\\WorkPath\\Decrypt\\InputFile\\*.*");
+	system("@Del /s /f /q .\\WorkPath\\Decrypt\\OutputFile\\*.*");
+
+	system("@Rmdir /s /q .\\File-Key-Record-Log\\");
+
+	system("@Rmdir /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
+	system("@Rmdir /s /q .\\WorkPath\\Encrypt\\InputFile\\");
+	system("@Rmdir /s /q .\\WorkPath\\Encrypt\\");
+
+	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
+	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
+	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
+	system("@Rmdir /s /q .\\WorkPath\\");
+
+	system("cls");
+}
+
 int main()
 {
  ProgramMainMenu:
@@ -221,13 +252,13 @@ int main()
 		system("cls");
 
 		ofstream SourceFileNameTemporarySave;
-		SourceFileNameTemporarySave.open(".\\SourceFileName_Temp.INI");
+		SourceFileNameTemporarySave.open(".\\SourceFileName.CONFIGFILE");
 		SourceFileNameTemporarySave << E_SourceFileName << endl;
 		SourceFileNameTemporarySave.close();
-		SourceFileNameTemporarySave.open(".\\SourceFileMainName_Temp.INI");
+		SourceFileNameTemporarySave.open(".\\SourceFileMainName.CONFIGFILE");
 		SourceFileNameTemporarySave << E_SourceFileMainName << endl;
 		SourceFileNameTemporarySave.close();
-		SourceFileNameTemporarySave.open(".\\SourceFileExtendedName_Temp.INI");
+		SourceFileNameTemporarySave.open(".\\SourceFileExtendedName.CONFIGFILE");
 		SourceFileNameTemporarySave << E_SourceFileExtendedName << endl;
 		SourceFileNameTemporarySave.close();
 
@@ -471,14 +502,14 @@ int main()
 		ConsoleTableColorSet(0, 1, 0);
 
 		std::cout << "\n";
-		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
-		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
+		std::cout << "如果在当前文件夹下配置文件[.\\*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
+		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file main name,not the file extension name!\nDo not enter spaces!\n[DATA-DECRYPTED]:" << endl;
 		std::cout << "输出文件主要名，不是文件扩展名，不要输入空格[DATA-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出主要文件名，并保存 Output the main file name to the decrypted file and save it
-		if (!access(".\\SourceFileMainName_Temp.INI", 0))
+		if (!access(".\\SourceFileMainName.CONFIGFILE", 0))
 		{
 			//char TFMN_Buffer[256];
-			ifstream LoadSourceFileNameConfigure(".\\SourceFileMainName_Temp.INI", ios::in);
+			ifstream LoadSourceFileNameConfigure(".\\SourceFileMainName.CONFIGFILE", ios::in);
 			if (LoadSourceFileNameConfigure.fail())
 			{
 				std::cout << "加载配置文件时，出现了未知错误并结束" << endl;
@@ -497,22 +528,22 @@ int main()
 		}
 		else
 		{
-			std::cout << "配置文件" << ".\\SourceFileMainName_Temp.INI" << "未找到!\n" << "请重新输入名称!" << endl;
-			std::cout << "Configuration file" << ".\\SourceFileMainName_Temp.INI" << "Not found!\n" << "Please re-enter the name!" << endl;
-			HANDLE hFILE = CreateFile(".\\SourceFileMainName_Temp.INI", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+			std::cout << "配置文件" << ".\\SourceFileMainName.CONFIGFILE" << "未找到!\n" << "请重新输入名称!" << endl;
+			std::cout << "Configuration file" << ".\\SourceFileMainName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
+			HANDLE hFILE = CreateFile(".\\SourceFileMainName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileMainName;
 
 		}
 
 		system("cls");
 
-		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
-		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
+		std::cout << "如果在当前文件夹下配置文件[.\\*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
+		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file extension name!\nDo not enter spaces!\n[Example: .txt]:" << endl;
 		std::cout << "输出文件扩展名，不要输入空格[实例： .txt]!" << endl; //给解密后的文件输出文件扩展名，并保存
-		if (!access(".\\SourceFileExtendedName_Temp.INI", 0))
+		if (!access(".\\SourceFileExtendedName.CONFIGFILE", 0))
 		{
-			ifstream LoadSourceFileNameConfigure(".\\SourceFileExtendedName_Temp.INI", ios::in);
+			ifstream LoadSourceFileNameConfigure(".\\SourceFileExtendedName.CONFIGFILE", ios::in);
 			//char TFEN_Buffer[256];
 			if (LoadSourceFileNameConfigure.fail())
 			{
@@ -532,17 +563,17 @@ int main()
 		}
 		else
 		{
-			std::cout << "配置文件" << ".\\SourceFileExtendedName_Temp.INI" << "未找到!\n" << "请重新输入名称!" << endl;
-			std::cout << "Configuration file" << ".\\SourceFileExtendedName_Temp.INI" << "Not found!\n" << "Please re-enter the name!" << endl;
-			HANDLE hFILE = CreateFile(".\\SourceFileExtendedName_Temp.INI", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+			std::cout << "配置文件" << ".\\SourceFileExtendedName.CONFIGFILE" << "未找到!\n" << "请重新输入名称!" << endl;
+			std::cout << "Configuration file" << ".\\SourceFileExtendedName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
+			HANDLE hFILE = CreateFile(".\\SourceFileExtendedName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileExtendedName;
 		}
 
 		system("cls");
 
 		std::cout << "\n";
-		std::cout << "如果在当前文件夹下配置文件[.\\*.INI]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
-		std::cout << "If the configuration file [.\\*.INI] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
+		std::cout << "如果在当前文件夹下配置文件[.\\*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
+		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file temp add name.\nDo not enter spaces!\n[-DECRYPTED]:" << endl;
 		std::cout << "输出文件临时添加名，不要输入空格[-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出文件临时添加名，并保存
 		std::cout << "Prevent source encrypted files from being overwritten" << endl;
@@ -643,8 +674,8 @@ int main()
 
 	if (Load_User_Keyboard_Input == "4")
 	{
-	Clear_Workspace_Restart:
-		string Clear_Workspace;
+	Waring_Information:
+		string You_understand;
 		system("color 0C");
 		std::cout << "[警告!]即将进行的操作，会选中 <File-Key-Record-Log> 和 <WorkPath> 文件夹，然后永久的删除所有数据!\n" << endl;
 		std::cout << "包括源文件、生成的加密文件、生成的解密文件、密码日志、配置\n" << endl;
@@ -653,101 +684,34 @@ int main()
 		std::cout << "[Warning!] The upcoming operation will select the <File-Key-Record-Log>and <WorkPath folders>, and then permanently delete all the data!\n" << endl;
 		std::cout << "Including source files, generated encrypted files, generated decrypted files, password logs, configuration\n" << endl;
 		std::cout << "If you know the risk, press the keypad [Y key to continue N key to return]\n[Yes / No]" << endl;
-		std::cin >> Clear_Workspace;
+		std::cin >> You_understand; //你了解风险？ You understand the risks?
 
 
-		if (Clear_Workspace == "N")
+		if (You_understand == "N")
 		{
 			goto ProgramMainMenu;
 		}
-		if (Clear_Workspace == "n")
+		if (You_understand == "n")
 		{
 			goto ProgramMainMenu;
 		}
-		if (Clear_Workspace == "Y")
+		if (You_understand== "Y")
 		{
-			DeleteFile(".\\SourceFileName_Temp.INI");
-			DeleteFile(".\\SourceFileMainName_Temp.INI");
-			DeleteFile(".\\SourceFileExtendedName_Temp.INI");
-
-			system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\*.*");
-
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\InputFile\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\OutputFile\\*.*");
-
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\InputFile\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\OutputFile\\*.*");
-
-			system("@Rmdir /s /q .\\File-Key-Record-Log\\");
-
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\InputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\");
-
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
-			system("@Rmdir /s /q .\\WorkPath\\");
-
-			system("cls");
+			CleanFileFromThisWorkspace();
 
 			goto ProgramMainMenu;
-
 		}
-		if (Clear_Workspace == "y")
+		if (You_understand == "y")
 		{
-			DeleteFile(".\\SourceFileName_Temp.INI");
-			DeleteFile(".\\SourceFileMainName_Temp.INI");
-			DeleteFile(".\\SourceFileExtendedName_Temp.INI");
-
-			system("@Del /s /f /q .\\File-Key-Record-Log\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\*.*");
-
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\InputFile\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Encrypt\\OutputFile\\*.*");
-
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\InputFile\\*.*");
-			system("@Del /s /f /q .\\WorkPath\\Decrypt\\OutputFile\\*.*");
-
-			system("@Rmdir /s /q .\\File-Key-Record-Log\\");
-
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\OutputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\InputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Encrypt\\");
-
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
-			system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
-			system("@Rmdir /s /q .\\WorkPath\\");
-
-			system("cls");
+			CleanFileFromThisWorkspace();
 
 			goto ProgramMainMenu;
-
 		}
-		if (Clear_Workspace != "Y")
+		else
 		{
-			goto Clear_Workspace_Restart;
+			goto Waring_Information;
 		}
-		if (Clear_Workspace != "N")
-		{
-			goto Clear_Workspace_Restart;
-		}
-		if (Clear_Workspace != "y")
-		{
-			goto Clear_Workspace_Restart;
-		}
-		if (Clear_Workspace != "n")
-		{
-			goto Clear_Workspace_Restart;
-		}
-
-	}
+}
 
 /****************************************************************************************************************************************************************/
 

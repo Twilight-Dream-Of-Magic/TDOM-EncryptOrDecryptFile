@@ -73,6 +73,19 @@
     return 1;
         }
 
+/*******************************************
+*                 解密文件
+*
+* D_SourceFileName    要解密的文件名
+* D_KEY               密钥
+* D_TargetFileNewName 解密后要保存的文件名
+*
+* @return  解密成功或失败的数字表示
+*
+* 0 = 解密失败
+* 1 = 解密成功
+********************************************/
+
         int RunDecryptFile(char *D_SourceFileName, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_TargetFileNewName)
         {
             FILE *FilePointerSource, *FilePointerTarget;    //要打开的文件的指针
@@ -101,19 +114,6 @@
                getchar();
              return 0;
              }
-
-/*******************************************
-*                 解密文件
-*
-* D_SourceFileName    要解密的文件名
-* D_KEY               密钥
-* D_TargetFileNewName 解密后要保存的文件名
-*
-* @return  解密成功或失败的数字表示
-*
-* 0 = 解密失败
-* 1 = 解密成功
-********************************************/
 
 /*解密算法开始*/
             while((FileByteData = fread(buffer, 1, KeyLength, FilePointerSource)) > 0 ) //不断地从文件中读取 KeyLength 长度的数据，保存到buffer，直到文件结束

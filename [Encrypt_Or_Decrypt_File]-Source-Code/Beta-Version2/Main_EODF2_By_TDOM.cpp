@@ -139,7 +139,7 @@ ProgramMainMenu:
 
 			std :: cout << "正在记录并导出，本次用于文件加密，3个密钥字符串......" << endl;
 			std :: cout << "Is being recorded and exported, this time for file encryption, 3 key string......" << endl;
-			
+
 			ofstream PasswordSaveToKeyFile;
 			PasswordSaveToKeyFile.open("FILE-ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
 			PasswordSaveToKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
@@ -222,13 +222,13 @@ ProgramMainMenu:
 
 	if(Load_User_Keyboard_Input == "3")
 	{
-	return 0;
+		return 0;
 	}
 	else
 	{
-	std :: cout << "User Input Error !" << endl;
-	getchar();
-	exit(1);
+		std :: cout << "User Input Error !" << endl;
+		getchar();
+		exit(1);
 	}
 }
 

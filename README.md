@@ -4,31 +4,42 @@ English
 
 1.At present this procedure, only need to do some landscaping, as well as detailed adjustments to the manual.
 
-2.Do not need to do much change.
+2.So, do not need to do much change for code.
 
-3.Of course, if you need to change it. Give me a better suggestion, let me write this procedure.
+3.Of course, if you need me to change code it.
+Please give me a better suggestion, let me write this procedure(program).
+
+4. Sometimes the test version of the project (Preview test version code project), there will be some new test functions and change the code structure.
+If the code (75%) is changed too much, it may not be compatible with the previous version.
+Although they may be problematic code or the code that does not fully implement my ideas, this is a new attempt that I can make every time I upgrade my code. 
+This will make me progress in programming techniques. I share my the little achievements of programming made me feel satisfied.
+In addition, I very much welcome everyone to help me. For those who can give me, financial sponsorship and technical support, I would like to express my strong gratitude and thank you for your attention and support!
 
 
 
-This code repository consists of [Twlilght-Dream-Of-Magic] Twlilght_Yujiang author, compiled and built!
+This code repository consists of [Twilight-Dream-Of-Magic] author, compiled and built!
 
 IDE: Integrated development environment
 
-It is best not to use Code Block IDE, to build this project!
+~~It is best not to use Code Block IDE, to build this project!~~
 
-Although i provided the [* .cbp] file! (Code Block Project File)
+~~Although i provided the [* .cbp] file! (Code Block Project File)~~
 
 
 
-Best to use Makefile build project!
+The best option is to use Makefile to build this project!
 
-If you need to view my Makefile help, the command line input [make help].
+If you need to view the script file for my provided.
+
+(Makefile) command help information, please use the command line to enter `make help` in the same directory of this file.
+
+
 
 This Makefile file
 
-Applicable to (Microsoft Windows) system (already completed, the code has BUG please Github message)
+Applicable to (Microsoft Windows) system (Already completed, the code has BUG please create from Github issues message)
 
-Applicable to (Linux) system (still in plan .......)
+Applicable to (Linux) system (Still in plan .......)
 
 
 
@@ -40,38 +51,49 @@ This warehouse, each version of the project folder, please create a new IDE proj
 
 Chinese
 
-1.Ä¿Ç°Õâ¸ö³ÌĞò£¬Ö»ĞèÒª×öÒ»Ğ©ÃÀ»¯£¬»¹ÓĞËµÃ÷ÊéµÄÏêÏ¸µ÷Õû¡£
+1.ç›®å‰è¿™ä¸ªç¨‹åºï¼Œåªéœ€è¦åšä¸€äº›ç¾åŒ–ï¼Œè¿˜æœ‰è¯´æ˜ä¹¦çš„è¯¦ç»†è°ƒæ•´ã€‚
 
-2.²»ĞèÒª×öÊ²Ã´Ì«´óµÄ¸Ä¶¯¡£
+2.æ‰€ä»¥ï¼Œä¸éœ€è¦ä¸ºä»£ç åšå¤ªå¤šæ”¹å˜ã€‚
 
-3.µ±È»£¬Èç¹ûÄãĞèÒª¸Ä¶¯µÄ»°¡£¸øÎÒ¸üºÃµÄ½¨Òé£¬ÈÃÎÒÈ¥±àĞ´Õâ¸ö³ÌĞò¡£
+3.å½“ç„¶ï¼Œå¦‚æœä½ éœ€è¦æˆ‘æ”¹åŠ¨ä»£ç çš„è¯ã€‚
+è¯·ç»™æˆ‘æ›´å¥½çš„å»ºè®®ï¼Œè®©æˆ‘å»ç¼–å†™è¿™ä¸ªç¨‹åºã€‚
 
-
-
-Õâ¸ö´úÂë²Ö¿âÓÉ [Twlilght-Dream-Of-Magic] Twlilght_Yujiang ×÷Õß£¬±àÒëºÍ¹¹½¨!
-
-IDE £º ¼¯³É¿ª·¢»·¾³
-
-×îºÃ²»ÒªÊ¹ÓÃCode Block IDE£¬À´¹¹½¨Õâ¸ö¹¤³Ì£¡
-
-ËäÈ»ÎÒÌá¹©ÁË[*.cbp]ÎÄ¼ş£¡(Code Block Project File)
+4.æœ‰æ—¶å€™æµ‹è¯•ç‰ˆæœ¬é¡¹ç›®(Preview test version code project)ï¼Œå°†ä¼šæœ‰ä¸€äº›æ–°çš„æµ‹è¯•åŠŸèƒ½å’Œæ”¹å˜ä»£ç ç»“æ„ã€‚
+å¦‚æœå‘ç”Ÿäº†å¤ªå¤§æ”¹å˜çš„ä»£ç (75%)ï¼Œä¹Ÿè®¸ä¼šè®©å®ƒä¸ä»¥å‰ç‰ˆæœ¬ä¸å…·æœ‰å…¼å®¹æ€§ã€‚
+è™½ç„¶å®ƒä»¬å¯èƒ½æ˜¯æœ‰é—®é¢˜çš„ä»£ç æˆ–æ²¡æœ‰æŠŠæˆ‘çš„æƒ³æ³•æ¥å®Œå…¨å®ç°çš„ä»£ç  ï¼Œä½†æ˜¯è¿™éƒ½æ˜¯æˆ‘æ¯ä¸€æ¬¡å‡çº§ä»£ç ï¼Œèƒ½å¤Ÿåšåˆ°çš„æ–°å°è¯•ã€‚
+è¿™ä¼šè®©æˆ‘æœ‰ç¼–ç¨‹æŠ€æœ¯çš„è¿›æ­¥ï¼Œæˆ‘åˆ†äº«æˆ‘çš„ç¼–ç¨‹å°æˆå°±ï¼Œä½¿æˆ‘å¾—åˆ°æ»¡è¶³çš„æ„Ÿè§‰ã€‚
+å¦å¤–ï¼Œæˆ‘éå¸¸æ¬¢è¿å¤§å®¶æ¥å¸®åŠ©æˆ‘ï¼Œå¯¹äºé‚£äº›èƒ½å¤Ÿç»™äºˆæˆ‘ï¼Œèµ„é‡‘èµåŠ©å’ŒæŠ€æœ¯æ”¯æŒçš„äººä»¬ï¼Œæˆ‘è¡¨ç¤ºå¼ºçƒˆçš„æ„Ÿè°¢ï¼Œè°¢è°¢å¤§å®¶çš„å…³æ³¨å’Œæ”¯æŒ!
 
 
 
-×îºÃÊ¹ÓÃMakefile¹¹½¨¹¤³Ì!
+è¿™ä¸ªä»£ç ä»“åº“ç”± [Twilight-Dream-Of-Magic] ä½œè€…ï¼Œç¼–è¯‘å’Œæ„å»º!
 
-Èç¹ûĞèÒª£¬²é¿´ÎÒµÄMakefile°ïÖú£¬ÃüÁîĞĞÊäÈë[make help]
+IDE ï¼š é›†æˆå¼€å‘ç¯å¢ƒ
 
-Õâ¸öMakefileÎÄ¼ş
+~~æœ€å¥½ä¸è¦ä½¿ç”¨Code Block IDEï¼Œæ¥æ„å»ºè¿™ä¸ªå·¥ç¨‹ï¼~~
 
-ÊÊÓÃÓÚ(Microsoft Windows)ÏµÍ³ (ÒÑ¾­Íê³É£¬´úÂëÓĞBUGÇëÔÚGithubÉÏÁôÑÔ)
-
-ÊÊÓÃÓÚ(Linux)ÏµÍ³ (»¹ÔÚ¼Æ»®ÖĞ.......)
+~~è™½ç„¶æˆ‘æä¾›äº†[*.cbp]æ–‡ä»¶ï¼(Code Block Project File)~~
 
 
 
-Èç¹ûÄãÒªÊ¹ÓÃIDE¹¹½¨Õâ¸ö¹¤³Ì£¬ÇëÇø·ÖÃ¿Ò»¸ö°æ±¾£¡
+æœ€å¥½çš„é€‰æ‹©ï¼Œæ˜¯ä½ ä½¿ç”¨Makefileæ„å»ºè¿™ä¸ªå·¥ç¨‹!
 
-Õâ¸ö²Ö¿â£¬Ã¿Ò»¸ö°æ±¾µÄ¹¤³ÌÎÄ¼ş¼Ğ£¬ÇëĞÂ½¨Ò»¸öIDE¹¤³ÌÎÄ¼ş£¬È»ºó¹ØÁª!
+å¦‚æœä½ éœ€è¦æŸ¥çœ‹ï¼Œæˆ‘æä¾›çš„è„šæœ¬æ–‡ä»¶ã€‚
+
+(Makefile)çš„å‘½ä»¤å¸®åŠ©ä¿¡æ¯ï¼Œè¯·åœ¨è¿™ä¸ªæ–‡ä»¶çš„åŒä¸€ä¸ªç›®å½•ä¸‹ï¼Œä½¿ç”¨å‘½ä»¤è¡Œè¾“å…¥ `make help`
+
+
+
+è¿™ä¸ªMakefileæ–‡ä»¶
+
+é€‚ç”¨äº(Microsoft Windows)ç³»ç»Ÿ (å·²ç»å®Œæˆï¼Œä»£ç æœ‰BUGè¯·åœ¨Githubä¸Šåˆ›å»ºé—®é¢˜ç•™è¨€)
+
+é€‚ç”¨äº(Linux)ç³»ç»Ÿ (è¿˜åœ¨è®¡åˆ’ä¸­.......)
+
+
+
+å¦‚æœä½ è¦ä½¿ç”¨IDEæ„å»ºè¿™ä¸ªå·¥ç¨‹ï¼Œè¯·åŒºåˆ†æ¯ä¸€ä¸ªç‰ˆæœ¬ï¼
+
+è¿™ä¸ªä»“åº“ï¼Œæ¯ä¸€ä¸ªç‰ˆæœ¬çš„å·¥ç¨‹æ–‡ä»¶å¤¹ï¼Œè¯·æ–°å»ºä¸€ä¸ªIDEå·¥ç¨‹æ–‡ä»¶ï¼Œç„¶åå…³è”!
 
 ------------------------------------------------------------------------------------------------------------------------

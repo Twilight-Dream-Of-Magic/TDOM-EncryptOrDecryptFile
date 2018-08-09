@@ -1,0 +1,74 @@
+###This File Is Makefile Script Header!
+
+#Workspace File
+
+HIDDEN_RUN_MODE=@echo off
+COMMAND_WINDOW_COLOR=@color
+
+DELETE=@del /s /f /q
+CREATE_FOLDER=@mkdir
+REMOVE_FOLDER=@rmdir /s /q
+
+#gcc.exe -s -o
+#gcc.exe -finput-charset=GB2312 -fexec-charset=UTF-8
+#gcc.exe -finput-charset=GBK -fexec-charset=UTF-8
+#gcc.exe -finput-charset=UTF-8 -fexec-charset=GB2312
+#gcc.exe -finput-charset=UTF-8 -fexec-charset=GBK
+
+MINGW_CPP=@g++ -fexec-charset=GBK -O2 -c
+MINGW_DEBUG_CPP=@g++ -fexec-charset=GBK -fexceptions -g -c
+MINGW_WARNING=@g++ -Wall -fexec-charset=GBK -O2 -c
+LINKING_OBJECTIVES=g++ -shared
+STATIC_LINKING_OBJECTIVES=g++ -static
+
+#Source Code File
+
+SOURCES_VERSION="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version\\Main_EODF_By_TDOM.cpp"
+SOURCES_VERSION2="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version2\\Main_EODF2_By_TDOM.cpp"
+SOURCES_VERSION3="..\\[Encrypt_Or_Decrypt_File]-Source-Code\\Beta-Version3\\Main_EODF3_By_TDOM.cpp"
+
+#Debug File Configure
+
+DEBUG_OBJECTIVES_VERSION="..\\Objectives\\Debug\\EODF\\Beta-Version\\Main_EODF_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION2="..\\Objectives\\Debug\\EODF\\Beta-Version2\\Main_EODF2_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION3="..\\Objectives\\Debug\\EODF\\Beta-Version3\\Main_EODF3_By_TDOM.o"
+
+DEBUG_EXECUTE_FILE_VERSION="..\\Binary\\Debug\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_DebugVersion.exe"
+DEBUG_EXECUTE_FILE_VERSION2="..\\Binary\\Debug\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_DebugVersion2.exe"
+DEBUG_EXECUTE_FILE_VERSION3="..\\Binary\\Debug\\EODF\\Beta-Version3\\CUI_EncryptDecryptFile_DebugVersion3.exe"
+
+DEBUG_STATIC_EXECUTE_FILE_VERSION="..\\Binary\\Debug\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_DebugVersion-StaticDatabaseLink.exe"
+DEBUG_STATIC_EXECUTE_FILE_VERSION2="..\\Binary\\Debug\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_DebugVersion2-StaticDatabaseLink.exe"
+DEBUG_STATIC_EXECUTE_FILE_VERSION3="..\\Binary\\Debug\\EODF\\Beta-Version3\\CUI_EncryptDecryptFile_DebugVersion3-StaticDatabaseLink.exe"
+
+#Release File Configure
+
+RELEASE_OBJECTIVES_VERSION="..\\Objectives\\Release\\EODF\\Beta-Version\\Main_EODF_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION2="..\\Objectives\\Release\\EODF\\Beta-Version2\\Main_EODF2_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION3="..\\Objectives\\Release\\EODF\\Beta-Version3\\Main_EODF3_By_TDOM.o"
+
+RELEASE_EXECUTE_FILE_VERSION="..\\Binary\\Release\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_BetaVersion.exe"
+RELEASE_EXECUTE_FILE_VERSION2="..\\Binary\\Release\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_BetaVersion2.exe"
+RELEASE_EXECUTE_FILE_VERSION3="..\\Binary\\Release\\EODF\\Beta-Version3\\CUI_EncryptDecryptFile_BetaVersion3.exe"
+
+RELEASE_STATIC_EXECUTE_FILE_VERSION="..\\Binary\\Release\\EODF\\Beta-Version\\CUI_EncryptDecryptFile_BetaVersion-StaticDatabaseLink.exe"
+RELEASE_STATIC_EXECUTE_FILE_VERSION2="..\\Binary\\Release\\EODF\\Beta-Version2\\CUI_EncryptDecryptFile_BetaVersion2-StaticDatabaseLink.exe"
+RELEASE_STATIC_EXECUTE_FILE_VERSION3="..\\Binary\\Release\\EODF\\Beta-Version3\\CUI_EncryptDecryptFile_BetaVersion3-StaticDatabaseLink.exe"
+
+#Make Workspace Folder
+
+DEBUG_OBJECTIVES_VERSION_FOLDER="..\\Objectives\\Debug\\EODF\\Beta-Version\\"
+DEBUG_OBJECTIVES_VERSION2_FOLDER="..\\Objectives\\Debug\\EODF\\Beta-Version2\\"
+DEBUG_OBJECTIVES_VERSION3_FOLDER="..\\Objectives\\Debug\\EODF\\Beta-Version3\\"
+
+DEBUG_EXECUTE_VERSION_FOLDER="..\\Binary\\Debug\\EODF\\Beta-Version\\"
+DEBUG_EXECUTE_VERSION2_FOLDER="..\\Binary\\Debug\\EODF\\Beta-Version2\\"
+DEBUG_EXECUTE_VERSION3_FOLDER="..\\Binary\\Debug\\EODF\\Beta-Version3\\"
+
+RELEASE_OBJECTIVES_VERSION_FOLDER="..\\Objectives\\Release\\EODF\\Beta-Version\\"
+RELEASE_OBJECTIVES_VERSION2_FOLDER="..\\Objectives\\Release\\EODF\\Beta-Version2\\"
+RELEASE_OBJECTIVES_VERSION3_FOLDER="..\\Objectives\\Release\\EODF\\Beta-Version3\\"
+
+RELEASE_EXECUTE_VERSION_FOLDER="..\\Binary\\Release\\EODF\\Beta-Version\\"
+RELEASE_EXECUTE_VERSION2_FOLDER="..\\Binary\\Release\\EODF\\Beta-Version2\\"
+RELEASE_EXECUTE_VERSION3_FOLDER="..\\Binary\\Release\\EODF\\Beta-Version3\\"

@@ -1,0 +1,169 @@
+###This File Is Makefile Script Header
+
+## Terminal color template beginning
+
+Color_off='\033[0m'       # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+
+# Bold
+BBlack='\033[1;30m'       # Black
+BRed='\033[1;31m'         # Red
+BGreen='\033[1;32m'       # Green
+BYellow='\033[1;33m'      # Yellow
+BBlue='\033[1;34m'        # Blue
+BPurple='\033[1;35m'      # Purple
+BCyan='\033[1;36m'        # Cyan
+BWhite='\033[1;37m'       # White
+
+# Underline
+UBlack='\033[4;30m'       # Black
+URed='\033[4;31m'         # Red
+UGreen='\033[4;32m'       # Green
+UYellow='\033[4;33m'      # Yellow
+UBlue='\033[4;34m'        # Blue
+UPurple='\033[4;35m'      # Purple
+UCyan='\033[4;36m'        # Cyan
+UWhite='\033[4;37m'       # White
+
+# Background
+BG_Black='\033[40m'       # Black
+BG_Red='\033[41m'         # Red
+BG_Green='\033[42m'       # Green
+BG_Yellow='\033[43m'      # Yellow
+BG_Blue='\033[44m'        # Blue
+BG_Purple='\033[45m'      # Purple
+BG_Cyan='\033[46m'        # Cyan
+BG_White='\033[47m'       # White
+
+# High Intensity
+HI_Black='\033[0;90m'       # Black
+HI_Red='\033[0;91m'         # Red
+HI_Green='\033[0;92m'       # Green
+HI_Yellow='\033[0;93m'      # Yellow
+HI_Blue='\033[0;94m'        # Blue
+HI_Purple='\033[0;95m'      # Purple
+HI_Cyan='\033[0;96m'        # Cyan
+HI_White='\033[0;97m'       # White
+
+# Bold High Intensity
+BHI_Black='\033[1;90m'      # Black
+BHI_Red='\033[1;91m'        # Red
+BHI_Green='\033[1;92m'      # Green
+BHI_Yellow='\033[1;93m'     # Yellow
+BHI_Blue='\033[1;94m'       # Blue
+BHI_Purple='\033[1;95m'     # Purple
+BHI_Cyan='\033[1;96m'       # Cyan
+BHI_White='\033[1;97m'      # White
+
+# High Intensity backgrounds
+HIBG_Black='\033[0;100m'   # Black
+HIBG_Red='\033[0;101m'     # Red
+HIBG_Green='\033[0;102m'   # Green
+HIBG_Yellow='\033[0;103m'  # Yellow
+HIBG_Blue='\033[0;104m'    # Blue
+HIBG_Purple='\033[0;105m'  # Purple
+HIBG_Cyan='\033[0;106m'    # Cyan
+HIBG_White='\033[0;107m'   # White
+
+## Terminal color template end
+
+HIDDEN_CURSOR_MODE=echo -e "\033[?25l"
+SHOW_CURSOR_MODE=echo -e "\033[?25h"
+
+CONSOLE_COLOR=echo -e $(Black)
+CONSOLE_COLOR1=echo -e $(Red)
+CONSOLE_COLOR2=echo -e $(Green)
+CONSOLE_COLOR3=echo -e $(Yellow)
+CONSOLE_COLOR4=echo -e $(Blue)
+CONSOLE_COLOR5=echo -e $(Purple)
+CONSOLE_COLOR6=echo -e $(Cyan)
+CONSOLE_COLOR7=echo -e $(White)
+CONSOLE_COLOR8=echo -e $(BBlack)
+CONSOLE_COLOR9=echo -e $(BRed)
+CONSOLE_COLOR10=echo -e $(BGreen)
+CONSOLE_COLOR11=echo -e $(BYellow)
+CONSOLE_COLOR12=echo -e $(BBlue)
+CONSOLE_COLOR13=echo -e $(BPurple)
+CONSOLE_COLOR14=echo -e $(BCyan)
+CONSOLE_COLOR15=echo -e $(BWhite)
+CONSOLE_COLOR16=echo -e $(UBlack)
+DEFAULT_COLOR=echo -e $(Color_off)
+
+#Workspace File
+
+DELETE=rm --force --verbose
+CREATE_FOLDER=mkdir --parents --verbose
+REMOVE_FOLDER=rm --dir --verbose
+
+#gcc -s -o
+#gcc -finput-charset=GB2312 -fexec-charset=UTF-8
+#gcc -finput-charset=GBK -fexec-charset=UTF-8
+#gcc -finput-charset=UTF-8 -fexec-charset=GB2312
+#gcc -finput-charset=UTF-8 -fexec-charset=GBK
+
+MINGW_CPP=g++ -fexec-charset=UTF-8 -O2 -c
+MINGW_DEBUG_CPP=g++ -fexec-charset=UTF-8 -fexceptions -g -c
+MINGW_WARNING=g++ -Wall -fexec-charset=UTF-8 -O2 -c
+LINKING_OBJECTIVES=g++ -shared
+STATIC_LINKING_OBJECTIVES=g++ -static
+
+#Source Code File
+
+SOURCES_VERSION="..//[Encrypt_Or_Decrypt_File]-Source-Code//Other-System//Linux//Beta-Version//Main_EODF_By_TDOM.cpp"
+SOURCES_VERSION2="..//[Encrypt_Or_Decrypt_File]-Source-Code/Other-System//Linux//Beta-Version2//Main_EODF2_By_TDOM.cpp"
+SOURCES_VERSION3="..//[Encrypt_Or_Decrypt_File]-Source-Code//Other-System//Linux//Beta-Version3//Main_EODF3_By_TDOM.cpp"
+
+#Debug File Configure
+
+DEBUG_OBJECTIVES_VERSION="..//Objectives//Linux//Debug//EODF//Beta-Version//Main_EODF_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION2="..//Objectives//Linux//Debug//EODF//Beta-Version2//Main_EODF2_By_TDOM.o"
+DEBUG_OBJECTIVES_VERSION3="..//Objectives//Linux//Debug//EODF//Beta-Version3//Main_EODF3_By_TDOM.o"
+
+DEBUG_EXECUTE_FILE_VERSION="..//Binary//Linux//Debug//EODF//Beta-Version//CUI_EncryptDecryptFile_DebugVersion.elf"
+DEBUG_EXECUTE_FILE_VERSION2="..//Binary//Linux//Debug//EODF//Beta-Version2//CUI_EncryptDecryptFile_DebugVersion2.elf"
+DEBUG_EXECUTE_FILE_VERSION3="..//Binary//Linux//Debug//EODF//Beta-Version3//CUI_EncryptDecryptFile_DebugVersion3.elf"
+
+DEBUG_STATIC_EXECUTE_FILE_VERSION="..//Binary//Linux//Debug//EODF//Beta-Version//CUI_EncryptDecryptFile_DebugVersion-StaticDatabaseLink.elf"
+DEBUG_STATIC_EXECUTE_FILE_VERSION2="..//Binary//Linux//Debug//EODF//Beta-Version2//CUI_EncryptDecryptFile_DebugVersion2-StaticDatabaseLink.elf"
+DEBUG_STATIC_EXECUTE_FILE_VERSION3="..//Binary//Linux//Debug//EODF//Beta-Version3//CUI_EncryptDecryptFile_DebugVersion3-StaticDatabaseLink.elf"
+
+#Release File Configure
+
+RELEASE_OBJECTIVES_VERSION="..//Objectives//Linux//Release//EODF//Beta-Version//Main_EODF_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION2="..//Objectives//Linux//Release//EODF//Beta-Version2//Main_EODF2_By_TDOM.o"
+RELEASE_OBJECTIVES_VERSION3="..//Objectives//Linux//Release//EODF//Beta-Version3//Main_EODF3_By_TDOM.o"
+
+RELEASE_EXECUTE_FILE_VERSION="..//Binary//Linux//Release//EODF//Beta-Version//CUI_EncryptDecryptFile_BetaVersion.elf"
+RELEASE_EXECUTE_FILE_VERSION2="..//Binary//Linux//Release//EODF//Beta-Version2//CUI_EncryptDecryptFile_BetaVersion2.elf"
+RELEASE_EXECUTE_FILE_VERSION3="..//Binary//Linux//Release//EODF//Beta-Version3//CUI_EncryptDecryptFile_BetaVersion3.elf"
+
+RELEASE_STATIC_EXECUTE_FILE_VERSION="..//Binary//Linux//Release//EODF//Beta-Version//CUI_EncryptDecryptFile_BetaVersion-StaticDatabaseLink.elf"
+RELEASE_STATIC_EXECUTE_FILE_VERSION2="..//Binary//Linux//Release//EODF//Beta-Version2//CUI_EncryptDecryptFile_BetaVersion2-StaticDatabaseLink.elf"
+RELEASE_STATIC_EXECUTE_FILE_VERSION3="..//Binary//Linux//Release//EODF//Beta-Version3//CUI_EncryptDecryptFile_BetaVersion3-StaticDatabaseLink.elf"
+
+#Make Workspace Folder
+
+DEBUG_OBJECTIVES_VERSION_FOLDER="..//Objectives//Linux//Debug//EODF//Beta-Version//"
+DEBUG_OBJECTIVES_VERSION2_FOLDER="..//Objectives//Linux//Debug//EODF//Beta-Version2//"
+DEBUG_OBJECTIVES_VERSION3_FOLDER="..//Objectives//Linux//Debug//EODF//Beta-Version3//"
+
+DEBUG_EXECUTE_VERSION_FOLDER="..//Binary//Linux//Debug//EODF//Beta-Version//"
+DEBUG_EXECUTE_VERSION2_FOLDER="..//Binary//Linux//Debug//EODF//Beta-Version2//"
+DEBUG_EXECUTE_VERSION3_FOLDER="..//Binary//Linux//Debug//EODF//Beta-Version3//"
+
+RELEASE_OBJECTIVES_VERSION_FOLDER="..//Objectives//Linux//Release//EODF//Beta-Version//"
+RELEASE_OBJECTIVES_VERSION2_FOLDER="..//Objectives//Linux//Release//EODF//Beta-Version2//"
+RELEASE_OBJECTIVES_VERSION3_FOLDER="..//Objectives//Linux//Release//EODF//Beta-Version3//"
+
+RELEASE_EXECUTE_VERSION_FOLDER="..//Binary//Linux//Release//EODF//Beta-Version//"
+RELEASE_EXECUTE_VERSION2_FOLDER="..//Binary//Linux//Release//EODF//Beta-Version2//"
+RELEASE_EXECUTE_VERSION3_FOLDER="..//Binary//Linux//Release//EODF//Beta-Version3//"

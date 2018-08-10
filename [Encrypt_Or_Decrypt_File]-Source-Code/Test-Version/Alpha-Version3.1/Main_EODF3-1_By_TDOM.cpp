@@ -150,6 +150,7 @@ void CleanFileFromThisWorkspace()
 	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\OutputFile\\");
 	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\InputFile\\");
 	system("@Rmdir /s /q .\\WorkPath\\Decrypt\\");
+
 	system("@Rmdir /s /q .\\WorkPath\\");
 
 	system("cls");

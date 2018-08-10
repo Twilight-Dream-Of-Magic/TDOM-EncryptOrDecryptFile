@@ -145,18 +145,19 @@ void CleanFileFromThisWorkspace()
 
 	system("rm --force --verbose .//WorkPath//Decrypt//*.*");
 	system("rm --force --verbose .//WorkPath//Decrypt//InputFile//*.*");
-	system("rm --force --verbose.//WorkPath//Decrypt//OutputFile//*.*");
+	system("rm --force --verbose .//WorkPath//Decrypt//OutputFile//*.*");
 
-	system("rm --force --verbose .//File-Key-Record-Log//");
+	system("rm --recursive --force --verbose .//File-Key-Record-Log//");
 
-	system("rm --force --verbose .//WorkPath//Encrypt//OutputFile//");
-	system("rm --force --verbose .//WorkPath//Encrypt//InputFile//");
-	system("rm --force --verbose .//WorkPath//Encrypt//");
+	system("rm --force --dir --verbose .//WorkPath//Encrypt//OutputFile//");
+	system("rm --force --dir --verbose .//WorkPath//Encrypt//InputFile//");
+	system("rm --force --dir --verbose .//WorkPath//Encrypt//");
 
-	system("rm --force --verbose .//WorkPath//Decrypt//OutputFile//");
-	system("rm --force --verbose .//WorkPath//Decrypt//InputFile//");
-	system("rm --force --verbose .//WorkPath//Decrypt//");
-	system("rm --force --verbose .//WorkPath//");
+	system("rm --force --dir --verbose .//WorkPath//Decrypt//OutputFile//");
+	system("rm --force --dir --verbose .//WorkPath//Decrypt//InputFile//");
+	system("rm --force --dir --verbose .//WorkPath//Decrypt//");
+
+	system("rm --recursive --force --dir --verbose .//WorkPath//");
 
 	system("clear");
 }

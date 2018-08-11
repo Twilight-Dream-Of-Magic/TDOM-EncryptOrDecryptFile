@@ -388,7 +388,7 @@ int main()
 
     ofstream KeyStringSaveToFile;
 
-    KeyStringSaveToFile.open(".//File-Key-Record-Log//ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
+    KeyStringSaveToFile.open(".//File-Key-Record-Log//ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
 
 	KeyStringSaveToFile << "<******************************************************************************************>" << "\n" << endl;
     KeyStringSaveToFile << "Log Time:" << " " << now_time_char << "\n" << endl;

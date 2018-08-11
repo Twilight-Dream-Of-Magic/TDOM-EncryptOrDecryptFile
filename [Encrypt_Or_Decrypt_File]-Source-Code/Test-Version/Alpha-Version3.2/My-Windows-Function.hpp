@@ -1,3 +1,5 @@
+#pragma once
+
 void ConsoleTableColorSet(int R, int G, int B)
 {
 	if (R < 0) R = 0;

@@ -298,7 +298,7 @@ int CTUI()
 
     ofstream KeyStringSaveToFile;
 
-    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
+    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
 
     KeyStringSaveToFile << "Log Time:" << " " << now_time_char << "\n" << endl;
     KeyStringSaveToFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;

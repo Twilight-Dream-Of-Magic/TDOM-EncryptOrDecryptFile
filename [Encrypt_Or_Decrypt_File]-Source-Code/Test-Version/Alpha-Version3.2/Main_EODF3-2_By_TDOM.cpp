@@ -93,7 +93,7 @@ int main (int argc, char *argv[])
 
     ofstream KeyStringSaveToFile;
 
-    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
+    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
 
     KeyStringSaveToFile << "Log Time:" << " " << now_time_char << "\n" << endl;
     KeyStringSaveToFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
@@ -108,7 +108,20 @@ int main (int argc, char *argv[])
 
     KeyStringSaveToFile.close();
 
-    RunEncryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]);
+    if(RunEncryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]))
+    {
+      printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", argv[3], argv[13]);
+      printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", argv[3], argv[13]);
+      getchar();
+      system("Pause");
+      system("Cls");
+    }
+    else
+    {
+      cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+      cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+      exit(1);
+    }
 
   }
   if (argc == 14 && strcmp(argv[1],"--encrypt") == 0 && strcmp(argv[2],"--source-file") == 0 && strcmp(argv[4],"--key") == 0 && strcmp(argv[6],"--key2") == 0 && strcmp(argv[8],"--key3") == 0 && strcmp(argv[10],"--key4") == 0 && strcmp(argv[12],"--target-file") == 0)
@@ -131,7 +144,7 @@ int main (int argc, char *argv[])
 
     ofstream KeyStringSaveToFile;
 
-    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
+    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
 
     KeyStringSaveToFile << "<******************************************************************************************>" << "\n" << endl;
     KeyStringSaveToFile << "Log Time:" << " " << now_time_char << "\n" << endl;
@@ -148,19 +161,58 @@ int main (int argc, char *argv[])
 
     KeyStringSaveToFile.close();
 
-    RunEncryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]);
+    if(RunEncryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]))
+    {
+      printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", argv[3], argv[13]);
+      printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", argv[3], argv[13]);
+      getchar();
+      system("Pause");
+      system("Cls");
+    }
+    else
+    {
+      cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+      cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+      exit(1);
+    }
 
   }
   if (argc == 14 && strcmp(argv[1],"-d") == 0 && strcmp(argv[2],"-sf") == 0 && strcmp(argv[4],"-k") == 0 && strcmp(argv[6],"-k2") == 0 && strcmp(argv[8],"-k3") == 0 && strcmp(argv[10],"-k4") == 0 && strcmp(argv[12],"-tf") == 0)
   {
 
-    RunDecryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]);
+    if(RunDecryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]))
+    {
+      printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", argv[3], argv[13]);
+      printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", argv[3], argv[13]);
+      getchar();
+      system("Pause");
+      system("Cls");
+    }
+    else
+    {
+      cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+      cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+      exit(1);
+    }
 
   }
   if (argc == 14 && strcmp(argv[1],"--decrypt") == 0 && strcmp(argv[2],"--source-file") == 0 && strcmp(argv[4],"--key") == 0 && strcmp(argv[6],"--key2") == 0 && strcmp(argv[8],"--key3") == 0 && strcmp(argv[10],"--key4") == 0 && strcmp(argv[12],"--target-file") == 0)
   {
 
-    RunDecryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]);
+    if(RunDecryptFile(argv[3],argv[5],argv[7],argv[9],argv[11],argv[13]))
+    {
+      printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", argv[3], argv[13]);
+      printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", argv[3], argv[13]);
+      getchar();
+      system("Pause");
+      system("Cls");
+    }
+    else
+    {
+      cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+      cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+      exit(1);
+    }
 
   }
   else if (argc == 1)

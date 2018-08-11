@@ -126,6 +126,8 @@ long FileHeaderByteData = 0;
 			cout << "Please wait, read and write in the file......" << endl;
 			cout << "请等待，文件读写中......" << endl;
 			system("@color 0D");
+			cout << "The display of the interaction progress has been opened using the request for the encryption function." << endl;
+			cout << "使用加密功能的请求，交互进度的显示已经被打开。" << endl;
 			cout << "Encrypting...... Currently in use the first key" << endl;
 
 			for(NOIEM = 0;NOIEM < MINI_NOT_E_GROUP;NOIEM++)
@@ -485,12 +487,16 @@ long FileHeaderByteData = 0;
 				}
 			}
 
+			system("@color 07");
+			cout << "The display of the interaction progress has been closed for the encryption function." << endl;
+			cout << "已经关闭加密功能的交互进度的显示。" << endl;
+
 			if(NOIEM < MAX_NOT_E_MODULE || 12800)
 			{
 			  break; //End encrypting process
 			}
 
-		};
+		}
 
 /***********************************************************************************************************************************************************/
 
@@ -583,6 +589,8 @@ long FileHeaderByteData = 0;
 			std::cout << "Please wait, read and write in the file......" << endl;
 			std::cout << "请等待，文件读写中......" << endl;
 			system("@color 0D");
+			cout << "The display of the interaction progress has been opened using the request for the decryption function." << endl;
+			cout << "使用解密功能的请求，交互进度的显示已经被打开。" << endl;
 			cout << "Decrypting...... Currently in use the first key" << endl;
 
 			//Mini-Group Decryption Module Key1-Calculate1
@@ -936,12 +944,16 @@ long FileHeaderByteData = 0;
 				}
 			}
 
+			system("@color 07");
+			cout << "The display of the interaction progress has been closed for the decryption function." << endl;
+			cout << "已经关闭解密功能的交互进度的显示。" << endl;
+
 			if(NOIEM < MAX_NOT_D_MODULE || 12800)
 			{
 			  break; //End decrypting process
 			}
 
-		};
+		}
 
 /***********************************************************************************************************************************************************/
 

@@ -1,0 +1,15 @@
+## This changelog copy from the git commit log and message
+
+# From new branch BDP-EODF_Source-Code-3.0_Upgrade-To-Version4.0
+
+* 1.Add console command line mode from windows system project (CUI and CLI)
+* 2.Test version (3.1 - 4.0) the public modify and rename is to Alpha
+* 3.Source code file and binary file of Upload linux system project (CUI and CLI)
+* 4.Update README.md file and create linux script, Makefile has been changed.
+* 5.Please manually compile to update windows binary, because the source code was changed.
+
+# From old branch origin/master
+
+* 1.Remove the meaningless C++ language identifier, and all the text content of the function printed to the screen has been corrected and added to the string content.
+* 2.Some files or folders have been renamed.
+* 3.Old Makefile is deleted

@@ -4,7 +4,7 @@
 
 ##[Github-Master]BackDoorProgram-EncryptOrDecryptFile[2018-06-18].zip (38.79 KiB)
 
-###CRC-32			 96548f1d
+###CRC-32			96548f1d
 ###MD5 Hash			08c7581eea05f12c5248f604775b6151
 ###SHA1 Hash		6749cee895959b360907e8130e7574e5a74b7067
 ###SHA256 Hash		288573e045925c21da2887c71c8e190e9eca791d408c6a7fac4c538c72b2d9f3

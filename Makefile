@@ -1,10 +1,10 @@
-#This File Makefile Scrpit
+#This File Makefile Script
 
 #Comand Separator Tab Keyboard!!!
 
 include Makefile.Header
 
-.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean help LINK_OBJECTIVE LINK_OBJECTIVES
+.PHONY = all beta_version beta_version2 beta_version3 bebug_mode_version bebug_mode_version2 bebug_mode_version3 run.bat run_bebug.bat run run_bebug clean LINK_OBJECTIVE LINK_OBJECTIVES
 all:
 
 	- $(HIDDEN_RUN_MODE)
@@ -164,19 +164,3 @@ clean:
 	- $(REMOVE_FOLDER) ".\\Objectives\\"
 	
 	- $(DELETE) ".\\run_debug.bat"
-
-help:
-
-	- $(HIDDEN_RUN_MODE)
-	- $(COMMAND_WINDOW_COLOR) 11
-	- @echo make all
-	- @echo make debug_mode_version (debug)
-	- @echo make debug_mode_version2 (debug)
-	- @echo make debug_mode_version3 (debug)
-	- @echo make beta_version (release)
-	- @echo make beta_version2 (release)
-	- @echo make beta_version3 (release)
-	- @echo make run
-	- @echo make run_debug
-	- @echo make clean
-	- @echo make help

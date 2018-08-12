@@ -9,7 +9,7 @@ include Makefile.Header
 .PHONY = bebug_mode_version bebug_mode_version2 bebug_mode_version3
 .PHONY = beta_version beta_version2 beta_version3
 .PHONY = run run_bebug run.bat run_bebug.bat
-.PHONY = LINK_OBJECTIVE STATIC_LINKING_OBJECTIVES
+.PHONY = LINKING_OBJECTIVES STATIC_LINKING_OBJECTIVES
 
 
 
@@ -248,7 +248,7 @@ clean:
 	- $(DELETE) "..\\Binary\\Release\\*.exe"
 	- $(DELETE) "..\\Objectives\\Debug\\*.o"
 	- $(DELETE) "..\\Objectives\\Release\\*.o"
-	
+
 	- $(DELETE) "..\\run.bat"
 
 	- $(REMOVE_FOLDER) $(DEBUG_OBJECTIVES_VERSION_FOLDER)
@@ -269,7 +269,7 @@ clean:
 
 	- $(REMOVE_FOLDER) "..\\Binary\\"
 	- $(REMOVE_FOLDER) "..\\Objectives\\"
-	
+
 	- $(DELETE) "..\\run_debug.bat"
 
 

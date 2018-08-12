@@ -351,8 +351,8 @@ int main()
 		std::cout << "正在记录并导出，本次用于文件加密，4个密钥字符串......" << endl;
 		std::cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
 		ofstream PasswordSaveToKeyFile;
-		PasswordSaveToKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
-		PasswordSaveToKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
+		PasswordSaveToKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
+		PasswordSaveToKeyFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
 		PasswordSaveToKeyFile << "\n" << endl;
 		PasswordSaveToKeyFile << "Source Input File Name and Path: " << E_SourceFileStringPath << "\n" << endl;
 		PasswordSaveToKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileStringPath << "\n" << endl;

@@ -141,8 +141,8 @@ ProgramMainMenu:
 			std :: cout << "Is being recorded and exported, this time for file encryption, 3 key string......" << endl;
 
 			ofstream PasswordSaveToKeyFile;
-			PasswordSaveToKeyFile.open("FILE-ENCRYPTION-DECRYPTIPN-PASSWORD.KEY.TXT");
-			PasswordSaveToKeyFile << "Twlilght_Yujiang File Lock Password [Key String] Save\n" << endl;
+			PasswordSaveToKeyFile.open("FILE-ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
+			PasswordSaveToKeyFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
 			PasswordSaveToKeyFile << "\n" << endl;
 			PasswordSaveToKeyFile << "Source Input File Name and Path: " << E_SourceFileName << "\n" << endl;
 			PasswordSaveToKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileNewName << "\n" << endl;

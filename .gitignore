@@ -1,22 +1,35 @@
-#Text File
+#Text file
 *.txt
 *.md
 *.log
 
+# Source code files
+*.c
+*.cc
+*.cpp
+*.cxx
+*.h
+*.hpp
+
 # Prerequisites
 *.d
 
-# Compiled Object files
+# Compiled object files
 *.slo
 *.lo
 *.o
 *.obj
+*.objective-binary
 
-# Precompiled Headers
+# Precompiled headers
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
+# Compiled static libraries
+*.a
+*.lib
+
+# Compiled dynamic libraries
 *.so
 *.dylib
 *.dll
@@ -25,13 +38,28 @@
 *.mod
 *.smod
 
-# Compiled Static libraries
+# Compiled static libraries
 *.lai
 *.la
 *.a
 *.lib
 
-# Executables
+# Executables binary files
 *.exe
-*.out
+*.com
+*.pkg
 *.app
+*.AppImage
+*.elf
+
+# Executables text script files
+*.cmd
+*.bat
+*.sh
+Makefile
+makefile
+
+#Integrated Development Environment - Code Project Files
+*.sln
+*.vcxproj
+*.cbp

@@ -100,10 +100,10 @@ int main (int argc, char *argv[])
     KeyStringSaveToFile << "\n" << endl;
     KeyStringSaveToFile << "Source Input File Name and Path: " << argv[3] << "\n" << endl;
     KeyStringSaveToFile << "EncryptFile: New Output Target File Name and Path: " << argv[13] << "\n" << endl;
-    KeyStringSaveToFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
-    KeyStringSaveToFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
-    KeyStringSaveToFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
-    KeyStringSaveToFile << "Key string4 [Password4]: " << E_KEY4 << "\n" << endl;
+    KeyStringSaveToFile << "Key string1 [Password1]: " << argv[5] << "\n" << endl;
+    KeyStringSaveToFile << "Key string2 [Password2]: " << argv[7] << "\n" << endl;
+    KeyStringSaveToFile << "Key string3 [Password3]: " << argv[9] << "\n" << endl;
+    KeyStringSaveToFile << "Key string4 [Password4]: " << argv[11] << "\n" << endl;
     KeyStringSaveToFile << "<******************************************************************************************>" << "\n" << endl;
 
     KeyStringSaveToFile.close();

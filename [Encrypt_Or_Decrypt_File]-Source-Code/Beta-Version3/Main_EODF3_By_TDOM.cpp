@@ -1,16 +1,16 @@
 /****************************************************************************
 Read Me - About This Source Code File
 
-ChineseÖĞÎÄ:
-¼ÆËã»úÓïÑÔÀàĞÍ: C++
-³ÌĞòÎÄ¼şÃû: File_Lock
-³ÌĞòÆ½Ì¨ÀàĞÍ: Windows ÃüÁîĞĞ¿ØÖÆÌ¨
-³ÌĞòÊµ¼Ê×÷ÓÃ: ÎÄ¼ş¶Ô³ÆÊ½¼ÓÃÜ½âÃÜ
-°æ±¾: Beta 3.0
-Ô´´úÂëĞŞ¸ÄÊ±¼ä: 2018-4-5
-×÷Õß: Twilight-Dream-Of-Magic
+Chineseä¸­æ–‡:
+è®¡ç®—æœºè¯­è¨€ç±»å‹: C++
+ç¨‹åºæ–‡ä»¶å: File_Lock
+ç¨‹åºå¹³å°ç±»å‹: Windows å‘½ä»¤è¡Œæ§åˆ¶å°
+ç¨‹åºå®é™…ä½œç”¨: æ–‡ä»¶å¯¹ç§°å¼åŠ å¯†è§£å¯†
+ç‰ˆæœ¬: Beta 3.0
+æºä»£ç ä¿®æ”¹æ—¶é—´: 2018-4-5
+ä½œè€…: Twilight-Dream-Of-Magic
 
-EnglishÓ¢ÎÄ:
+Englishè‹±æ–‡:
 Computer Language Type: C ++
 Program File Name: File_Lock
 Program Platform Type: Windows Command Line Console
@@ -23,6 +23,8 @@ Author: Twilight-Dream-Of-Magic
 //#include <ImageHlp.h> //MakeSureDirectoryPathExists("");
 //#pragma comment(lib, "ImageHlp.lib")
 
+#include "EODF3_By_TDOM.hpp"
+
 using namespace std;
 
 //typedef unsigned char byte;
@@ -30,39 +32,39 @@ using namespace std;
 int RunEncryptFile(const char *E_SourceFileCharPath, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_KEY4, const char *E_TargetFileCharPath);
 int RunDecryptFile(const char *D_SourceFileCharPath, char *D_KEY, char *D_KEY2, char *D_KEY3, char *D_KEY4, const char *D_TargetFileCharPath);
 
-//ÒÔÏÂ±äÁ¿,Ó¦ÓÃµ½ÎÄ¼ş±»¼ÓÃÜÊ±
+//ä»¥ä¸‹å˜é‡,åº”ç”¨åˆ°æ–‡ä»¶è¢«åŠ å¯†æ—¶
 //The following variables apply when the file is encrypted
-//***ÉùÃ÷´úÂë-¿ªÊ¼ Declare the code - the beginning***
-string E_IF_PATH = ".\\WorkPath\\Encrypt\\InputFile\\", //¼ÓÃÜÖ®Ç°£¬ÎÄ¼şµÄÂ·¾¶ Before encrypting the path of the file
-E_OF_PATH = ".\\WorkPath\\Encrypt\\OutputFile\\"; //¼ÓÃÜÖ®ºó£¬ÎÄ¼şµÄÂ·¾¶ After encrypting the path of the file
+//***å£°æ˜ä»£ç -å¼€å§‹ Declare the code - the beginning***
+string E_IF_PATH = ".\\WorkPath\\Encrypt\\InputFile\\", //åŠ å¯†ä¹‹å‰ï¼Œæ–‡ä»¶çš„è·¯å¾„ Before encrypting the path of the file
+E_OF_PATH = ".\\WorkPath\\Encrypt\\OutputFile\\"; //åŠ å¯†ä¹‹åï¼Œæ–‡ä»¶çš„è·¯å¾„ After encrypting the path of the file
 
-string E_SourceFileName,       // Ô´ÎÄ¼şÃû
-E_SourceFileMainName,     // Ô´ÎÄ¼şÖ÷ÒªÃû
-E_SourceFileExtendedName, // Ô´ÎÄ¼şÀ©Õ¹Ãû
-E_TargetFileExtendedName; // Ä¿±êÎÄ¼şÀ©Õ¹Ãû
+string E_SourceFileName,       // æºæ–‡ä»¶å
+E_SourceFileMainName,     // æºæ–‡ä»¶ä¸»è¦å
+E_SourceFileExtendedName, // æºæ–‡ä»¶æ‰©å±•å
+E_TargetFileExtendedName; // ç›®æ ‡æ–‡ä»¶æ‰©å±•å
 
-char E_KEY[256], //File (Encryption or Encrypted) key ÎÄ¼ş¼ÓÃÜÃÜÔ¿
+char E_KEY[256], //File (Encryption or Encrypted) key æ–‡ä»¶åŠ å¯†å¯†é’¥
 E_KEY2[256],
 E_KEY3[256],
 E_KEY4[256];
-//***ÉùÃ÷´úÂë-½áÊø Declare the code - end***
+//***å£°æ˜ä»£ç -ç»“æŸ Declare the code - end***
 
-//ÒÔÏÂ±äÁ¿,Ó¦ÓÃµ½ÎÄ¼ş±»½âÃÜÊ±
+//ä»¥ä¸‹å˜é‡,åº”ç”¨åˆ°æ–‡ä»¶è¢«è§£å¯†æ—¶
 //The following variables apply when the file is decrypted
-//***ÉùÃ÷´úÂë-¿ªÊ¼ Declare the code - the beginning***
-string D_IF_PATH = ".\\WorkPath\\Decrypt\\InputFile\\", //½âÃÜÖ®Ç°£¬ÎÄ¼şµÄÂ·¾¶ Before decrypting the path of the file
-D_OF_PATH = ".\\WorkPath\\Decrypt\\OutputFile\\"; //½âÃÜÖ®ºó£¬ÎÄ¼şµÄÂ·¾¶ After decrypting the path of the file
+//***å£°æ˜ä»£ç -å¼€å§‹ Declare the code - the beginning***
+string D_IF_PATH = ".\\WorkPath\\Decrypt\\InputFile\\", //è§£å¯†ä¹‹å‰ï¼Œæ–‡ä»¶çš„è·¯å¾„ Before decrypting the path of the file
+D_OF_PATH = ".\\WorkPath\\Decrypt\\OutputFile\\"; //è§£å¯†ä¹‹åï¼Œæ–‡ä»¶çš„è·¯å¾„ After decrypting the path of the file
 
-string D_SourceFileName,      //Ô´ÎÄ¼şÃû
-D_TargetFileMainName,     //Ä¿±êÎÄ¼şÖ÷ÒªÃû
-D_TargetFileTempName,     //Ä¿±êÎÄ¼şÁÙÊ±Ìí¼ÓÃû
-D_TargetFileExtendedName; //Ä¿±êÎÄ¼şÔ´À©Õ¹Ãû
+string D_SourceFileName,      //æºæ–‡ä»¶å
+D_TargetFileMainName,     //ç›®æ ‡æ–‡ä»¶ä¸»è¦å
+D_TargetFileTempName,     //ç›®æ ‡æ–‡ä»¶ä¸´æ—¶æ·»åŠ å
+D_TargetFileExtendedName; //ç›®æ ‡æ–‡ä»¶æºæ‰©å±•å
 
-char D_KEY[256], //File (Decryption or Decrypted) key ÎÄ¼ş½âÃÜÃÜÔ¿
+char D_KEY[256], //File (Decryption or Decrypted) key æ–‡ä»¶è§£å¯†å¯†é’¥
 D_KEY2[256],
 D_KEY3[256],
 D_KEY4[256];
-//***ÉùÃ÷´úÂë-½áÊø Declare the code - end***
+//***å£°æ˜ä»£ç -ç»“æŸ Declare the code - end***
 
 /****************************************************************************************************************************************************************/
 
@@ -153,15 +155,15 @@ int main()
 
 	std::cout << "----------------------------------------" << endl;
 	std::cout << "Enter 1 Encrypt File" << endl;
-	std::cout << "1.¼ÓÃÜÎÄ¼ş\n" << endl;
+	std::cout << "1.åŠ å¯†æ–‡ä»¶\n" << endl;
 	std::cout << "Enter 2 Decrypt File" << endl;
-	std::cout << "2.½âÃÜÎÄ¼ş\n" << endl;
+	std::cout << "2.è§£å¯†æ–‡ä»¶\n" << endl;
 	std::cout << "Enter 3 Use The Information Manual" << endl;
-	std::cout << "3.Ê¹ÓÃĞÅÏ¢ËµÃ÷ÊÖ²á\n" << endl;
+	std::cout << "3.ä½¿ç”¨ä¿¡æ¯è¯´æ˜æ‰‹å†Œ\n" << endl;
 	std::cout << "Enter 4 Clean Up The Workspace[To Restore The Initial State]" << endl;
-	std::cout << "4.ÇåÀí¹¤×÷¿Õ¼ä[»Ö¸´³õÊ¼×´Ì¬]\n" << endl;
+	std::cout << "4.æ¸…ç†å·¥ä½œç©ºé—´[æ¢å¤åˆå§‹çŠ¶æ€]\n" << endl;
 	std::cout << "Enter 5 Exit Program" << endl;
-	std::cout << "5.ÍË³ö³ÌĞò\n" << endl;
+	std::cout << "5.é€€å‡ºç¨‹åº\n" << endl;
 	std::cout << "----------------------------------------" << endl;
 	std::cout << "System:Input And Output/Enter>";
 
@@ -222,21 +224,21 @@ int main()
 
 		ConsoleTableColorSet(0, 0, 0);
 		std::cout << "Please input >>> the source file name + file extension name.\nDo not enter spaces!\n:" << endl;
-		std::cout << "ÊäÈëÒª¼ÓÃÜµÄÎÄ¼şÃû+ÎÄ¼şÀ©Õ¹Ãû£¬²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥è¦åŠ å¯†çš„æ–‡ä»¶å+æ–‡ä»¶æ‰©å±•åï¼Œä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cin >> E_SourceFileName;
 
 		std::cout << "Please input >>> the source file name, not the file extension name!\nDo not enter spaces!\n:" << endl;
-		std::cout << "ÊäÈëÒª¼ÓÃÜµÄÎÄ¼şÖ÷ÒªÃû£¬²»ÊÇÎÄ¼şÀ©Õ¹Ãû£¡²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥è¦åŠ å¯†çš„æ–‡ä»¶ä¸»è¦åï¼Œä¸æ˜¯æ–‡ä»¶æ‰©å±•åï¼ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cin >> E_SourceFileMainName;
 
 		std::cout << "Please input >>> the file extension name.\nDo not enter spaces!\n:" << endl;
-		std::cout << "ÊäÈëÒª¼ÓÃÜµÄÎÄ¼şÀ©Õ¹Ãû£¬²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥è¦åŠ å¯†çš„æ–‡ä»¶æ‰©å±•åï¼Œä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cin >> E_SourceFileExtendedName;
 		system("cls");
 
-		std::cout << "ÕıÔÚ¼ÇÂ¼²¢µ¼³ö£¬Ô´ÎÄ¼şÃû³Æ......\n[¾¯¸æ!]ÔÚ½øĞĞ±¾´Î²Ù×÷ºó£¬ÇëÏÂ´ÎÑ¡ÔñÍ¬ÑùÃû³ÆµÄ¼ÓÃÜÎÄ¼ş£¬½øĞĞ½âÃÜÎÄ¼ş²Ù×÷!\n·ñÔò£¬ÔÚÄÇÖ®Ç°£¬ÇëÁ¢¼´½ûÖ¹Ê¹ÓÃ¼ÓÃÜÎÄ¼ş¹¦ÄÜ£¡" << endl;
+		std::cout << "æ­£åœ¨è®°å½•å¹¶å¯¼å‡ºï¼Œæºæ–‡ä»¶åç§°......\n[è­¦å‘Š!]åœ¨è¿›è¡Œæœ¬æ¬¡æ“ä½œåï¼Œè¯·ä¸‹æ¬¡é€‰æ‹©åŒæ ·åç§°çš„åŠ å¯†æ–‡ä»¶ï¼Œè¿›è¡Œè§£å¯†æ–‡ä»¶æ“ä½œ!\nå¦åˆ™ï¼Œåœ¨é‚£ä¹‹å‰ï¼Œè¯·ç«‹å³ç¦æ­¢ä½¿ç”¨åŠ å¯†æ–‡ä»¶åŠŸèƒ½ï¼" << endl;
 		std::cout << "Recording and exporting, source file name......\n[Warning!]After doing this operation, please select the same name next time the encrypted file, decrypt the file operation!\nOtherwise, before that, please immediately disable the use of encrypted file function" << endl;
-		std::cout << "ÄúÊÇ·ñ½ÓÊÜÕâ¸öĞ­Òé?[¼üÅÌEnter¼ÌĞø] »òÕß [¹Ø±Õ³ÌĞò]......" << endl;
+		std::cout << "æ‚¨æ˜¯å¦æ¥å—è¿™ä¸ªåè®®?[é”®ç›˜Enterç»§ç»­] æˆ–è€… [å…³é—­ç¨‹åº]......" << endl;
 		std::cout << "Whether you accept this agreement?[Keyboard Enter Continue] Or [Close this program]......" << endl;
 
 		system("pause");
@@ -253,20 +255,20 @@ int main()
 		SourceFileNameTemporarySave << E_SourceFileExtendedName << endl;
 		SourceFileNameTemporarySave.close();
 
-		//¼ÓÃÜÃÜÔ¿ÂëÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬(³¤¶ÈĞ¡ÓÚ256)¡£¿ÉÒÔÈÎÒâµÄ¸øÒ»¸öĞèÒª¼ÓÃÜµÄÎÄ¼şÌí¼ÓÒ»¸ö»ò¶à¸ö¼ÓÃÜÃÜÔ¿Âë
+		//åŠ å¯†å¯†é’¥ç æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œ(é•¿åº¦å°äº256)ã€‚å¯ä»¥ä»»æ„çš„ç»™ä¸€ä¸ªéœ€è¦åŠ å¯†çš„æ–‡ä»¶æ·»åŠ ä¸€ä¸ªæˆ–å¤šä¸ªåŠ å¯†å¯†é’¥ç 
 		//Encryption key code is user-defined, (length less than 256). You can optionally add one or more encryption keys to the one files you want to encrypt
 	E_KEY_LENTH_IS_INCORRECT:
 		int E_KEY_CODE_MAX_LENGTH = 256;
 
 		ConsoleTableColorSet(0, 0, 1);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY;
 		if(strlen(E_KEY) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY,NULL,sizeof(E_KEY)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "¼ÓÃÜÃÜÔ¿µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ¼ÓÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "åŠ å¯†å¯†é’¥çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰åŠ å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Encryption key length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
 			goto E_KEY_LENTH_IS_INCORRECT;
@@ -274,13 +276,13 @@ int main()
 
 		ConsoleTableColorSet(0, 1, 0);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY2;
 		if(strlen(E_KEY2) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY2,NULL,sizeof(E_KEY2)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "¼ÓÃÜÃÜÔ¿2µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ¼ÓÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "åŠ å¯†å¯†é’¥2çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰åŠ å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Encryption key2 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
 			goto E_KEY_LENTH_IS_INCORRECT;
@@ -288,13 +290,13 @@ int main()
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY3;
 		if(strlen(E_KEY3) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY3,NULL,sizeof(E_KEY3)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "¼ÓÃÜÃÜÔ¿3µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ¼ÓÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "åŠ å¯†å¯†é’¥3çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰åŠ å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Encryption key3 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
 			goto E_KEY_LENTH_IS_INCORRECT;
@@ -302,13 +304,13 @@ int main()
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿4,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥4,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> E_KEY4;
 		if(strlen(E_KEY4) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY4,NULL,sizeof(E_KEY4)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "¼ÓÃÜÃÜÔ¿4µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ¼ÓÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "åŠ å¯†å¯†é’¥4çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰åŠ å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Encryption key4 length, has more than 256 characters. Please re-enter the all encryption key!" << endl;
 			system("pause");
 			goto E_KEY_LENTH_IS_INCORRECT;
@@ -317,7 +319,7 @@ int main()
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
 		std::cout << "Please output >>> file extension name.\nDo not enter spaces!\n[.TSMY-ENCRYPTED]:" << endl;
-		std::cout << "Êä³öÎÄ¼şÀ©Õ¹Ãû,²»ÒªÊäÈë¿Õ¸ñ[.TSMY-ENCRYPTED]£º" << endl; //¸ø¼ÓÃÜºóµÄÎÄ¼şÊä³öÎÄ¼şÀ©Õ¹Ãû£¬²¢±£´æ Export the file extension to the encrypted file and save it
+		std::cout << "è¾“å‡ºæ–‡ä»¶æ‰©å±•å,ä¸è¦è¾“å…¥ç©ºæ ¼[.TSMY-ENCRYPTED]ï¼š" << endl; //ç»™åŠ å¯†åçš„æ–‡ä»¶è¾“å‡ºæ–‡ä»¶æ‰©å±•åï¼Œå¹¶ä¿å­˜ Export the file extension to the encrypted file and save it
 		std::cin >> E_TargetFileExtendedName;
 		if (E_TargetFileExtendedName == " ")
 		{
@@ -333,13 +335,13 @@ int main()
 		const char *E_SourceFileCharPath = E_SourceFileStringPath.c_str();
 		const char *E_TargetFileCharPath = E_TargetFileStringPath.c_str();
 
-		/*char *E_SourceFileLastNameOutput; //×îºó¶ÁĞ´µÄÎÄ¼şÃû
+		/*char *E_SourceFileLastNameOutput; //æœ€åè¯»å†™çš„æ–‡ä»¶å
 		strcpy(E_SourceFileLastNameOutput,E_SourceFileCharPath);
-		char *E_TargetFileLastNameOutput; //×îºó±£´æµÄ¼ÓÃÜºóÎÄ¼şÃû
+		char *E_TargetFileLastNameOutput; //æœ€åä¿å­˜çš„åŠ å¯†åæ–‡ä»¶å
 		strcpy(E_TargetFileLastNameOutput,E_TargetFileCharPath);*/
 
 		ConsoleTableColorSet(1, 1, 0);
-		std::cout << "ÕıÔÚ¼ÇÂ¼²¢µ¼³ö£¬±¾´ÎÓÃÓÚÎÄ¼ş¼ÓÃÜ£¬4¸öÃÜÔ¿×Ö·û´®......" << endl;
+		std::cout << "æ­£åœ¨è®°å½•å¹¶å¯¼å‡ºï¼Œæœ¬æ¬¡ç”¨äºæ–‡ä»¶åŠ å¯†ï¼Œ4ä¸ªå¯†é’¥å­—ç¬¦ä¸²......" << endl;
 		std::cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
 		ofstream PasswordSaveToKeyFile;
 		PasswordSaveToKeyFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
@@ -356,12 +358,12 @@ int main()
 
 		ConsoleTableColorSet(1, 1, 1);
 		std::cout << "Please wait, read and write in the file......" << endl;
-		std::cout << "ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......" << endl;
+		std::cout << "è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......" << endl;
 		getchar();
 
 		if (RunEncryptFile(E_SourceFileCharPath, E_KEY, E_KEY2, E_KEY3, E_KEY4, E_TargetFileCharPath))
 		{
-			printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]¼ÓÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", E_SourceFileCharPath, E_TargetFileCharPath);
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]åŠ å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", E_SourceFileCharPath, E_TargetFileCharPath);
 			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileCharPath, E_TargetFileCharPath);
 			getchar();
 			system("pause");
@@ -424,23 +426,23 @@ int main()
 
 		ConsoleTableColorSet(1, 1, 1);
 		std::cout << "Please input >>> the source file name + file extension name.\nDo not enter spaces!\n:" << endl;
-		std::cout << "ÊäÈëÒª½âÃÜµÄÎÄ¼şÃû+ÎÄ¼şÀ©Õ¹Ãû,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥è¦è§£å¯†çš„æ–‡ä»¶å+æ–‡ä»¶æ‰©å±•å,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cin >> D_SourceFileName;
 
-		//½âÃÜÃÜÔ¿ÂëÊÇÓÉÓÃ»§×Ô¼ºÔÚ¼ÓÃÜÎÄ¼ş²½ÖèÉèÖÃµÄ¡£Õâ¸ö¶¨Òå£¬À´×Ô±»¼ÓÃÜÃÜÔ¿ÂëµÄ²Ù×÷¹ıµÄ¶ş½øÖÆÎÄ¼ş£¨ËµÃ÷£º½âÃÜÃÜÔ¿ÂëµÈÓÚ¼ÓÃÜÃÜÔ¿Âë£©¡£Äã¿ÉÒÔ¸øÈÎÒâÒ»¸öĞèÒª½âÃÜµÄÎÄ¼ş£¬ÊäÈëÕıÈ·µÄ½âÃÜÃÜÔ¿Âë
+		//è§£å¯†å¯†é’¥ç æ˜¯ç”±ç”¨æˆ·è‡ªå·±åœ¨åŠ å¯†æ–‡ä»¶æ­¥éª¤è®¾ç½®çš„ã€‚è¿™ä¸ªå®šä¹‰ï¼Œæ¥è‡ªè¢«åŠ å¯†å¯†é’¥ç çš„æ“ä½œè¿‡çš„äºŒè¿›åˆ¶æ–‡ä»¶ï¼ˆè¯´æ˜ï¼šè§£å¯†å¯†é’¥ç ç­‰äºåŠ å¯†å¯†é’¥ç ï¼‰ã€‚ä½ å¯ä»¥ç»™ä»»æ„ä¸€ä¸ªéœ€è¦è§£å¯†çš„æ–‡ä»¶ï¼Œè¾“å…¥æ­£ç¡®çš„è§£å¯†å¯†é’¥ç 
 		//The decryption key code is set by the user himself at the encrypted file step. This definition, from the encrypted key code of the operation of the binary file (Description: decryption key code is equal to the encryption key code). You can give a random file to be decrypted and enter the correct decryption key code
 	D_KEY_LENTH_IS_INCORRECT:
 		int D_KEY_CODE_MAX_LENGTH = 256;
 
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY;
 		if(strlen(D_KEY) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY,NULL,sizeof(D_KEY)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "½âÃÜÃÜÔ¿µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ½âÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "è§£å¯†å¯†é’¥çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰è§£å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Decryption key length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
 			goto D_KEY_LENTH_IS_INCORRECT;
@@ -448,13 +450,13 @@ int main()
 
 		ConsoleTableColorSet(1, 0, 1);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY2;
 		if(strlen(D_KEY2) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY2,NULL,sizeof(D_KEY2)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "½âÃÜÃÜÔ¿2µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ½âÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "è§£å¯†å¯†é’¥2çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰è§£å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Decryption key2 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
 			goto D_KEY_LENTH_IS_INCORRECT;
@@ -462,13 +464,13 @@ int main()
 
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY3;
 		if(strlen(D_KEY3) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY3,NULL,sizeof(D_KEY3)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "½âÃÜÃÜÔ¿3µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ½âÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "è§£å¯†å¯†é’¥3çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰è§£å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Decryption key3 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
 			goto D_KEY_LENTH_IS_INCORRECT;
@@ -476,13 +478,13 @@ int main()
 
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
-		std::cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ256)ÃÜÔ¿4,²»ÒªÊäÈë¿Õ¸ñ!" << endl;
+		std::cout << "è¾“å…¥(é•¿åº¦å°äº256)å¯†é’¥4,ä¸è¦è¾“å…¥ç©ºæ ¼!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
 		std::cin >> D_KEY4;
 		if(strlen(D_KEY4) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY4,NULL,sizeof(D_KEY4)); //Reset This Variable The Value (NULL = 0)
-			std :: cout << "½âÃÜÃÜÔ¿4µÄ³¤¶È£¬ÒÑ¾­³¬¹ı256Î»×Ö·û¡£ ÇëÖØĞÂÊäÈëËùÓĞ½âÃÜÃÜÔ¿£¡" << endl;
+			std :: cout << "è§£å¯†å¯†é’¥4çš„é•¿åº¦ï¼Œå·²ç»è¶…è¿‡256ä½å­—ç¬¦ã€‚ è¯·é‡æ–°è¾“å…¥æ‰€æœ‰è§£å¯†å¯†é’¥ï¼" << endl;
 			std :: cout << "Decryption key4 length, has more than 256 characters. Please re-enter the all decryption key!" << endl;
 			system("pause");
 			goto D_KEY_LENTH_IS_INCORRECT;
@@ -493,33 +495,33 @@ int main()
 		ConsoleTableColorSet(0, 1, 0);
 
 		std::cout << "\n";
-		std::cout << "Èç¹ûÔÚµ±Ç°ÎÄ¼ş¼ĞÏÂÅäÖÃÎÄ¼ş[.\\*.CONFIGFILE]²»´æÔÚ£¬³ÌĞò¾Í²»»á°ïÄú×Ô¶¯»Ö¸´Ô­À´µÄÎÄ¼şÃû³Æ¡£\nÄãĞèÒªÖØĞÂÊäÈëÎÄ¼şÃû!" << endl;
+		std::cout << "å¦‚æœåœ¨å½“å‰æ–‡ä»¶å¤¹ä¸‹é…ç½®æ–‡ä»¶[.\\*.CONFIGFILE]ä¸å­˜åœ¨ï¼Œç¨‹åºå°±ä¸ä¼šå¸®æ‚¨è‡ªåŠ¨æ¢å¤åŸæ¥çš„æ–‡ä»¶åç§°ã€‚\nä½ éœ€è¦é‡æ–°è¾“å…¥æ–‡ä»¶å!" << endl;
 		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file main name,not the file extension name!\nDo not enter spaces!\n[DATA-DECRYPTED]:" << endl;
-		std::cout << "Êä³öÎÄ¼şÖ÷ÒªÃû£¬²»ÊÇÎÄ¼şÀ©Õ¹Ãû£¬²»ÒªÊäÈë¿Õ¸ñ[DATA-TSMY-DECRYPTED]!" << endl; //¸ø½âÃÜºóµÄÎÄ¼şÊä³öÖ÷ÒªÎÄ¼şÃû£¬²¢±£´æ Output the main file name to the decrypted file and save it
+		std::cout << "è¾“å‡ºæ–‡ä»¶ä¸»è¦åï¼Œä¸æ˜¯æ–‡ä»¶æ‰©å±•åï¼Œä¸è¦è¾“å…¥ç©ºæ ¼[DATA-TSMY-DECRYPTED]!" << endl; //ç»™è§£å¯†åçš„æ–‡ä»¶è¾“å‡ºä¸»è¦æ–‡ä»¶åï¼Œå¹¶ä¿å­˜ Output the main file name to the decrypted file and save it
 		if (!access(".\\SourceFileMainName.CONFIGFILE", 0))
 		{
 			//char TFMN_Buffer[256];
 			ifstream LoadSourceFileNameConfigure(".\\SourceFileMainName.CONFIGFILE", ios::in);
 			if (LoadSourceFileNameConfigure.fail())
 			{
-				std::cout << "¼ÓÔØÅäÖÃÎÄ¼şÊ±£¬³öÏÖÁËÎ´Öª´íÎó²¢½áÊø" << endl;
+				std::cout << "åŠ è½½é…ç½®æ–‡ä»¶æ—¶ï¼Œå‡ºç°äº†æœªçŸ¥é”™è¯¯å¹¶ç»“æŸ" << endl;
 				std::cout << "When the configuration file is loaded, an unknown error has occurred and ends" << endl;
 			}
 			while (!LoadSourceFileNameConfigure.eof())
 			{
 				LoadSourceFileNameConfigure >> D_TargetFileMainName;
-				//LoadSourceFileNameConfigure.getline(TFMN_Buffer,256,'\n'); //getline(char *,int,char) ±íÊ¾¸ÃĞĞ×Ö·û´ïµ½256¸ö»òÓöµ½»»ĞĞ¾Í½áÊø
+				//LoadSourceFileNameConfigure.getline(TFMN_Buffer,256,'\n'); //getline(char *,int,char) è¡¨ç¤ºè¯¥è¡Œå­—ç¬¦è¾¾åˆ°256ä¸ªæˆ–é‡åˆ°æ¢è¡Œå°±ç»“æŸ
 				//D_TargetFileMainName = TFMN_Buffer;
 
-				std::cout << "ÄúÒÑ³É¹¦Ìø¹ı´Ë²½Öè" << endl;
+				std::cout << "æ‚¨å·²æˆåŠŸè·³è¿‡æ­¤æ­¥éª¤" << endl;
 				std::cout << "You have successfully skipped this step" << endl;
 			}
 			LoadSourceFileNameConfigure.close();
 		}
 		else
 		{
-			std::cout << "ÅäÖÃÎÄ¼ş" << ".\\SourceFileMainName.CONFIGFILE" << "Î´ÕÒµ½!\n" << "ÇëÖØĞÂÊäÈëÃû³Æ!" << endl;
+			std::cout << "é…ç½®æ–‡ä»¶" << ".\\SourceFileMainName.CONFIGFILE" << "æœªæ‰¾åˆ°!\n" << "è¯·é‡æ–°è¾“å…¥åç§°!" << endl;
 			std::cout << "Configuration file" << ".\\SourceFileMainName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileMainName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileMainName;
@@ -528,33 +530,33 @@ int main()
 
 		system("cls");
 
-		std::cout << "Èç¹ûÔÚµ±Ç°ÎÄ¼ş¼ĞÏÂÅäÖÃÎÄ¼ş[.\\*.CONFIGFILE]²»´æÔÚ£¬³ÌĞò¾Í²»»á°ïÄú×Ô¶¯»Ö¸´Ô­À´µÄÎÄ¼şÃû³Æ¡£\nÄãĞèÒªÖØĞÂÊäÈëÎÄ¼şÃû!" << endl;
+		std::cout << "å¦‚æœåœ¨å½“å‰æ–‡ä»¶å¤¹ä¸‹é…ç½®æ–‡ä»¶[.\\*.CONFIGFILE]ä¸å­˜åœ¨ï¼Œç¨‹åºå°±ä¸ä¼šå¸®æ‚¨è‡ªåŠ¨æ¢å¤åŸæ¥çš„æ–‡ä»¶åç§°ã€‚\nä½ éœ€è¦é‡æ–°è¾“å…¥æ–‡ä»¶å!" << endl;
 		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file extension name!\nDo not enter spaces!\n[Example: .txt]:" << endl;
-		std::cout << "Êä³öÎÄ¼şÀ©Õ¹Ãû£¬²»ÒªÊäÈë¿Õ¸ñ[ÊµÀı£º .txt]!" << endl; //¸ø½âÃÜºóµÄÎÄ¼şÊä³öÎÄ¼şÀ©Õ¹Ãû£¬²¢±£´æ
+		std::cout << "è¾“å‡ºæ–‡ä»¶æ‰©å±•åï¼Œä¸è¦è¾“å…¥ç©ºæ ¼[å®ä¾‹ï¼š .txt]!" << endl; //ç»™è§£å¯†åçš„æ–‡ä»¶è¾“å‡ºæ–‡ä»¶æ‰©å±•åï¼Œå¹¶ä¿å­˜
 		if (!access(".\\SourceFileExtendedName.CONFIGFILE", 0))
 		{
 			ifstream LoadSourceFileNameConfigure(".\\SourceFileExtendedName.CONFIGFILE", ios::in);
 			//char TFEN_Buffer[256];
 			if (LoadSourceFileNameConfigure.fail())
 			{
-				std::cout << "¼ÓÔØÅäÖÃÎÄ¼şÊ±£¬³öÏÖÁËÎ´Öª´íÎó²¢½áÊø" << endl;
+				std::cout << "åŠ è½½é…ç½®æ–‡ä»¶æ—¶ï¼Œå‡ºç°äº†æœªçŸ¥é”™è¯¯å¹¶ç»“æŸ" << endl;
 				std::cout << "When the configuration file is loaded, an unknown error has occurred and ends" << endl;
 			}
 			while (!LoadSourceFileNameConfigure.eof())
 			{
 				LoadSourceFileNameConfigure >> D_TargetFileExtendedName;
-				//LoadSourceFileNameConfigure.getline(TFEN_Buffer,256,'\n'); //getline(char *,int,char) ±íÊ¾¸ÃĞĞ×Ö·û´ïµ½256¸ö»òÓöµ½»»ĞĞ¾Í½áÊø
+				//LoadSourceFileNameConfigure.getline(TFEN_Buffer,256,'\n'); //getline(char *,int,char) è¡¨ç¤ºè¯¥è¡Œå­—ç¬¦è¾¾åˆ°256ä¸ªæˆ–é‡åˆ°æ¢è¡Œå°±ç»“æŸ
 				//D_TargetFileExtendedName = TFEN_Buffer;
 
-				std::cout << "ÄúÒÑ³É¹¦Ìø¹ı´Ë²½Öè" << endl;
+				std::cout << "æ‚¨å·²æˆåŠŸè·³è¿‡æ­¤æ­¥éª¤" << endl;
 				std::cout << "You have successfully skipped this step" << endl;
 			}
 			LoadSourceFileNameConfigure.close();
 		}
 		else
 		{
-			std::cout << "ÅäÖÃÎÄ¼ş" << ".\\SourceFileExtendedName.CONFIGFILE" << "Î´ÕÒµ½!\n" << "ÇëÖØĞÂÊäÈëÃû³Æ!" << endl;
+			std::cout << "é…ç½®æ–‡ä»¶" << ".\\SourceFileExtendedName.CONFIGFILE" << "æœªæ‰¾åˆ°!\n" << "è¯·é‡æ–°è¾“å…¥åç§°!" << endl;
 			std::cout << "Configuration file" << ".\\SourceFileExtendedName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileExtendedName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 			std::cin >> D_TargetFileExtendedName;
@@ -563,12 +565,12 @@ int main()
 		system("cls");
 
 		std::cout << "\n";
-		std::cout << "Èç¹ûÔÚµ±Ç°ÎÄ¼ş¼ĞÏÂÅäÖÃÎÄ¼ş[.\\*.CONFIGFILE]²»´æÔÚ£¬³ÌĞò¾Í²»»á°ïÄú×Ô¶¯»Ö¸´Ô­À´µÄÎÄ¼şÃû³Æ¡£\nÄãĞèÒªÖØĞÂÊäÈëÎÄ¼şÃû!" << endl;
+		std::cout << "å¦‚æœåœ¨å½“å‰æ–‡ä»¶å¤¹ä¸‹é…ç½®æ–‡ä»¶[.\\*.CONFIGFILE]ä¸å­˜åœ¨ï¼Œç¨‹åºå°±ä¸ä¼šå¸®æ‚¨è‡ªåŠ¨æ¢å¤åŸæ¥çš„æ–‡ä»¶åç§°ã€‚\nä½ éœ€è¦é‡æ–°è¾“å…¥æ–‡ä»¶å!" << endl;
 		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		std::cout << "Please output >>> target file temp add name.\nDo not enter spaces!\n[-DECRYPTED]:" << endl;
-		std::cout << "Êä³öÎÄ¼şÁÙÊ±Ìí¼ÓÃû£¬²»ÒªÊäÈë¿Õ¸ñ[-TSMY-DECRYPTED]!" << endl; //¸ø½âÃÜºóµÄÎÄ¼şÊä³öÎÄ¼şÁÙÊ±Ìí¼ÓÃû£¬²¢±£´æ
+		std::cout << "è¾“å‡ºæ–‡ä»¶ä¸´æ—¶æ·»åŠ åï¼Œä¸è¦è¾“å…¥ç©ºæ ¼[-TSMY-DECRYPTED]!" << endl; //ç»™è§£å¯†åçš„æ–‡ä»¶è¾“å‡ºæ–‡ä»¶ä¸´æ—¶æ·»åŠ åï¼Œå¹¶ä¿å­˜
 		std::cout << "Prevent source encrypted files from being overwritten" << endl;
-		std::cout << "·ÀÖ¹Ô´¼ÓÃÜÎÄ¼ş±»¸²¸Ç" << endl;
+		std::cout << "é˜²æ­¢æºåŠ å¯†æ–‡ä»¶è¢«è¦†ç›–" << endl;
 		std::cin >> D_TargetFileTempName;
 		if (D_TargetFileTempName == " ")
 		{
@@ -584,19 +586,19 @@ int main()
 		const char *D_SourceFileCharPath = D_SourceFileStringPath.c_str();
 		const char *D_TargetFileCharPath = D_TargetFileStringPath.c_str();
 
-		/*char *D_SourceFileLastNameOutput; //×îºó¶ÁĞ´µÄÎÄ¼şÃû
+		/*char *D_SourceFileLastNameOutput; //æœ€åè¯»å†™çš„æ–‡ä»¶å
 		strcpy(D_SourceFileLastNameOutput,D_SourceFileCharPath);
-		char *D_TargetFileLastNameOutput; //×îºóÁÙÊ±±£´æµÄ½âÃÜºóµÄÎÄ¼şÃû
+		char *D_TargetFileLastNameOutput; //æœ€åä¸´æ—¶ä¿å­˜çš„è§£å¯†åçš„æ–‡ä»¶å
 		strcpy(D_TargetFileLastNameOutput,D_TargetFileCharPath);*/
 
 		ConsoleTableColorSet(0, 0, 1);
 		std::cout << "Please wait, read and write in the file......" << endl;
-		std::cout << "ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......" << endl;
+		std::cout << "è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......" << endl;
 		getchar();
 
 		if (RunDecryptFile(D_SourceFileCharPath, D_KEY, D_KEY2, D_KEY3, D_KEY4, D_TargetFileCharPath))
 		{
-			printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]½âÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", D_SourceFileCharPath, D_TargetFileCharPath);
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]è§£å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", D_SourceFileCharPath, D_TargetFileCharPath);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileCharPath, D_TargetFileCharPath);
 			getchar();
 			system("pause");
@@ -612,12 +614,12 @@ int main()
 	 Instruction_Manual_Language_Restart:
 	  system("cls");
 	    system("color 1A");
-		std::cout << "»¶Ó­ÄãµÄµ½À´£¡ÕâÊÇ±¾³ÌĞòµÄËµÃ÷ÊÖ²á[Beta Version 3.0]£¬ÇëÎñ±ØÔÚÊ¹ÓÃÇ°£¬×ĞÏ¸ÔÄ¶Á" << endl;
+		std::cout << "æ¬¢è¿ä½ çš„åˆ°æ¥ï¼è¿™æ˜¯æœ¬ç¨‹åºçš„è¯´æ˜æ‰‹å†Œ[Beta Version 3.0]ï¼Œè¯·åŠ¡å¿…åœ¨ä½¿ç”¨å‰ï¼Œä»”ç»†é˜…è¯»" << endl;
 		std::cout << "Welcome to your arrival! This is the instruction manual [Beta Version 3.0] of this program, please be sure to read carefully before using it" << endl;
 		std::cout << "" << endl;
-		std::cout << "enUS----------English Ó¢ÎÄ" << endl;
-		std::cout << "zhCN----------Chinese ÖĞÎÄ" << endl;
-		std::cout << "MENU----------Back Main Menu ·µ»ØÖ÷²Ëµ¥" << endl;
+		std::cout << "enUS----------English è‹±æ–‡" << endl;
+		std::cout << "zhCN----------Chinese ä¸­æ–‡" << endl;
+		std::cout << "MENU----------Back Main Menu è¿”å›ä¸»èœå•" << endl;
 		std::cout << "" << endl;
 		std::cout << "Manual:\\Program\\Keyboard_Input> ";
 		string Instruction_Manual_Language;
@@ -639,8 +641,8 @@ int main()
 			system("color 17");
 			std::cout << "Manual:\\Program\\Keyboard_Output> " << endl;
 			std::cout << "" << endl;
-			std::cout << "µ±³ÌĞòÖ´ĞĞ¼ÓÃÜÎÄ¼ş»ò½âÃÜÎÄ¼şµÄ¹¦ÄÜÊ±£¬½«´´½¨¹¤×÷¿Õ¼äÎÄ¼ş¼Ğ£¬ÊäÈëÎÄ¼ş¼Ğ£¬Êä³öÎÄ¼ş¼Ğ¡£\n" << endl;
-			std::cout << "µ±³ÌĞò¼ÓÃÜÎÄ¼ş»ò½âÃÜÎÄ¼ş²¢ÇÒµÈ´ıÊ±£¬³ÌĞòÕıÔÚºóÌ¨¶ÁÈ¡ºÍĞ´ÈëÎÄ¼ş¡£Õâ¸öÊ±ºò£¬ÓÀÔ¶²»Òª¹Ø±ÕÕâ¸ö³ÌĞò£¡\n·ñÔòÄúµÄÊı¾İ±»Ëğ»µ²¢³Ğµ£ºó¹û¡£½¨ÒéÄúÔÚ½øĞĞÊı¾İ±¸·İÖ®ºó£¬ÓÃÕâ¸ö³ÌĞò¼ÓÃÜÎÄ¼ş»ò½âÃÜÎÄ¼ş£¡\n" << endl;
+			std::cout << "å½“ç¨‹åºæ‰§è¡ŒåŠ å¯†æ–‡ä»¶æˆ–è§£å¯†æ–‡ä»¶çš„åŠŸèƒ½æ—¶ï¼Œå°†åˆ›å»ºå·¥ä½œç©ºé—´æ–‡ä»¶å¤¹ï¼Œè¾“å…¥æ–‡ä»¶å¤¹ï¼Œè¾“å‡ºæ–‡ä»¶å¤¹ã€‚\n" << endl;
+			std::cout << "å½“ç¨‹åºåŠ å¯†æ–‡ä»¶æˆ–è§£å¯†æ–‡ä»¶å¹¶ä¸”ç­‰å¾…æ—¶ï¼Œç¨‹åºæ­£åœ¨åå°è¯»å–å’Œå†™å…¥æ–‡ä»¶ã€‚è¿™ä¸ªæ—¶å€™ï¼Œæ°¸è¿œä¸è¦å…³é—­è¿™ä¸ªç¨‹åºï¼\nå¦åˆ™æ‚¨çš„æ•°æ®è¢«æŸåå¹¶æ‰¿æ‹…åæœã€‚å»ºè®®æ‚¨åœ¨è¿›è¡Œæ•°æ®å¤‡ä»½ä¹‹åï¼Œç”¨è¿™ä¸ªç¨‹åºåŠ å¯†æ–‡ä»¶æˆ–è§£å¯†æ–‡ä»¶ï¼\n" << endl;
 			system("pause");
 			system("cls");
 
@@ -668,14 +670,14 @@ int main()
 	Waring_Information:
 		string You_understand;
 		system("color 0C");
-		std::cout << "[¾¯¸æ!]¼´½«½øĞĞµÄ²Ù×÷£¬»áÑ¡ÖĞ <File-Key-Record-Log> ºÍ <WorkPath> ÎÄ¼ş¼Ğ£¬È»ºóÓÀ¾ÃµÄÉ¾³ıËùÓĞÊı¾İ!\n" << endl;
-		std::cout << "°üÀ¨Ô´ÎÄ¼ş¡¢Éú³ÉµÄ¼ÓÃÜÎÄ¼ş¡¢Éú³ÉµÄ½âÃÜÎÄ¼ş¡¢ÃÜÂëÈÕÖ¾¡¢ÅäÖÃ\n" << endl;
-		std::cout << "Èç¹ûÄãÖªµÀ·çÏÕ£¬Çë°´¼üÅÌ [Y¼ü¼ÌĞø N¼ü·µ»Ø]\n[ Yes / No ]" << endl;
+		std::cout << "[è­¦å‘Š!]å³å°†è¿›è¡Œçš„æ“ä½œï¼Œä¼šé€‰ä¸­ <File-Key-Record-Log> å’Œ <WorkPath> æ–‡ä»¶å¤¹ï¼Œç„¶åæ°¸ä¹…çš„åˆ é™¤æ‰€æœ‰æ•°æ®!\n" << endl;
+		std::cout << "åŒ…æ‹¬æºæ–‡ä»¶ã€ç”Ÿæˆçš„åŠ å¯†æ–‡ä»¶ã€ç”Ÿæˆçš„è§£å¯†æ–‡ä»¶ã€å¯†ç æ—¥å¿—ã€é…ç½®\n" << endl;
+		std::cout << "å¦‚æœä½ çŸ¥é“é£é™©ï¼Œè¯·æŒ‰é”®ç›˜ [Yé”®ç»§ç»­ Né”®è¿”å›]\n[ Yes / No ]" << endl;
 
 		std::cout << "[Warning!] The upcoming operation will select the <File-Key-Record-Log>and <WorkPath folders>, and then permanently delete all the data!\n" << endl;
 		std::cout << "Including source files, generated encrypted files, generated decrypted files, password logs, configuration\n" << endl;
 		std::cout << "If you know the risk, press the keypad [Y key to continue N key to return]\n[Yes / No]" << endl;
-		std::cin >> You_understand; //ÄãÁË½â·çÏÕ£¿ You understand the risks?
+		std::cin >> You_understand; //ä½ äº†è§£é£é™©ï¼Ÿ You understand the risks?
 
 
 		if (You_understand == "N")
@@ -721,5 +723,3 @@ int main()
 		}
 	}
 }
-
-#include "EODF3_By_TDOM.hpp"

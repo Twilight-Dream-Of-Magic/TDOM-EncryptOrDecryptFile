@@ -1,4 +1,4 @@
-#This File Makefile Scrpit
+#This File Makefile Script
 
 #Comand Separator Tab Keyboard!!!
 

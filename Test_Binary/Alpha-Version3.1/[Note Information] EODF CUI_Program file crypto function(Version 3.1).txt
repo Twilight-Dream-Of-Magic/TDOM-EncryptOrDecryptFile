@@ -1,22 +1,26 @@
-﻿README
+README
 
 Chinese:
-虽然，我发布了这个（Test Alpha 3.1）版本的程序，但是，它不兼容使用旧版本的加密算法生成的加密文件，然后把它解密正确。所以，新版本的程序它不使用旧版本的加密算法和解密算法。现在你有2种(加密和解密)算法的文件密码锁了。我希望，你们喜欢这一次程序升级。
+虽然，我发布了这个（Test Alpha 3.1）版本的程序，但是，它不兼容使用旧版本的加密算法生成的加密文件，然后把它解密正确。
+因此，新版本的程序它不使用旧版本的加密算法和解密算法。所以，现在你有2种(加密和解密)算法的文件密码锁了。我希望，你们喜欢这一次程序升级。
 当然，现在开发的这个程序(CUI_EODF 或 GUI_EODF)，运行的平台是Microsoft Windows系统。
 如果，你们想要我继续坚持，去研究程序的源代码和学习计算机语言，再来开发这个项目的其他系统平台，比如移植到Linux版本的程序。
 请尽量可能的帮助我的开发，请在我的github网站空间上留言。谢谢你们的支持
-并且，程序从Beta 3.0 (Alpha preview edition)版本，替换升级到测试的 Alpha 3.1 版本的变化比较大。
+并且，程序从 3.0 (Beta preview edition)版本，升级到 3.1 (Alpha preview edition)版本。
+不过还是需要测试，最后的更改是比较大的。
 作者本人(Twilight-Dream-Of-Magic)已经试验成功，新的加密和解密的核心算法，对于单字节文件流数据和密钥之间，来进行处理计算，程序变得比较有用和表现很好。
-更新后，被保护的文件的安全性提高一些，被处理文件的密文数据信息更多了。不过，文件的处理速度还是很慢。
+因为更新之后，被保护的文件的安全性提高一些，被处理文件的密文数据信息更多了。不过，文件的处理速度还是很慢。
 
 English:
-Although, I have released this (Alpha 3.1) version of the program, but it is not compatible with the old version of the encryption algorithm generated encrypted files, and then decrypt it correctly. Therefore, the new version of the program it does not use the old version of the encryption algorithm and decryption algorithm. Now you have 2 kinds of (encryption and decryption) algorithm of the file password lock. I hope you like this one time program upgrade.
+Although, I have released this (Test Alpha 3.1) version of the program, but it is not compatible with the old version of the encryption algorithm generated encrypted files, and then decrypt it correctly. 
+Therefore, the new version of the program it does not use the old version of the encryption algorithm and decryption algorithm. So, Now you have 2 kinds of (encryption and decryption) algorithm of the file password lock. I hope you like this one time program upgrade.
 Of course, the program that is now developed (CUI_EODF or GUI_EODF) is running on a Microsoft Windows system.
 If you want me to continue, research the source code of the program and learn the computer language, and then develop other system platforms for the project, such as the program ported to the Linux version.
 Please try your best to help me with the development, please leave a message on my GitHub website space. Thank you for your support.
-Also, the program changes from the Beta 3.0 (Alpha preview edition) version to the Alpha 3.1 version, which is upgraded to Beta.
+Also, the program changes from the Beta version name tag to Alpha, which is upgraded from 3.0 (Beta preview edition) to 3.1 (Alpha preview edition).
+However, testing is still required, and the final change is relatively large.
 The author himself (Twilight-dream-magic) has successfully experimented with the new encryption and decryption core algorithm for processing computations between Single-byte file stream data and keys, and the program becomes more useful and well behaved.
-After the update, the security of the protected file improved a little more, the encrypted data of the file processed more information. However, the file processing speed is still very slow.
+Because after the update, the security of the protected file improved a little more, the encrypted data of the file processed more information. However, the file processing speed is still very slow.
 
 
 This My File Encryption Core Function

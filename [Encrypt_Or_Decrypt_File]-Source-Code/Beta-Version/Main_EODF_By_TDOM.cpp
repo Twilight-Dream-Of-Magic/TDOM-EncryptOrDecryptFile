@@ -1,26 +1,30 @@
 /****************************************************************************
 Read Me - About This Source Code File
 
-ChineseÖĞÎÄ:
-¼ÆËã»úÓïÑÔÀàĞÍ: C++
-³ÌĞòÎÄ¼şÃû: File_Lock
-³ÌĞòÆ½Ì¨ÀàĞÍ: Windows ÃüÁîĞĞ¿ØÖÆÌ¨
-³ÌĞòÊµ¼Ê×÷ÓÃ: ÎÄ¼ş¶Ô³ÆÊ½¼ÓÃÜ½âÃÜ
-°æ±¾: Beta 1.0
-Ô´´úÂëĞŞ¸ÄÊ±¼ä: 2017-8-1
-×÷Õß: Twilight-Dream-Of-Magic
+Chineseä¸­æ–‡:
+è®¡ç®—æœºè¯­è¨€ç±»å‹: C++
+ç¨‹åºæ–‡ä»¶å: Twilight-Dream-Of-Magic_File_Lock
+ç¨‹åºå¹³å°ç±»å‹: Windows å‘½ä»¤è¡Œæ§åˆ¶å°
+ç¨‹åºå®é™…ä½œç”¨: æ–‡ä»¶å¯¹ç§°å¼åŠ å¯†è§£å¯†
+ç‰ˆæœ¬: Beta 1.0
+æºä»£ç ä¿®æ”¹æ—¶é—´: 2019-5-31
+ä½œè€…: Twilight-Dream-Of-Magic
 
-EnglishÓ¢ÎÄ:
+Englishè‹±æ–‡:
 Computer Language Type: C++
-Program File Name: File_Lock
+Program File Name: Twilight-Dream-Of-Magic_File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 1.0
-Source code modified by: 2017-8-1
+Source code modified by: 2019-5-31
 Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
-#include "EODF_By_TDOM.hpp"
+#include <iostream>
+#include <stdio.h>   //æ ‡å‡†è¾“å…¥è¾“å‡ºå‡½æ•°
+#include <stdlib.h>  //æ ‡å‡†åº“å‡½æ•°
+#include <string.h>  //å­—ç¬¦ä¸²å¤„ç†å‡½æ•°
+#include <windows.h>
 
 using namespace std;
 
@@ -46,91 +50,91 @@ int main()
 
 	if(Load_User_Keyboard_Input == "1")
 	{
-		char E_SourceFileName[4096],		// ¼ÓÃÜµÄÎÄ¼şÃû
-			E_TargetFileNewName[4096];	// ¼ÓÃÜºóÒª±£´æµÄÎÄ¼şÃû
+	  char E_SourceFileName[4096],     // åŠ å¯†çš„æ–‡ä»¶å
+		   E_TargetFileNewName[4096];  // åŠ å¯†åè¦ä¿å­˜çš„æ–‡ä»¶å
 
-		char E_KEY[128], //File (Encryption or Encrypted) key ÎÄ¼ş¼ÓÃÜÃÜÔ¿
+	   char E_KEY[128], //File (Encryption or Encrypted) key æ–‡ä»¶åŠ å¯†å¯†é’¥
 			E_KEY2[128],
 			E_KEY3[128];
 
-		printf("Please input >>> the source file name\n(Contains the directory name):\n");
-		printf("ÊäÈëÒª¼ÓÃÜµÄÎÄ¼şÃû,[C:\]²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º\n");
-		scanf("%s", E_SourceFileName);
+	   printf("Please input >>> the source file name\n(Contains the directory name):\n");
+	   printf("è¾“å…¥è¦åŠ å¯†çš„æ–‡ä»¶å,[C:\]ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š\n");
+	   scanf("%s", E_SourceFileName);
 
 		printf("\n");
-		printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ£º\n");	//ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬(³¤¶ÈĞ¡ÓÚ128)¡£¿ÉÒÔËæÒâ¸øĞèÒª¼ÓÃÜµÄÎÄ¼şÌí¼ÓÃÜÔ¿
+		printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n");  //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œ(é•¿åº¦å°äº128)ã€‚å¯ä»¥éšæ„ç»™éœ€è¦åŠ å¯†çš„æ–‡ä»¶æ·»åŠ å¯†é’¥
 		printf("Please input >>> the key,Do not enter spaces!\n(length less than 128):\n");
 		scanf("%s", E_KEY);
 
 		printf("\n");
-		printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ£º\n"); //ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬(³¤¶ÈĞ¡ÓÚ128)¡£¿ÉÒÔËæÒâ¸øĞèÒª¼ÓÃÜµÄÎÄ¼şÌí¼ÓÃÜÔ¿
+		printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n"); //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œ(é•¿åº¦å°äº128)ã€‚å¯ä»¥éšæ„ç»™éœ€è¦åŠ å¯†çš„æ–‡ä»¶æ·»åŠ å¯†é’¥
 		printf("Please input >>> the key2,Do not enter spaces!\n(length less than 128):\n");
 		scanf("%s", E_KEY2);
 
 		printf("\n");
-		printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ£º\n"); //ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬(³¤¶ÈĞ¡ÓÚ128)¡£¿ÉÒÔËæÒâ¸øĞèÒª¼ÓÃÜµÄÎÄ¼şÌí¼ÓÃÜÔ¿
+		printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n"); //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œ(é•¿åº¦å°äº128)ã€‚å¯ä»¥éšæ„ç»™éœ€è¦åŠ å¯†çš„æ–‡ä»¶æ·»åŠ å¯†é’¥
 		printf("Please input >>> the key3,Do not enter spaces!\n(length less than 128):\n");
 		scanf("%s", E_KEY3);
 
-		printf("\n");
-		printf("Please input >>> the target file new name(Contains the directory name):\n");
-		printf("¼ÓÃÜºóµÄÎÄ¼şÃû,²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º\n"); //¸ø¼ÓÃÜºóµÄÎÄ¼şÃüÃû£¬²¢±£´æ
-		scanf("%s",E_TargetFileNewName);
+	   printf("\n");
+	   printf("Please input >>> the target file new name(Contains the directory name):\n");
+	   printf("åŠ å¯†åçš„æ–‡ä»¶å,ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š\n");  //ç»™åŠ å¯†åçš„æ–‡ä»¶å‘½åï¼Œå¹¶ä¿å­˜
+	   scanf("%s",E_TargetFileNewName);
 
-		printf("Please wait, read and write in the file......\n");
-		printf("ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......\n");
-		getchar();
+	   printf("Please wait, read and write in the file......\n");
+	   printf("è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......\n");
+	   getchar();
 
-		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName))
+		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName) == 1)
 		{
-		 printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]¼ÓÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", E_SourceFileName, E_TargetFileNewName);
-		 printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
-		 getchar();
-		 system("pause");
-		 return 0;
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]åŠ å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", E_SourceFileName, E_TargetFileNewName);
+			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
+			getchar();
+			system("pause");
+			return 0;
 		}
 	}
 	if(Load_User_Keyboard_Input == "2")
 	{
-		char D_SourceFileName[4096];		//Ô´ÎÄ¼şÃû
-		char D_TargetFileNewName[4096];	//Ä¿±êÎÄ¼şĞÂÃû³Æ
+	   char D_SourceFileName[4096];     //æºæ–‡ä»¶å
+	   char D_TargetFileNewName[4096];  //ç›®æ ‡æ–‡ä»¶æ–°åç§°
 
-		char D_KEY[128], //File (Decryption or Decrypted) key ÎÄ¼ş½âÃÜÃÜÔ¿
+		char D_KEY[128], //File (Decryption or Decrypted) key æ–‡ä»¶è§£å¯†å¯†é’¥
 			 D_KEY2[128],
 			 D_KEY3[128];
 
 		 printf("\n");
 		 printf("Please input >>> the source file name\n(Contains the directory name):\n");
-		 printf("ÊäÈëÒª½âÃÜµÄÎÄ¼şÃû,[C:\]²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º\n");
+		 printf("è¾“å…¥è¦è§£å¯†çš„æ–‡ä»¶å,[C:\]ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š\n");
 		 scanf("%s", D_SourceFileName);
 
-			printf("\n");
-			printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ£º\n"); //ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬¿ÉÒÔËæÒâ¸øĞèÒª½âÃÜµÄÎÄ¼şÊäÈëÃÜÔ¿
-			printf("Please input >>> the key3,Do not enter spaces!\n(length less than 128):\n");
-			scanf("%s", D_KEY);
+		  printf("\n");
+		  printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n");  //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œå¯ä»¥éšæ„ç»™éœ€è¦è§£å¯†çš„æ–‡ä»¶è¾“å…¥å¯†é’¥
+		  printf("Please input >>> the key,Do not enter spaces!\n(length less than 128):\n");
+		  scanf("%s", D_KEY);
 
-			printf("\n");
-			printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ£º\n");
-			printf("Please input >>> the key2,Do not enter spaces!\n(length less than 128):\n");
-			scanf("%s", D_KEY2);
+		  printf("\n");
+		  printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n");
+		  printf("Please input >>> the key2,Do not enter spaces!\n(length less than 128):\n");
+		  scanf("%s", D_KEY2);
 
-			printf("\n");
-			printf("ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ£º\n");
-			printf("Please input >>> the key,Do not enter spaces!\n(length less than 128):\n");
-			scanf("%s", D_KEY3);
+		  printf("\n");
+		  printf("è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š\n");
+		  printf("Please input >>> the key3,Do not enter spaces!\n(length less than 128):\n");
+		  scanf("%s", D_KEY3);
 
 		printf("\n");
 		printf("Please input >>> the target file new name(Contains the directory name):\n");
-		printf("½âÃÜºóµÄÎÄ¼şÃû,²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º\n");	//¸ø½âÃÜºóµÄÎÄ¼şÃüÃû£¬²¢±£´æ
+		printf("è§£å¯†åçš„æ–‡ä»¶å,ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š\n");  //ç»™è§£å¯†åçš„æ–‡ä»¶å‘½åï¼Œå¹¶ä¿å­˜
 		scanf("%s",D_TargetFileNewName);
 
 		printf("Please wait, read and write in the file......\n");
-		 printf("ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......\n");
+		printf("è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......\n");
 		getchar();
 
-		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName))
+		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName) == 1)
 		{
-			printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]½âÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", D_SourceFileName, D_TargetFileNewName);
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]è§£å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", D_SourceFileName, D_TargetFileNewName);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileName, D_TargetFileNewName);
 			getchar();
 			system("pause");
@@ -138,14 +142,16 @@ int main()
 		}
 	}
 
-	if(Load_User_Keyboard_Input == "3")
-	{
-		return 0;
-	}
-	else
-	{
-		std :: cout << "User Input Error !" << endl;
-		getchar();
-		exit(1);
-	}
+  if(Load_User_Keyboard_Input == "3")
+  {
+	return 0;
+  }
+  else
+  {
+	std :: cout << "User Entered Is Invalid !" << endl;
+	getchar();
+	exit(1);
+  }
 }
+
+#include "Main-By_Twilight-Dream.hpp"

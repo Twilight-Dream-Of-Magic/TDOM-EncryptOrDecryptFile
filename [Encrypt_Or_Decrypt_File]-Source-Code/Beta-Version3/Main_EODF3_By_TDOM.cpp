@@ -7,7 +7,7 @@ Chinese中文:
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Beta 3.0
-源代码修改时间: 2018-4-5
+源代码修改时间: 2019-5-31
 作者: Twilight-Dream-Of-Magic
 
 English英文:
@@ -16,7 +16,7 @@ Program File Name: File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 3.0
-Source code modified by: 2018-4-5
+Source code modified by: 2019-5-31
 Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
@@ -168,7 +168,7 @@ int main()
 	std::cout << "System:Input And Output/Enter>";
 
 	std::cin >> Load_User_Keyboard_Input;
-	getchar();
+	cin.get();
 
 /****************************************************************************************************************************************************************/
 
@@ -264,7 +264,7 @@ int main()
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> E_KEY;
+		cin.getline(E_KEY, 256, '\n').get();
 		if(strlen(E_KEY) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY,NULL,sizeof(E_KEY)); //Reset This Variable The Value (NULL = 0)
@@ -278,7 +278,7 @@ int main()
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> E_KEY2;
+		cin.getline(E_KEY2, 256, '\n').get();
 		if(strlen(E_KEY2) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY2,NULL,sizeof(E_KEY2)); //Reset This Variable The Value (NULL = 0)
@@ -292,7 +292,7 @@ int main()
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> E_KEY3;
+		cin.getline(E_KEY3, 256, '\n').get();
 		if(strlen(E_KEY3) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY3,NULL,sizeof(E_KEY3)); //Reset This Variable The Value (NULL = 0)
@@ -305,8 +305,8 @@ int main()
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> E_KEY4;
+		std::cout << "Please input >>> the key4,Do not enter spaces!\n(length less than 256):" << endl;
+		cin.getline(E_KEY4, 256, '\n').get();
 		if(strlen(E_KEY4) > E_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(E_KEY4,NULL,sizeof(E_KEY4)); //Reset This Variable The Value (NULL = 0)
@@ -335,11 +335,6 @@ int main()
 		const char *E_SourceFileCharPath = E_SourceFileStringPath.c_str();
 		const char *E_TargetFileCharPath = E_TargetFileStringPath.c_str();
 
-		/*char *E_SourceFileLastNameOutput; //最后读写的文件名
-		strcpy(E_SourceFileLastNameOutput,E_SourceFileCharPath);
-		char *E_TargetFileLastNameOutput; //最后保存的加密后文件名
-		strcpy(E_TargetFileLastNameOutput,E_TargetFileCharPath);*/
-
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "正在记录并导出，本次用于文件加密，4个密钥字符串......" << endl;
 		std::cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
@@ -359,13 +354,13 @@ int main()
 		ConsoleTableColorSet(1, 1, 1);
 		std::cout << "Please wait, read and write in the file......" << endl;
 		std::cout << "请等待，文件读写中......" << endl;
-		getchar();
+		cin.get();
 
-		if (RunEncryptFile(E_SourceFileCharPath, E_KEY, E_KEY2, E_KEY3, E_KEY4, E_TargetFileCharPath))
+		if (RunEncryptFile(E_SourceFileCharPath, E_KEY, E_KEY2, E_KEY3, E_KEY4, E_TargetFileCharPath) == 1)
 		{
 			printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", E_SourceFileCharPath, E_TargetFileCharPath);
 			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileCharPath, E_TargetFileCharPath);
-			getchar();
+			cin.get();
 			system("pause");
 			system("cls");
 			goto ProgramMainMenu;
@@ -437,8 +432,8 @@ int main()
 		ConsoleTableColorSet(1, 1, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> D_KEY;
+		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
+		cin.getline(D_KEY, 256, '\n').get();
 		if(strlen(D_KEY) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY,NULL,sizeof(D_KEY)); //Reset This Variable The Value (NULL = 0)
@@ -452,7 +447,7 @@ int main()
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥2,不要输入空格!" << endl;
 		std::cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> D_KEY2;
+		cin.getline(D_KEY2, 256, '\n').get();
 		if(strlen(D_KEY2) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY2,NULL,sizeof(D_KEY2)); //Reset This Variable The Value (NULL = 0)
@@ -465,8 +460,8 @@ int main()
 		ConsoleTableColorSet(1, 0, 0);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥3,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> D_KEY3;
+		std::cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 256):" << endl;
+		cin.getline(D_KEY3, 256, '\n').get();
 		if(strlen(D_KEY3) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY3,NULL,sizeof(D_KEY3)); //Reset This Variable The Value (NULL = 0)
@@ -479,8 +474,8 @@ int main()
 		ConsoleTableColorSet(0, 1, 1);
 		std::cout << "\n";
 		std::cout << "输入(长度小于256)密钥4,不要输入空格!" << endl;
-		std::cout << "Please input >>> the key,Do not enter spaces!\n(length less than 256):" << endl;
-		std::cin >> D_KEY4;
+		std::cout << "Please input >>> the key4,Do not enter spaces!\n(length less than 256):" << endl;
+		cin.getline(D_KEY4, 256, '\n').get();
 		if(strlen(D_KEY4) > D_KEY_CODE_MAX_LENGTH)
 		{
 		    memset(D_KEY4,NULL,sizeof(D_KEY4)); //Reset This Variable The Value (NULL = 0)
@@ -497,8 +492,6 @@ int main()
 		std::cout << "\n";
 		std::cout << "如果在当前文件夹下配置文件[.\\*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
 		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
-		std::cout << "Please output >>> target file main name,not the file extension name!\nDo not enter spaces!\n[DATA-DECRYPTED]:" << endl;
-		std::cout << "输出文件主要名，不是文件扩展名，不要输入空格[DATA-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出主要文件名，并保存 Output the main file name to the decrypted file and save it
 		if (!access(".\\SourceFileMainName.CONFIGFILE", 0))
 		{
 			//char TFMN_Buffer[256];
@@ -521,6 +514,8 @@ int main()
 		}
 		else
 		{
+			std::cout << "Please output >>> target file main name,not the file extension name!\nDo not enter spaces!\n[TSMY-DECRYPTED]:" << endl;
+			std::cout << "输出文件主要名，不是文件扩展名，不要输入空格[-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出主要文件名，并保存 Output the main file name to the decrypted file and save it
 			std::cout << "配置文件" << ".\\SourceFileMainName.CONFIGFILE" << "未找到!\n" << "请重新输入名称!" << endl;
 			std::cout << "Configuration file" << ".\\SourceFileMainName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileMainName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -532,8 +527,6 @@ int main()
 
 		std::cout << "如果在当前文件夹下配置文件[.\\*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
 		std::cout << "If the configuration file [.\\*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
-		std::cout << "Please output >>> target file extension name!\nDo not enter spaces!\n[Example: .txt]:" << endl;
-		std::cout << "输出文件扩展名，不要输入空格[实例： .txt]!" << endl; //给解密后的文件输出文件扩展名，并保存
 		if (!access(".\\SourceFileExtendedName.CONFIGFILE", 0))
 		{
 			ifstream LoadSourceFileNameConfigure(".\\SourceFileExtendedName.CONFIGFILE", ios::in);
@@ -556,6 +549,8 @@ int main()
 		}
 		else
 		{
+			std::cout << "Please output >>> target file extension name!\nDo not enter spaces!\n[Example: .txt]:" << endl;
+			std::cout << "输出文件扩展名，不要输入空格[实例： .txt]!" << endl; //给解密后的文件输出文件扩展名，并保存
 			std::cout << "配置文件" << ".\\SourceFileExtendedName.CONFIGFILE" << "未找到!\n" << "请重新输入名称!" << endl;
 			std::cout << "Configuration file" << ".\\SourceFileExtendedName.CONFIGFILE" << "Not found!\n" << "Please re-enter the name!" << endl;
 			HANDLE hFILE = CreateFile(".\\SourceFileExtendedName.CONFIGFILE", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -594,13 +589,13 @@ int main()
 		ConsoleTableColorSet(0, 0, 1);
 		std::cout << "Please wait, read and write in the file......" << endl;
 		std::cout << "请等待，文件读写中......" << endl;
-		getchar();
+		cin.get();
 
-		if (RunDecryptFile(D_SourceFileCharPath, D_KEY, D_KEY2, D_KEY3, D_KEY4, D_TargetFileCharPath))
+		if (RunDecryptFile(D_SourceFileCharPath, D_KEY, D_KEY2, D_KEY3, D_KEY4, D_TargetFileCharPath) == 1)
 		{
 			printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", D_SourceFileCharPath, D_TargetFileCharPath);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileCharPath, D_TargetFileCharPath);
-			getchar();
+			cin.get();
 			system("pause");
 			system("cls");
 			goto ProgramMainMenu;
@@ -718,7 +713,7 @@ int main()
 		{
 			ConsoleTableColorSet(0, 0, 0);
 			std::cout << "User Keyboard Input Error !" << endl;
-			getchar();
+			cin.get();
 			exit(1);
 		}
 	}

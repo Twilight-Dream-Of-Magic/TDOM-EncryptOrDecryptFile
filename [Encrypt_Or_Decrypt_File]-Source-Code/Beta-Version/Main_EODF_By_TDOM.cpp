@@ -28,6 +28,8 @@ Author: Twilight-Dream-Of-Magic
 
 using namespace std;
 
+#include "EODF_By_TDOM.hpp"
+
 //typedef unsigned char byte;
 
 int RunEncryptFile(char *E_SourceFileName, char *E_KEY, char *E_KEY2, char *E_KEY3, char *E_TargetFileNewName);
@@ -153,5 +155,3 @@ int main()
 	exit(1);
   }
 }
-
-#include "Main-By_Twilight-Dream.hpp"

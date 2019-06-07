@@ -7,7 +7,7 @@ Chinese中文:
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Beta 2.0
-源代码修改时间: 2017-8-11
+源代码修改时间: 2019-5-31
 作者: Twilight-Dream-Of-Magic
 
 English英文:
@@ -16,7 +16,7 @@ Program File Name: Twilight-Dream-Of-Magic File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 2.0
-Source code modified by: 2017-8-11
+Source code modified by: 2019-5-31
 Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
@@ -96,7 +96,7 @@ ProgramMainMenu:
 	std :: cout << "System:Input And Output/Enter>";
 
 	std :: cin >> Load_User_Keyboard_Input;
-	getchar();
+	cin.get();
 
 	if(Load_User_Keyboard_Input == "1")
 	{
@@ -119,17 +119,17 @@ ProgramMainMenu:
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥,不要输入空格：" << endl;  //密钥是用户自己定义的，(长度小于128)。可以随意给需要加密的文件添加密钥
 		  std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> E_KEY;
+		  cin.getline(E_KEY, 128, '\n').get();
 
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥2,不要输入空格：" << endl;
 		  std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> E_KEY2;
+		  cin.getline(E_KEY2, 128, '\n').get();
 
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥3,不要输入空格：" << endl;
 		  std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> E_KEY3;
+		  cin.getline(E_KEY3, 128, '\n').get();
 
 		   std :: cout << "\n";
 		   std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
@@ -153,13 +153,13 @@ ProgramMainMenu:
 
 			std :: cout << "Please wait, read and write in the file......" << endl;
 			std :: cout << "请等待，文件读写中......" << endl;
-			getchar();
+			cin.get();
 
-		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName))
+		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName) == 1)
 		{
 			printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", E_SourceFileName, E_TargetFileNewName);
 			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
-			getchar();
+			cin.get();
 			system("pause");
 			system("cls");
 			goto ProgramMainMenu;
@@ -186,17 +186,17 @@ ProgramMainMenu:
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥,不要输入空格：" << endl;  //密钥是用户自己定义的，可以随意给需要解密的文件输入密钥
 		  std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> D_KEY;
+		  cin.getline(D_KEY, 128, '\n').get();
 
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥2,不要输入空格：" << endl;
 		  std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> D_KEY2;
+		  cin.getline(D_KEY2, 128, '\n').get();
 
 		  std :: cout << "\n";
 		  std :: cout << "输入(长度小于128)密钥3,不要输入空格：" << endl;
 		  std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
-		  std :: cin >> D_KEY3;
+		  cin.getline(D_KEY3, 128, '\n').get();
 
 		   std :: cout << "\n";
 		   std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
@@ -206,13 +206,13 @@ ProgramMainMenu:
 
 			std :: cout << "Please wait, read and write in the file......" << endl;
 			std :: cout << "请等待，文件读写中......" << endl;
-			getchar();
+			cin.get();
 
-		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName))
+		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName) == 1)
 		{
 			printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", D_SourceFileName, D_TargetFileNewName);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileName, D_TargetFileNewName);
-			getchar();
+			cin.get();
 			system("pause");
 			system("cls");
 			goto ProgramMainMenu;
@@ -225,8 +225,8 @@ ProgramMainMenu:
   }
   else
   {
-	std :: cout << "User Input Error !" << endl;
-	getchar();
+	std :: cout << "User Enter Is Invalid !" << endl;
+	cin.get();
 	exit(1);
   }
 }

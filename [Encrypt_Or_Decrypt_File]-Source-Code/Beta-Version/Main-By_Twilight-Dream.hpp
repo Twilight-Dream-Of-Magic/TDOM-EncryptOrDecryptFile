@@ -34,8 +34,8 @@
 			 FilePointerTarget = fopen(E_TargetFileNewName, "wb"); //以二进制方式写入文件
 			 if(FilePointerTarget== NULL)
 			 {
-			   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", FilePointerTarget);
-			   printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", FilePointerTarget);
+			   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", E_TargetFileNewName);
+			   printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", E_TargetFileNewName);
 			   getchar();
 			   return 0;
 			 }
@@ -96,8 +96,8 @@
 			 FilePointerTarget = fopen(D_TargetFileNewName, "wb"); //以二进制方式写入文件
 			 if(FilePointerTarget== NULL)
 			 {
-			   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", FilePointerTarget);
-			   printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", FilePointerTarget);
+			   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", D_TargetFileNewName);
+			   printf("文件[%s]创建/写入失败！请检查文件路径和名称是否输入正确！\n", D_TargetFileNewName);
 			   getchar();
 			 return 0;
 			 }

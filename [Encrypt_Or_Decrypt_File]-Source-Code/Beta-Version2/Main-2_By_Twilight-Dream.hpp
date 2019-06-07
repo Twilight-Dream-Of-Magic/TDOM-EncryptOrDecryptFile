@@ -16,7 +16,7 @@
 			FILE *FilePointerSource, *FilePointerTarget; //要打开的文件的指针
 			char buffer[1024];               //缓冲区，用于存放从文件读取的数据
 
-			int FileByteData,                //每次从文件中读取的字节数
+			int FileByteData,                //每次需要从文件容器中，处理的(数据项目)内容的字节数量
 				RTNOC,                       //运行循环次数 (Run The Number Of Cycles)
 				KeyLength = strlen(E_KEY),   //密钥的长度
 				KeyLength2 = strlen(E_KEY2),
@@ -315,7 +315,7 @@
 			FILE *FilePointerSource, *FilePointerTarget; //要打开的文件的指针
 			char buffer[1024];               //缓冲区，用于存放从文件读取的数据
 
-			int FileByteData,                //每次从文件中读取的字节数
+			int FileByteData,                //每次需要从文件容器中，处理的(数据项目)内容的字节数量
 				RTNOC,                       //运行循环次数 (Run The Number Of Cycles)
 				KeyLength = strlen(D_KEY),   //密钥的长度
 				KeyLength2 = strlen(D_KEY2),
@@ -330,7 +330,7 @@
 			   return 0;
 			 }
 
-		     FilePointerTarget = fopen(D_TargetFileNewName, "wb"); //以二进制方式写入文件
+			 FilePointerTarget = fopen(D_TargetFileNewName, "wb"); //以二进制方式写入文件
 			 if(FilePointerTarget == NULL)
 			 {
 			   printf("File[%s]creation/write failed! Please check whether the file path and name are entered correctly!\n", D_TargetFileNewName);

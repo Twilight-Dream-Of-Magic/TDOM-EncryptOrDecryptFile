@@ -7,7 +7,7 @@ Chinese中文:
 程序平台类型: Windows 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Beta 1.0
-源代码修改时间: 2017-8-1
+源代码修改时间: 2019-5-31
 作者: Twilight-Dream-Of-Magic
 
 English英文:
@@ -16,7 +16,7 @@ Program File Name: Twilight-Dream-Of-Magic_File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 1.0
-Source code modified by: 2017-8-1
+Source code modified by: 2019-5-31
 Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
@@ -85,7 +85,7 @@ int main()
 	   printf("请等待，文件读写中......\n");
 	   getchar();
 
-		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName))
+		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName) == 1)
 		{
 			printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", E_SourceFileName, E_TargetFileNewName);
 			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
@@ -132,7 +132,7 @@ int main()
 		printf("请等待，文件读写中......\n");
 		getchar();
 
-		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName))
+		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName) == 1)
 		{
 			printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", D_SourceFileName, D_TargetFileNewName);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileName, D_TargetFileNewName);
@@ -148,7 +148,7 @@ int main()
   }
   else
   {
-	std :: cout << "User Input Error !" << endl;
+	std :: cout << "User Entered Is Invalid !" << endl;
 	getchar();
 	exit(1);
   }

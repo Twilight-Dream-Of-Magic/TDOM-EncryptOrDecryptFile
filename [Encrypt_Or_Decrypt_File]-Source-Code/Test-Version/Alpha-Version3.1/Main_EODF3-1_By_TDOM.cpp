@@ -27,7 +27,6 @@ Author: Twilight-Dream-Of-Magic
 #include <stdlib.h>  //计算机C语言标准库函数 Computer C language standard library functions
 #include <string.h>  //计算机C语言字符串处理函数 Computer C language string handling functions
 #include <windows.h>
-#include "stdafx.h"
 
 //#include <ImageHlp.h> //MakeSureDirectoryPathExists("");
 //#pragma comment(lib, "ImageHlp.lib")

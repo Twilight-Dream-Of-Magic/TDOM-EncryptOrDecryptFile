@@ -1,30 +1,30 @@
 /****************************************************************************
 Read Me - About This Source Code File
 
-ChineseÖĞÎÄ:
-¼ÆËã»úÓïÑÔÀàĞÍ: C++
-³ÌĞòÎÄ¼şÃû: File_Lock
-³ÌĞòÆ½Ì¨ÀàĞÍ: Windows ÃüÁîĞĞ¿ØÖÆÌ¨
-³ÌĞòÊµ¼Ê×÷ÓÃ: ÎÄ¼ş¶Ô³ÆÊ½¼ÓÃÜ½âÃÜ
-°æ±¾: Beta 2.0
-Ô´´úÂëĞŞ¸ÄÊ±¼ä: 2017-8-11
-×÷Õß: Twilight-Dream-Of-Magic
+Chineseä¸­æ–‡:
+è®¡ç®—æœºè¯­è¨€ç±»å‹: C++
+ç¨‹åºæ–‡ä»¶å: Twilight-Dream-Of-Magic File_Lock
+ç¨‹åºå¹³å°ç±»å‹: Windows å‘½ä»¤è¡Œæ§åˆ¶å°
+ç¨‹åºå®é™…ä½œç”¨: æ–‡ä»¶å¯¹ç§°å¼åŠ å¯†è§£å¯†
+ç‰ˆæœ¬: Beta 2.0
+æºä»£ç ä¿®æ”¹æ—¶é—´: 2019-5-31
+ä½œè€…: Twilight-Dream-Of-Magic
 
-EnglishÓ¢ÎÄ:
+Englishè‹±æ–‡:
 Computer Language Type: C ++
-Program File Name: File_Lock
+Program File Name: Twilight-Dream-Of-Magic File_Lock
 Program Platform Type: Windows Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Beta 2.0
-Source code modified by: 2017-8-11
+Source code modified by: 2019-5-31
 Author: Twilight-Dream-Of-Magic
 *****************************************************************************/
 
 #include <iostream>
 #include <fstream>
-#include <stdio.h>	 //C±ê×¼ÊäÈëÊä³öº¯Êı
-#include <stdlib.h>	 //C±ê×¼¿âº¯Êı
-#include <string.h>	 //×Ö·û´®´¦Àíº¯Êı
+#include <stdio.h>   //Cæ ‡å‡†è¾“å…¥è¾“å‡ºå‡½æ•°
+#include <stdlib.h>  //Cæ ‡å‡†åº“å‡½æ•°
+#include <string.h>  //å­—ç¬¦ä¸²å¤„ç†å‡½æ•°
 #include <windows.h>
 
 using namespace std;
@@ -96,140 +96,139 @@ ProgramMainMenu:
 	std :: cout << "System:Input And Output/Enter>";
 
 	std :: cin >> Load_User_Keyboard_Input;
-	getchar();
+	cin.get();
 
 	if(Load_User_Keyboard_Input == "1")
 	{
-		system("cls");
-		system("color 1A");
+	   system("cls");
+	   system("color 1A");
 
-		char E_SourceFileName[4096], // ¼ÓÃÜµÄÎÄ¼şÃû
-			E_TargetFileNewName[4096]; // ¼ÓÃÜºóÒª±£´æµÄÎÄ¼şÃû
+	   char E_SourceFileName[4096],    // åŠ å¯†çš„æ–‡ä»¶å
+			E_TargetFileNewName[4096]; // åŠ å¯†åè¦ä¿å­˜çš„æ–‡ä»¶å
 
-		//char E_TargetFileLastNameOutput = (E_TargetFileNewName + ".TY_ENCRYPTED"); //×îºó±£´æµÄ¼ÓÃÜºóÎÄ¼şÃû
+	  //char E_TargetFileLastNameOutput = (E_TargetFileNewName + ".TY_ENCRYPTED"); //æœ€åä¿å­˜çš„åŠ å¯†åæ–‡ä»¶å
 
-		char E_KEY[128], //File (Encryption or Encrypted) key ÎÄ¼ş¼ÓÃÜÃÜÔ¿
+		char E_KEY[128], //File (Encryption or Encrypted) key æ–‡ä»¶åŠ å¯†å¯†é’¥
 			 E_KEY2[128],
 			 E_KEY3[128];
 
-		std :: cout << "Please input >>> the source file name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
-		std :: cout << "ÊäÈëÒª¼ÓÃÜµÄÎÄ¼şÃû,[C:\]²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º" << endl;
-		std :: cin >> E_SourceFileName;
+		 std :: cout << "Please input >>> the source file name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
+		 std :: cout << "è¾“å…¥è¦åŠ å¯†çš„æ–‡ä»¶å,[C:\]ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š" << endl;
+		 std :: cin >> E_SourceFileName;
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ£º" << endl; //ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬(³¤¶ÈĞ¡ÓÚ128)¡£¿ÉÒÔËæÒâ¸øĞèÒª¼ÓÃÜµÄÎÄ¼şÌí¼ÓÃÜÔ¿
-			std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> E_KEY;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;  //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œ(é•¿åº¦å°äº128)ã€‚å¯ä»¥éšæ„ç»™éœ€è¦åŠ å¯†çš„æ–‡ä»¶æ·»åŠ å¯†é’¥
+		  std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(E_KEY, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ£º" << endl;
-			std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> E_KEY2;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;
+		  std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(E_KEY2, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ£º" << endl;
-			std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> E_KEY3;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;
+		  std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(E_KEY3, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
-			std :: cout << "¼ÓÃÜºóµÄÎÄ¼şÃû,²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º" << endl; //¸ø¼ÓÃÜºóµÄÎÄ¼şÃüÃû£¬²¢±£´æ
-			std :: cin >> E_TargetFileNewName;
-			system("cls");
+		   std :: cout << "\n";
+		   std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
+		   std :: cout << "åŠ å¯†åçš„æ–‡ä»¶å,ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š" << endl;  //ç»™åŠ å¯†åçš„æ–‡ä»¶å‘½åï¼Œå¹¶ä¿å­˜
+		   std :: cin >> E_TargetFileNewName;
+		   system("cls");
 
-			std :: cout << "ÕıÔÚ¼ÇÂ¼²¢µ¼³ö£¬±¾´ÎÓÃÓÚÎÄ¼ş¼ÓÃÜ£¬3¸öÃÜÔ¿×Ö·û´®......" << endl;
-			std :: cout << "Is being recorded and exported, this time for file encryption, 3 key string......" << endl;
-
-			ofstream PasswordSaveToKeyFile;
-			PasswordSaveToKeyFile.open("FILE-ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
-			PasswordSaveToKeyFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
-			PasswordSaveToKeyFile << "\n" << endl;
-			PasswordSaveToKeyFile << "Source Input File Name and Path: " << E_SourceFileName << "\n" << endl;
-			PasswordSaveToKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileNewName << "\n" << endl;
-			PasswordSaveToKeyFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
-			PasswordSaveToKeyFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
-			PasswordSaveToKeyFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
-			PasswordSaveToKeyFile << "<******************************************************************************************>" << "\n" << endl;
-			PasswordSaveToKeyFile.close();
+		   std :: cout << "æ­£åœ¨è®°å½•å¹¶å¯¼å‡ºï¼Œæœ¬æ¬¡ç”¨äºæ–‡ä»¶åŠ å¯†ï¼Œ3ä¸ªå¯†é’¥å­—ç¬¦ä¸²......" << endl;
+		   std :: cout << "Is being recorded and exported, this time for file encryption, 3 key string......" << endl;
+		   ofstream PasswordOutputKeyFile;
+		   PasswordOutputKeyFile.open("FILE-ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
+		   PasswordOutputKeyFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
+		   PasswordOutputKeyFile << "\n" << endl;
+		   PasswordOutputKeyFile << "Source Input File Name and Path: " << E_SourceFileName << "\n" << endl;
+		   PasswordOutputKeyFile << "EncryptFile: New Output Target File Name and Path: " << E_TargetFileNewName << "\n" << endl;
+		   PasswordOutputKeyFile << "Key string1 [Password1]: " << E_KEY << "\n" << endl;
+		   PasswordOutputKeyFile << "Key string2 [Password2]: " << E_KEY2 << "\n" << endl;
+		   PasswordOutputKeyFile << "Key string3 [Password3]: " << E_KEY3 << "\n" << endl;
+		   PasswordOutputKeyFile << "<******************************************************************************************>" << "\n" << endl;
+		   PasswordOutputKeyFile.close();
 
 			std :: cout << "Please wait, read and write in the file......" << endl;
-			std :: cout << "ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......" << endl;
-			getchar();
+			std :: cout << "è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......" << endl;
+			cin.get();
 
-		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName))
+		if(RunEncryptFile(E_SourceFileName, E_KEY, E_KEY2, E_KEY3, E_TargetFileNewName) == 1)
 		{
-		 printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]¼ÓÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", E_SourceFileName, E_TargetFileNewName);
-		 printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
-		 getchar();
-		 system("pause");
-		 system("cls");
-		 goto ProgramMainMenu;
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]åŠ å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", E_SourceFileName, E_TargetFileNewName);
+			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileName, E_TargetFileNewName);
+			cin.get();
+			system("pause");
+			system("cls");
+			goto ProgramMainMenu;
 		}
 	}
 	if(Load_User_Keyboard_Input == "2")
 	{
-		system("cls");
-		system("color 1A");
+	   system("cls");
+	   system("color 1A");
 
-		char D_SourceFileName[4096], //Ô´ÎÄ¼şÃû
-			D_TargetFileNewName[4096]; //Ä¿±êÎÄ¼şĞÂÃû³Æ
+	   char D_SourceFileName[4096],    //æºæ–‡ä»¶å
+			D_TargetFileNewName[4096]; //ç›®æ ‡æ–‡ä»¶æ–°åç§°
 
-		//char D_TargetFileLastNameOutput = (D_TargetFileNewName - ".TY_ENCRYPTED"); //×îºó±£´æµÄ½âÃÜºóÎÄ¼şÃû
+	   //char D_TargetFileLastNameOutput = (D_TargetFileNewName - ".TY_DECRYPTED"); //æœ€åä¿å­˜çš„è§£å¯†åæ–‡ä»¶å
 
-		char D_KEY[128], //File (Decryption or Decrypted) key ÎÄ¼ş½âÃÜÃÜÔ¿
+		char D_KEY[128], //File (Decryption or Decrypted) key æ–‡ä»¶è§£å¯†å¯†é’¥
 			 D_KEY2[128],
 			 D_KEY3[128];
 
-		std :: cout << "Please input >>> the source file name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
-		std :: cout << "ÊäÈëÒª½âÃÜµÄÎÄ¼şÃû,[C:\]²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º" << endl;
-		std :: cin >> D_SourceFileName;
+		 std :: cout << "Please input >>> the source file name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
+		 std :: cout << "è¾“å…¥è¦è§£å¯†çš„æ–‡ä»¶å,[C:\]ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š" << endl;
+		 std :: cin >> D_SourceFileName;
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿,²»ÒªÊäÈë¿Õ¸ñ£º" << endl; //ÃÜÔ¿ÊÇÓÃ»§×Ô¼º¶¨ÒåµÄ£¬¿ÉÒÔËæÒâ¸øĞèÒª½âÃÜµÄÎÄ¼şÊäÈëÃÜÔ¿
-			std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> D_KEY;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;  //å¯†é’¥æ˜¯ç”¨æˆ·è‡ªå·±å®šä¹‰çš„ï¼Œå¯ä»¥éšæ„ç»™éœ€è¦è§£å¯†çš„æ–‡ä»¶è¾“å…¥å¯†é’¥
+		  std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(D_KEY, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿2,²»ÒªÊäÈë¿Õ¸ñ£º" << endl;
-			std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> D_KEY2;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥2,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;
+		  std :: cout << "Please input >>> the key2,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(D_KEY2, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "ÊäÈë(³¤¶ÈĞ¡ÓÚ128)ÃÜÔ¿3,²»ÒªÊäÈë¿Õ¸ñ£º" << endl;
-			std :: cout << "Please input >>> the key,Do not enter spaces!\n(length less than 128):" << endl;
-			std :: cin >> D_KEY3;
+		  std :: cout << "\n";
+		  std :: cout << "è¾“å…¥(é•¿åº¦å°äº128)å¯†é’¥3,ä¸è¦è¾“å…¥ç©ºæ ¼ï¼š" << endl;
+		  std :: cout << "Please input >>> the key3,Do not enter spaces!\n(length less than 128):" << endl;
+		  cin.getline(D_KEY3, 128, '\n').get();
 
-			std :: cout << "\n";
-			std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
-			std :: cout << "½âÃÜºóµÄÎÄ¼şÃû,²»ÒªÊäÈë¿Õ¸ñ(º¬Â·¾¶)£º" << endl; //¸ø½âÃÜºóµÄÎÄ¼şÃüÃû£¬²¢±£´æ
-			std :: cin >> D_TargetFileNewName;
-			system("cls");
+		   std :: cout << "\n";
+		   std :: cout << "Please output >>> the target file new name.\nDo not enter spaces!\n(Contains the directory name):" << endl;
+		   std :: cout << "è§£å¯†åçš„æ–‡ä»¶å,ä¸è¦è¾“å…¥ç©ºæ ¼(å«è·¯å¾„)ï¼š" << endl;  //ç»™è§£å¯†åçš„æ–‡ä»¶å‘½åï¼Œå¹¶ä¿å­˜
+		   std :: cin >> D_TargetFileNewName;
+		   system("cls");
 
 			std :: cout << "Please wait, read and write in the file......" << endl;
-			std :: cout << "ÇëµÈ´ı£¬ÎÄ¼ş¶ÁĞ´ÖĞ......" << endl;
-			getchar();
+			std :: cout << "è¯·ç­‰å¾…ï¼Œæ–‡ä»¶è¯»å†™ä¸­......" << endl;
+			cin.get();
 
-		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName))
+		if(RunDecryptFile(D_SourceFileName, D_KEY, D_KEY2, D_KEY3, D_TargetFileNewName) == 1)
 		{
-			printf("¹§Ï²Äã£¬ÎÄ¼ş[%s]½âÃÜ³É¹¦£¬±£´æÔÚ[%s]¡£\n", D_SourceFileName, D_TargetFileNewName);
+			printf("æ­å–œä½ ï¼Œæ–‡ä»¶[%s]è§£å¯†æˆåŠŸï¼Œä¿å­˜åœ¨[%s]ã€‚\n", D_SourceFileName, D_TargetFileNewName);
 			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileName, D_TargetFileNewName);
-			getchar();
+			cin.get();
 			system("pause");
 			system("cls");
 			goto ProgramMainMenu;
 		}
 	}
 
-	if(Load_User_Keyboard_Input == "3")
-	{
-		return 0;
-	}
-	else
-	{
-		std :: cout << "User Input Error !" << endl;
-		getchar();
-		exit(1);
-	}
+  if(Load_User_Keyboard_Input == "3")
+  {
+	return 0;
+  }
+  else
+  {
+	std :: cout << "User Enter Is Invalid !" << endl;
+	cin.get();
+	exit(1);
+  }
 }
 
-#include "EODF2_By_TDOM.hpp"
+#include "Main-2_By_Twilight-Dream.hpp"

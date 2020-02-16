@@ -1,7 +1,5 @@
 #include "Support-Libary.hpp"
 
-using namespace std;
-
 //Windows API Main Function Libary
 
 int GWUI()

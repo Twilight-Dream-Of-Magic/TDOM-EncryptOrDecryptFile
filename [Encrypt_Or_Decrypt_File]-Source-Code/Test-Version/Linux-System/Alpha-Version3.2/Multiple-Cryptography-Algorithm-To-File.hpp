@@ -80,7 +80,7 @@ long FileHeaderByteData = 0;
         cout << "File " << "[ " << E_SourceFileCharPath << " ]" << " failed to open, please check whether the file path and name are entered correctly!" << endl;
         cout << "文件 " << "[ " << E_SourceFileCharPath << " ]" << " 打开失败，请检查文件路径和名称是否输入正确 ！" << endl;
 				getchar();
-				return 0;
+				return RUNTIME_ERROR;
 			}
 
 			FilePointerTarget = fopen(E_TargetFileCharPath, "wb+"); //以二进制方式写入文件
@@ -91,7 +91,7 @@ long FileHeaderByteData = 0;
         cout << "File " << "[ " << E_TargetFileCharPath << " ]" << " creation/write failed! Please check whether the file path and name are entered correctly !" << endl;
         cout << "文件 " << "[ " << E_TargetFileCharPath << " ]" << " 创建/写入失败！请检查文件路径和名称是否输入正确 ！" << endl;
 				getchar();
-				return 0;
+				return RUNTIME_ERROR;
 			}
 
 /*加密算法开始*/
@@ -488,12 +488,19 @@ long FileHeaderByteData = 0;
 			}
 
 			system("echo -e '\033[0m'");
-			cout << "The display of the interaction progress has been closed for the encryption function." << endl;
-			cout << "已经关闭加密功能的交互进度的显示。" << endl;
 
-			if(NOIEM < MAX_NOT_E_MODULE || 12800)
+			if(NOIEM < MAX_NOT_E_MODULE || NOIEM == 12800)
 			{
+					cout << "The display of the interaction progress has been closed for the encryption function." << endl;
+					cout << "已经关闭加密功能的交互进度的显示。" << endl;
 			  break; //End encrypting process
+			}
+			else
+			{
+			   NOIEM = 0;
+			   fclose(FilePointerSource);
+			   fclose(FilePointerTarget);
+			   return FAILED;
 			}
 
 		}
@@ -508,7 +515,7 @@ long FileHeaderByteData = 0;
 		  //DeleteFile(E_SourceFileCharPath); /*This is windows API function*/
 			//remove(E_SourceFileCharPath); /*This is C & C++ language the delete file common IO function, use in the linux and unix or windows platform.*/
 
-		return 1;
+		return SUCCESSFUL;
 	}
 
 /*******************************************
@@ -544,7 +551,7 @@ long FileHeaderByteData = 0;
         cout << "File " << "[ " << D_SourceFileCharPath << " ]" << " failed to open, please check whether the file path and name are entered correctly !" << endl;
         cout << "文件 " << "[ " << D_SourceFileCharPath << " ]" << " 打开失败，请检查文件路径和名称是否输入正确 ！" << endl;
 				getchar();
-				return 0;
+				return RUNTIME_ERROR;
 			}
 
 			FilePointerTarget = fopen(D_TargetFileCharPath, "wb+"); //以二进制方式写入文件
@@ -555,7 +562,7 @@ long FileHeaderByteData = 0;
         cout << "File " << "[ " << D_TargetFileCharPath << " ]" << " creation/write failed! Please check whether the file path and name are entered correctly !" << endl;
         cout << "文件 " << "[ " << D_TargetFileCharPath << " ]" << " 创建/写入失败！请检查文件路径和名称是否输入正确 ！" << endl;
 				getchar();
-				return 0;
+				return RUNTIME_ERROR;
 			}
 
 /*解密算法开始*/
@@ -945,12 +952,19 @@ long FileHeaderByteData = 0;
 			}
 
 			system("echo -e '\033[0m'");
-			cout << "The display of the interaction progress has been closed for the decryption function." << endl;
-			cout << "已经关闭解密功能的交互进度的显示。" << endl;
 
-			if(NOIEM < MAX_NOT_D_MODULE || 12800)
+			if(NOIEM < MAX_NOT_E_MODULE || NOIEM == 12800)
 			{
-			  break; //End decrypting process
+					cout << "The display of the interaction progress has been closed for the decryption function." << endl;
+					cout << "已经关闭解密功能的交互进度的显示。" << endl;
+					break; //End decrypting process
+			}
+			else
+			{
+			   NOIEM = 0;
+			   fclose(FilePointerSource);
+			   fclose(FilePointerTarget);
+			   return FAILED;
 			}
 
 		}
@@ -965,5 +979,5 @@ long FileHeaderByteData = 0;
 			//DeleteFile(D_SourceFileCharPath); /*This is windows API function*/
 		  //remove(D_SourceFileCharPath); /*This is C & C++ language the delete file common IO function, use in the linux and unix or windows platform.*/
 
-		return 1;
+		return SUCCESSFUL;
 	}

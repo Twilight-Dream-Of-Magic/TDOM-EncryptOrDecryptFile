@@ -4,7 +4,7 @@ Read Me - About This Source Code File
 Chinese中文:
 计算机语言类型: C++
 程序文件名: File_Lock
-程序平台类型: Windows 命令行控制台
+程序平台类型: Linux 命令行控制台
 程序实际作用: 文件对称式加密解密
 版本: Alpha 3.1
 源代码修改时间: 2018-6-20
@@ -13,7 +13,7 @@ Chinese中文:
 English英文:
 Computer Language Type: C ++
 Program File Name: File_Lock
-Program Platform Type: Windows Command Line Console
+Program Platform Type: Linux Command Line Console
 The actual role of the program: file symmetric encryption and decryption
 Version: Alpha 3.1
 Source code modified by: 2018-6-20

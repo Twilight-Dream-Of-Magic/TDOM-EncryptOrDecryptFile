@@ -1,7 +1,5 @@
 #include "Support-Libary.hpp"
 
-using namespace std;
-
 //Qt5 Libary
 
 int GWUI()

@@ -47,12 +47,15 @@ void CleanFileFromThisWorkspace()
 	system("clear");
 }
 
-int Set_CTUI_Error(int This_Error_Code)
+int Set_CTUI_Error(int Code)
 {
-  if(This_Error_Code != 0 && This_Error_Code > 0)
+  /*0*/
+  if(Code != SUCCESSFUL && Code > SUCCESSFUL)
   {
-    if(This_Error_Code == 1)
+    /*2*/
+    if(Code == RUNTIME_ERROR)
     {
+      return RUNTIME_ERROR;
       cout << "加载配置文件时，出现了未知错误并结束" << endl;
       cout << "When the configuration file is loaded, an unknown error has occurred and ends" << endl;
       system("sleep 5s");
@@ -61,20 +64,22 @@ int Set_CTUI_Error(int This_Error_Code)
   }
   else
   {
-    This_Error_Code = 0;
-    if (This_Error_Code <= 0)
+    /*0*/
+    if (Code != SUCCESSFUL && Code < SUCCESSFUL)
     {
-      cout << "这个程序，没有错误发生" << endl;
-      cout << "This program, no error occurred" << endl;
-      system("sleep 5s");
-      system("exit 0");
-    }
-    else if (This_Error_Code < 0)
-    {
+      /*3*/
+      return THROW_EXCEPTED;
       cout << "这个程序，有未知错误发生了" << endl;
       cout << "This program has an unknown error occurred" << endl;
       system("sleep 5s");
       system("exit 0");
+    }
+    else if (Code == SUCCESSFUL)
+    {
+      cout << "这个程序，没有错误发生" << endl;
+      cout << "This program, no error occurred" << endl;
+      system("sleep 5s");
+      //system("exit 0");
     }
   }
 }
@@ -90,7 +95,6 @@ int CTUI()
  ProgramMainMenu:
 
 	string Load_User_Keyboard_Input;
-  	int This_Error_Code;
 
 	system("echo -e '\033[45m'"); //Linux Console Backgroud Color: Purple
 	system("echo -e '\033[0;33m'"); //Linux Console Foregroud Color: Yellow
@@ -332,15 +336,31 @@ int CTUI()
 		cout << "请等待，文件读写中......" << endl;
 		getchar();
 
-		if (RunEncryptFile(E_SourceFileCharPath, E_KEY, E_KEY2, E_KEY3, E_KEY4, E_TargetFileCharPath))
-		{
-			printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", E_SourceFileCharPath, E_TargetFileCharPath);
-			printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileCharPath, E_TargetFileCharPath);
-			getchar();
-			system("sleep 5s");
-			system("clear");
-			goto ProgramMainMenu;
-		}
+		int CIPHER_RETURN_STATUS = RunEncryptFile(E_SourceFileCharPath, E_KEY, E_KEY2, E_KEY3, E_KEY4, E_TargetFileCharPath);
+
+    if (CIPHER_RETURN_STATUS == SUCCESSFUL)
+    {
+      printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", E_SourceFileCharPath, E_TargetFileCharPath);
+      printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", E_SourceFileCharPath, E_TargetFileCharPath);
+      getchar();
+      system("sleep 5s");
+      system("clear");
+      goto ProgramMainMenu;
+    }
+    if (CIPHER_RETURN_STATUS == FAILED)
+    {
+       cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+       cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+       exit(1);
+    }
+    if (CIPHER_RETURN_STATUS == RUNTIME_ERROR)
+    {
+       cout << "Function Runtime Has Been Error" << endl; 
+    }
+    else if (CIPHER_RETURN_STATUS == THROW_EXCEPTED)
+    {
+       cout << "Checked And Throw Exception For Function Working " << endl;
+    }
 	}
 
 /****************************************************************************************************************************************************************/
@@ -482,8 +502,7 @@ int CTUI()
 			ifstream LoadSourceFileNameConfigure(".//SourceFileMainName.CONFIGFILE", ios::in);
 			if (LoadSourceFileNameConfigure.fail())
 			{
-        This_Error_Code = 1;
-        Set_CTUI_Error(This_Error_Code);
+        Set_CTUI_Error(2);
 			}
 			while (!LoadSourceFileNameConfigure.eof())
 			{
@@ -517,8 +536,7 @@ int CTUI()
 			//char TFEN_Buffer[256];
 			if (LoadSourceFileNameConfigure.fail())
 			{
-        This_Error_Code = 1;
-        Set_CTUI_Error(This_Error_Code);
+        Set_CTUI_Error(2);
 			}
 			while (!LoadSourceFileNameConfigure.eof())
 			{
@@ -542,17 +560,17 @@ int CTUI()
 		system("clear");
 
 		cout << "\n";
-		cout << "如果在当前文件夹下配置文件[.//*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
-		cout << "If the configuration file [.//*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
+		//cout << "如果在当前文件夹下配置文件[.//*.CONFIGFILE]不存在，程序就不会帮您自动恢复原来的文件名称。\n你需要重新输入文件名!" << endl;
+		//cout << "If the configuration file [.//*.CONFIGFILE] does not exist in the current folder, the program will not automatically restore the original file name.\nYou need to re-enter the file name!" << endl;
 		cout << "Please output >>> target file temporary add name.\nDo not enter spaces!\n[-DECRYPTED]:" << endl;
 		cout << "输出文件临时添加名，不要输入空格[-TSMY-DECRYPTED]!" << endl; //给解密后的文件输出文件临时添加名，并保存
 		cout << "Prevent source encrypted files from being overwritten" << endl;
 		cout << "防止源加密文件被覆盖" << endl;
 		std::cin >> D_TargetFileTempName;
-		if (D_TargetFileTempName == " ")
+		if (D_TargetFileTempName == " " || sizeof(&D_TargetFileTempName) == 0)
 		{
-			string D_TargetFileAddName = "-TSMY-DECRYPTED";
-			D_TargetFileTempName = D_TargetFileAddName;
+			string D_TargetFileDefaultAdd = "-TSMY-DECRYPTED";
+			D_TargetFileTempName = D_TargetFileDefaultAdd;
 		}
 
 		system("clear");
@@ -573,15 +591,30 @@ int CTUI()
 		cout << "请等待，文件读写中......" << endl;
 		getchar();
 
-		if (RunDecryptFile(D_SourceFileCharPath, D_KEY, D_KEY2, D_KEY3, D_KEY4, D_TargetFileCharPath))
-		{
-			printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", D_SourceFileCharPath, D_TargetFileCharPath);
-			printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileCharPath, D_TargetFileCharPath);
-			getchar();
-			system("sleep 5s");
-			system("clear");
-			goto ProgramMainMenu;
-		}
+		int CIPHER_RETURN_STATUS = RunDecryptFile(D_SourceFileCharPath, D_KEY, D_KEY2, D_KEY3, D_KEY4, D_TargetFileCharPath);
+
+    if (CIPHER_RETURN_STATUS == SUCCESSFUL)
+    {
+      printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", D_SourceFileCharPath, D_TargetFileCharPath);
+      printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", D_SourceFileCharPath, D_TargetFileCharPath);
+      getchar();
+      system("sleep 5s");
+      system("clear");
+    }
+    if (CIPHER_RETURN_STATUS == FAILED)
+    {
+       cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+       cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+       exit(1);
+    }
+    if (CIPHER_RETURN_STATUS == RUNTIME_ERROR)
+    {
+       cout << "Function Runtime Has Been Error" << endl; 
+    }
+    else if (CIPHER_RETURN_STATUS == THROW_EXCEPTED)
+    {
+       cout << "Checked And Throw Exception For Function Working " << endl;
+    }
 	}
 
 /****************************************************************************************************************************************************************/

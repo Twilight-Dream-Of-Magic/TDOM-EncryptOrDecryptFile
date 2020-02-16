@@ -1,8 +1,112 @@
+/* File Cipher The Return Enum Status For Worked */
+enum
+{
+   SUCCESSFUL, //Function return value is 0
+   FAILED, //Function return value is 1
+   RUNTIME_ERROR, //Function return value is 2
+   THROW_EXCEPTED //Function return value is 3
+};
+
 #include "Multiple-Cryptography-Algorithm-To-File.hpp"
 #include "Command-Text_User-Interface.hpp"
 #include "Graphical-Window_User-Interface.hpp"
 
-using namespace std;
+void KeyString_SaveToFile(auto VariableSF, auto VariableK, auto VariableK2, auto VariableK3, auto VariableK4, auto VariableTF)
+{
+   if (!access(".\\File-Key-Record-Log\\", 0))
+    {
+      cout << "Building and Loading Folder." << endl;
+    }
+    else
+    {
+      system("mkdir .\\File-Key-Record-Log\\");
+    }
+
+    cout << "正在记录并导出，本次用于文件加密，4个密钥字符串......" << endl;
+    cout << "Is being recorded and exported, this time for file encryption, 4 key string......" << endl;
+
+    time_t time_value = time(0);
+    char now_time_char[64];
+    strftime(now_time_char, sizeof(now_time_char), "%Y-%m-%d %X %A",localtime(&time_value));
+
+    ofstream KeyStringSaveToFile;
+
+    KeyStringSaveToFile.open(".\\File-Key-Record-Log\\ENCRYPTION-DECRYPTION-PASSWORD.KEY.TXT");
+
+    KeyStringSaveToFile << "Log Time:" << " " << now_time_char << "\n" << endl;
+    KeyStringSaveToFile << "Twilight-Dream-Of-Magic File Lock Password [Key String] Save\n" << endl;
+    KeyStringSaveToFile << "\n" << endl;
+    KeyStringSaveToFile << "Source Input File Name and Path: " << VariableSF << "\n" << endl;
+    KeyStringSaveToFile << "EncryptFile: New Output Target File Name and Path: " << VariableTF << "\n" << endl;
+    KeyStringSaveToFile << "Key string1 [Password1]: " << VariableK << "\n" << endl;
+    KeyStringSaveToFile << "Key string2 [Password2]: " << VariableK2 << "\n" << endl;
+    KeyStringSaveToFile << "Key string3 [Password3]: " << VariableK3<< "\n" << endl;
+    KeyStringSaveToFile << "Key string4 [Password4]: " << VariableK4 << "\n" << endl;
+    KeyStringSaveToFile << "<******************************************************************************************>" << "\n" << endl;
+
+    KeyStringSaveToFile.close();
+}
+
+void CallCustomEncryptToFile(auto VariableSF, auto VariableK, auto VariableK2, auto VariableK3, auto VariableK4, auto VariableTF) //const char* ESF, char* EK[], char* EK2[], char* EK3[], char* EK4[], const char* ETF
+{
+   KeyString_SaveToFile(VariableSF, VariableK, VariableK2, VariableK3, VariableK4, VariableTF);
+   
+   int CIPHER_RETURN_STATUS = RunEncryptFile(VariableSF, VariableK, VariableK2, VariableK3, VariableK4, VariableTF);
+   
+   if (CIPHER_RETURN_STATUS == SUCCESSFUL)
+    {
+      printf("恭喜你，文件[%s]加密成功，保存在[%s]。\n", VariableSF, VariableTF);
+      printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", VariableSF, VariableTF);
+      getchar();
+      system("sleep 5s");
+      system("clear");
+      goto ProgramMainMenu;
+    }
+    if(CIPHER_RETURN_STATUS == FAILED)
+    {
+       cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+       cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+       exit(1);
+    }
+    if(CIPHER_RETURN_STATUS == RUNTIME_ERROR)
+    {
+       cout << "Function Runtime Has Been Error" << endl; 
+    }
+    else if(CIPHER_RETURN_STATUS == THROW_EXCEPTED)
+    {
+       cout << "Checked And Throw Exception For Function Working " << endl;
+    }
+
+}
+
+void CallCustomDecryptToFile(auto VariableSF, auto VariableK, auto VariableK2, auto VariableK3, auto VariableK4, auto VariableTF) //const char* DSF, char* DK[], char* DK2[], char* DK3[], char* DK4[], const char* DTF
+{
+    int CIPHER_RETURN_STATUS = RunDecryptFile(VariableSF, VariableK, VariableK2, VariableK3, VariableK4, VariableTF);
+
+    if (CIPHER_RETURN_STATUS == SUCCESSFUL)
+    {
+      printf("恭喜你，文件[%s]解密成功，保存在[%s]。\n", VariableSF, VariableTF);
+      printf("Congratulations, the file [%s] is decrypted successfully, saved in [%s]. \n", VariableSF, VariableTF);
+      getchar();
+      system("sleep 5s");
+      system("clear");
+    }
+    if(CIPHER_RETURN_STATUS == FAILED)
+    {
+       cout << "An unknown error occurred while the program was running the core child process function (note: using cryptographic methods to apply data to the file)." << endl;
+       cout << "程序正在运行核心的子进程函数（注释： 使用密码学的方法，将数据应用到文件）时，发生了未知错误。" << endl;
+       exit(1);
+    }
+    if(CIPHER_RETURN_STATUS == RUNTIME_ERROR)
+    {
+       cout << "Function Runtime Has Been Error" << endl; 
+    }
+    else if(CIPHER_RETURN_STATUS == THROW_EXCEPTED)
+    {
+       cout << "Checked And Throw Exception For Function Working " << endl;
+    }
+
+}
 
 void DisplayHelpManual(string ShowLanguage)
 {

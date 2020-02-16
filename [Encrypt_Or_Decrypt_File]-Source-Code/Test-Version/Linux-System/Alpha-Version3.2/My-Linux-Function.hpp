@@ -1,3 +1,5 @@
+#pragma once
+
 void ConsoleTableColorUnset()
 {
 	system("echo -e '\033[0m'"); //Linux Console Reset Color

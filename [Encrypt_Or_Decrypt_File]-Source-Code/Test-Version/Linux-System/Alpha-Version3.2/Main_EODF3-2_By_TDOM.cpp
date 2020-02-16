@@ -7,7 +7,7 @@ Chinese中文:
 程序平台类型: Linux 命令行控制台
 程序实际作用: 对称式加密和对称式解密至文件
 版本: Alpha 3.2
-源代码修改时间: 2020-2-16
+源代码修改时间: 2018-8-08
 作者: Twilight-Dream-Of-Magic
 
 English英文:

@@ -59,8 +59,7 @@ void CallCustomEncryptToFile(auto VariableSF, auto VariableK, auto VariableK2, a
       printf("Congratulations, the file [%s] is encrypted successfully, saved in [%s]. \n", VariableSF, VariableTF);
       getchar();
       system("Pause");
-      system("Cls");
-      goto ProgramMainMenu;
+      system("Cls")
     }
     if(CIPHER_RETURN_STATUS == FAILED)
     {

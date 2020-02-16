@@ -60,7 +60,6 @@ void CallCustomEncryptToFile(auto VariableSF, auto VariableK, auto VariableK2, a
       getchar();
       system("sleep 5s");
       system("clear");
-      goto ProgramMainMenu;
     }
     if(CIPHER_RETURN_STATUS == FAILED)
     {

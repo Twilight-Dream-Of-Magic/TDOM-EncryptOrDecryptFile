@@ -21,13 +21,13 @@ Compile_file()
     # g++ -finput-charset=UTF-8
     # g++ -fexec-charset=GBK
 
-    g++ -fexec-charset=UTF-8 -O2 -c ".//Main_EODF3-2_By_TDOM.cpp" -o "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2.objective-binary"
+    g++ -fexec-charset=UTF-8 -std=c++14 -O2 -c ".//Main_EODF3-2_By_TDOM.cpp" -o "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2.objective-binary"
     g++ -shared "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2.objective-binary" -o "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2.elf"
     g++ -static "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2.objective-binary" -o "$PROJECT_DIRECTORY//CUI_EncryptDecryptFile_TestVersion3-2_StaticLink.elf"
 
     echo -e "---------- Code Compile End ----------\033[0;0m"
 
-    sleep 5s
+    sleep 30s
     clear
 
     Quit

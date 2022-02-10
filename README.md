@@ -1,4 +1,10 @@
-# About the c-plus-plus code project
+# A new code project stage is coming soon:
+[TDOM-EncryptOrDecryptFile-Reborn](https://github.com/Twilight-Dream-Of-Magic/TDOM-EncryptOrDecryptFile-Reborn)
+
+# This code project is deprecated in this stage !
+
+
+~~# About the c-plus-plus code project~~
 
 
 
@@ -85,7 +91,7 @@
 
 
 
-# 关于这个C++代码项目
+~~# 关于这个C++代码项目~~
 
 ## Chinese
 

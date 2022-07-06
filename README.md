@@ -1,3 +1,6 @@
+[![Language: C++](https://img.shields.io/badge/language-C%2B%2B11-yellow.svg)](https://en.wikipedia.org/wiki/C%2B%2B11)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
 # A new code project stage is coming soon:
 # 一个新的代码项目阶段即将到来:
 [TDOM-EncryptOrDecryptFile-Reborn](https://github.com/Twilight-Dream-Of-Magic/TDOM-EncryptOrDecryptFile-Reborn)
